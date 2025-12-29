@@ -1,5 +1,5 @@
     <!-- Footer -->
-    <footer class="bg-theme text-white pt-[90px] pb-8">
+    <footer class="bg-theme text-white pt-[30px] md:pt-[90px] pb-8">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="flex flex-col md:flex-row justify-between gap-12 mb-16">
                 <!-- Logo & Desc -->
@@ -77,10 +77,14 @@
     <!-- Scripts -->
     <?php wp_footer(); ?>
     
-    <script>
+      <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Swiper Initialization
-            const swiper = new Swiper(".testimonialSwiper", {
+            
+            // --- 1. Testimonial Swiper & Tabs Logic ---
+            const container = document.getElementById('testimonial-container');
+
+            // Init Testimonial Swiper
+            const testimonialSwiper = new Swiper(".testimonialSwiper", {
                 slidesPerView: 1,
                 spaceBetween: 16,
                 pagination: {
@@ -101,7 +105,37 @@
                 },
             });
 
-            // Tabs Logic (UI only for now)
+            // Render Slides Function
+            // Uses global 'testimonialData' defined in front-page.php
+            function renderSlides(filterType) {
+                if(typeof testimonialData === 'undefined' || !container) return;
+
+                container.innerHTML = '';
+                testimonialData.forEach(item => {
+                    // Filter logic: if 'buyers' etc, match item.category. 
+                    if (filterType !== 'all' && item.category !== filterType) return;
+
+                    const slide = document.createElement('div');
+                    slide.className = 'swiper-slide h-auto';
+                    slide.innerHTML = `
+                        <div class="bg-white border border-[#C8CCD9] p-8 rounded-xl h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                            ${item.quote ? `<h4 class="text-xl text-left font-helvetica font-bold text-[#19191A] mb-4">"${item.quote}"</h4>` : ''}
+                            <p class="text-[#767C8C] text-left font-poppins leading-relaxed mb-6 flex-grow">${item.text}</p>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <img src="${item.image}" alt="${item.author}" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <div class="text-left font-bold text-[#1E2A39]">${item.author}</div>
+                                    <div class="text-left text-sm text-[#767C8C] font-poppins">${item.role}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(slide);
+                });
+                testimonialSwiper.update();
+            }
+
+            // Expose switchTab globally so buttons can call it
             window.switchTab = function(tab) {
                  document.querySelectorAll('.tab-btn').forEach(btn => {
                     btn.classList.remove('bg-theme', 'text-white');
@@ -112,10 +146,43 @@
                      activeBtn.classList.remove('text-gray-600', 'hover:text-theme');
                      activeBtn.classList.add('bg-theme', 'text-white');
                 }
-                // allow filtering if we add data attributes later
+                renderSlides(tab);
             }
 
-             // Accordion Logic
+            // Initial Render
+            if(typeof testimonialData !== 'undefined') {
+                renderSlides('buyers');
+            }
+
+
+            // --- 2. Journey (Quote) Swiper Logic ---
+            const journeySwiper = new Swiper(".myJourneySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: "#journey-next",
+                    prevEl: "#journey-prev",
+                },
+                on: {
+                    slideChange: function () {
+                        const progressBar = document.getElementById('journey-progress');
+                        if (progressBar) {
+                            const totalSlides = 3; 
+                            const index = this.realIndex;
+                            const percentage = ((index + 1) / totalSlides) * 100;
+                            progressBar.style.width = `${percentage}%`;
+                        }
+                    }
+                }
+            });
+
+
+            // --- 3. Accordion Logic ---
             document.querySelectorAll('.faq-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     const content = button.nextElementSibling;

@@ -15,6 +15,17 @@ function nolix_enqueue_assets() {
     wp_add_inline_script('nolix-tailwind', "
         tailwind.config = {
             theme: {
+			 	container: {
+				  center: true,
+				  padding: {
+					DEFAULT: '1rem',
+					sm: '1.5rem',
+					lg: '2rem',
+				  },
+				  screens: {
+					xl: '1280px',
+				  },
+				},
                 extend: {
                     colors: {
                         theme: '#C19A5C',
@@ -29,10 +40,10 @@ function nolix_enqueue_assets() {
                         helvetica: ['\"Helvetica Neue\"', 'Helvetica', 'Arial', 'sans-serif'],
                     },
                     fontSize: {
-                        'h1-custom': '54px',
-                        'h2-custom': '48px',
-                        'h3-custom': '32px',
-                        'p-custom': '20px',
+                        'h1-custom': ['clamp(34px, 5vw, 54px)', { lineHeight: '1.2' }],
+						'h2-custom': ['clamp(26px, 4vw, 48px)', { lineHeight: '1.25' }],
+						'h3-custom': ['clamp(22px, 3vw, 32px)', { lineHeight: '1.3' }],
+						'p-custom': ['clamp(14px, 2vw, 20px)', { lineHeight: '1.6' }],
                     }
                 }
             }
@@ -208,12 +219,26 @@ function nolix_testimonial_details_callback( $post ) {
 
     $role = get_post_meta( $post->ID, '_nolix_role', true );
     $headline = get_post_meta( $post->ID, '_nolix_headline', true );
+    $type = get_post_meta( $post->ID, '_nolix_type', true );
 
     echo '<p><label for="nolix_headline">Headline (Short Quote):</label><br>';
     echo '<input type="text" id="nolix_headline" name="nolix_headline" value="' . esc_attr( $headline ) . '" class="widefat"></p>';
 
-    echo '<p><label for="nolix_role">Role (e.g. Buyer, Seller):</label><br>';
+    echo '<p><label for="nolix_role">Role Display Text (e.g. "Senior Design Director"):</label><br>';
     echo '<input type="text" id="nolix_role" name="nolix_role" value="' . esc_attr( $role ) . '" class="widefat"></p>';
+    
+    echo '<p><label for="nolix_type">Testimonial Type (for filtering):</label><br>';
+    echo '<select id="nolix_type" name="nolix_type" class="widefat">';
+    $options = [
+        'buyers' => 'Buyer',
+        'sellers' => 'Seller',
+        'investors' => 'Investor'
+    ];
+    foreach($options as $val => $label) {
+        $selected = ($type == $val) ? 'selected' : '';
+        echo "<option value='$val' $selected>$label</option>";
+    }
+    echo '</select></p>';
 }
 
 function nolix_save_testimonial_details( $post_id ) {
@@ -228,7 +253,123 @@ function nolix_save_testimonial_details( $post_id ) {
     if ( isset( $_POST['nolix_headline'] ) ) {
         update_post_meta( $post_id, '_nolix_headline', sanitize_text_field( $_POST['nolix_headline'] ) );
     }
+	 if ( isset( $_POST['nolix_type'] ) ) {
+        update_post_meta( $post_id, '_nolix_type', sanitize_text_field( $_POST['nolix_type'] ) );
+    }
 }
 add_action( 'save_post', 'nolix_save_testimonial_details' );
+
+
+// Custom Columns for Testimonials
+function nolix_set_testimonial_columns($columns) {
+    $newColumns = array();
+    $newColumns['cb'] = 'CheckBox';
+    $newColumns['title'] = __('Title', 'nolix');
+    $newColumns['type'] = __('Type', 'nolix'); // Add Type column
+    $newColumns['date'] = __('Date', 'nolix');
+    return $newColumns;
+}
+add_filter('manage_testimonial_posts_columns', 'nolix_set_testimonial_columns');
+
+function nolix_show_testimonial_custom_columns($column, $post_id) {
+    switch ($column) {
+        case 'type':
+            $type = get_post_meta($post_id, '_nolix_type', true);
+            $options = [
+                'buyers' => 'Buyer',
+                'sellers' => 'Seller',
+                'investors' => 'Investor'
+            ];
+            echo isset($options[$type]) ? $options[$type] : $type;
+            break;
+    }
+}
+add_action('manage_testimonial_posts_custom_column', 'nolix_show_testimonial_custom_columns', 10, 2);
+
+// Make Type Column Sortable (Optional but good UX)
+function nolix_sortable_testimonial_columns($columns) {
+    $columns['type'] = 'type';
+    return $columns;
+}
+add_filter('manage_edit_testimonial_sortable_columns', 'nolix_sortable_testimonial_columns');
+
+
+/*
+ * Duplicate Post Logic
+ */
+function nolix_duplicate_post_as_draft() {
+    global $wpdb;
+    if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'nolix_duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
+        wp_die('No post to duplicate has been supplied!');
+    }
+
+    if ( !isset( $_GET['duplicate_nonce'] ) || !wp_verify_nonce( $_GET['duplicate_nonce'], basename( __FILE__ ) ) )
+        return;
+
+    $post_id = (isset($_GET['post']) ? absint( $_GET['post'] ) : absint( $_POST['post'] ) );
+    $post = get_post( $post_id );
+
+    $current_user = wp_get_current_user();
+    $new_post_author = $current_user->ID;
+
+    if (isset( $post ) && $post != null) {
+        $args = array(
+            'comment_status' => $post->comment_status,
+            'ping_status'    => $post->ping_status,
+            'post_author'    => $new_post_author,
+            'post_content'   => $post->post_content,
+            'post_excerpt'   => $post->post_excerpt,
+            'post_name'      => $post->post_name,
+            'post_parent'    => $post->post_parent,
+            'post_password'  => $post->post_password,
+            'post_status'    => 'draft',
+            'post_title'     => $post->post_title . ' (Copy)',
+            'post_type'      => $post->post_type,
+            'to_ping'        => $post->to_ping,
+            'menu_order'     => $post->menu_order
+        );
+
+        $new_post_id = wp_insert_post( $args );
+
+        $taxonomies = get_object_taxonomies($post->post_type);
+        foreach ($taxonomies as $taxonomy) {
+            $post_terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
+            wp_set_object_terms($new_post_id, $post_terms, $taxonomy, false);
+        }
+
+        $post_meta_infos = $wpdb->get_results("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id");
+        if (count($post_meta_infos)!=0) {
+            $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
+            foreach ($post_meta_infos as $meta_info) {
+                $meta_key = $meta_info->meta_key;
+                if( $meta_key == '_wp_old_slug' ) continue;
+                $meta_value = addslashes($meta_info->meta_value);
+                $sql_query_sel[]= "SELECT $new_post_id, '$meta_key', '$meta_value'";
+            }
+            $sql_query.= implode(" UNION ALL ", $sql_query_sel);
+            $wpdb->query($sql_query);
+        }
+
+        wp_redirect( admin_url( 'edit.php?post_type=' . $post->post_type ) );
+        exit;
+    } else {
+        wp_die('Post creation failed, could not find original post: ' . $post_id);
+    }
+}
+add_action( 'admin_action_nolix_duplicate_post_as_draft', 'nolix_duplicate_post_as_draft' );
+
+// Add the duplicate link to action list for post_row_actions
+function nolix_duplicate_post_link( $actions, $post ) {
+    if (current_user_can('edit_posts')) {
+        $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=nolix_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
+    }
+    return $actions;
+}
+
+add_filter( 'post_row_actions', 'nolix_duplicate_post_link', 10, 2 );
+add_filter( 'page_row_actions', 'nolix_duplicate_post_link', 10, 2 );
+
+
+
 
 

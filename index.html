@@ -327,10 +327,29 @@
         <div class="relative z-10 container mx-auto px-6 lg:px-12 text-center">
 
             <!-- Quote -->
-            <h2
-                class="text-[44px] max-w-[800px] font-playfair text-white text-center leading-tight mb-12 max-w-5xl mx-auto drop-shadow-2xl">
-                Excellence is not a destination but a continuous journey of refined service."
-            </h2>
+            <!-- Quote Slider -->
+            <div class="swiper myJourneySwiper max-w-5xl mx-auto mb-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h2
+                            class="text-[44px] max-w-[800px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
+                            "Excellence is not a destination but a continuous journey of refined service."
+                        </h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2
+                            class="text-[44px] max-w-[800px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
+                            "True luxury is about the details that others overlook—creating moments of perfection."
+                        </h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2
+                            class="text-[44px] max-w-[800px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
+                            "Our commitment extends beyond the transaction, building lasting legacies for generations."
+                        </h2>
+                    </div>
+                </div>
+            </div>
 
             <!-- CTA Button -->
             <button
@@ -339,10 +358,11 @@
             </button>
 
             <!-- Slider Controls -->
+            <!-- Slider Controls -->
             <div class="flex items-center justify-center gap-4 max-w-2xl mx-auto">
                 <!-- Prev Button -->
-                <button
-                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group">
+                <button id="journey-prev"
+                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group z-20">
                     <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
@@ -352,14 +372,15 @@
 
                 <!-- Progress Bar -->
                 <div class="h-1 bg-white/20 rounded-full flex-1 overflow-hidden">
-                    <div class="h-full bg-theme w-1/3 rounded-full relative overflow-hidden">
+                    <div id="journey-progress"
+                        class="h-full bg-theme w-1/3 rounded-full relative overflow-hidden transition-all duration-300">
                         <div class="absolute inset-0 bg-white/30 animate-pulse"></div>
                     </div>
                 </div>
 
                 <!-- Next Button -->
-                <button
-                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group">
+                <button id="journey-next"
+                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group z-20">
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -873,12 +894,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         // Swiper Initialization
+        // Swiper Initialization
         const testimonialData = [
             {
                 quote: "I found my dream home in less than a week",
                 text: "Varela made the entire home-buying process incredibly smooth. The agent was attentive, knowledgeable, and genuinely cared about our needs. We found the perfect home within a week! Highly recommended",
                 author: "Daniel S",
                 role: "Homeowner",
+                category: "buyers",
                 image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             },
             {
@@ -886,6 +909,7 @@
                 text: "We've bought and sold properties before, but working with Varela was a game-changer. The service was fast, the advice was honest, and the results spoke for themselves. We sold above asking in just five days.",
                 author: "Sarah M",
                 role: "Investor",
+                category: "investors",
                 image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             },
             {
@@ -893,6 +917,7 @@
                 text: "As a first time buyer, I was nervous, but NOLIX guided me through every step. Their academy resources were also huge help.",
                 author: "Michael B",
                 role: "Buyer",
+                category: "buyers",
                 image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             },
             {
@@ -900,39 +925,15 @@
                 text: "Their advise on the rental market was spot on. My property was rented within 2 days of listing!",
                 author: "Jessica T",
                 role: "Seller",
+                category: "sellers",
                 image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             }
         ];
 
         const container = document.getElementById('testimonial-container');
 
-        function renderSlides(filterType) {
-            container.innerHTML = '';
-            testimonialData.forEach(item => {
-                // In a real app we'd filter by type, here just showing all or randomized for demo effect
-                // if (filterType !== 'all' && item.type !== filterType) return;
-
-                const slide = document.createElement('div');
-                slide.className = 'swiper-slide h-auto';
-                slide.innerHTML = `
-                    <div class="bg-white border border-[#C8CCD9] p-8 rounded-xl h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
-                        <h4 class="text-xl text-left font-helvetica font-bold text-[#19191A] mb-4">"${item.quote}"</h4>
-                        <p class="text-[#767C8C] text-left font-poppins leading-relaxed mb-6 flex-grow">${item.text}</p>
-                        <div class="flex items-center gap-4 mt-auto">
-                            <img src="${item.image}" alt="${item.author}" class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <div class="text-left font-bold text-[#1E2A39]">${item.author}</div>
-                                <div class="text-left text-sm text-[#767C8C] font-poppins">${item.role}</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(slide);
-            });
-            swiper.update();
-        }
-
-        const swiper = new Swiper(".testimonialSwiper", {
+        // Init Testimonial Swiper
+        const testimonialSwiper = new Swiper(".testimonialSwiper", {
             slidesPerView: 1,
             spaceBetween: 16,
             pagination: {
@@ -952,6 +953,57 @@
                 },
             },
         });
+
+        // Init Journey Swiper
+        const journeySwiper = new Swiper(".myJourneySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: "#journey-next",
+                prevEl: "#journey-prev",
+            },
+            on: {
+                slideChange: function () {
+                    const progressBar = document.getElementById('journey-progress');
+                    if (progressBar) {
+                        const totalSlides = 3;
+                        const index = this.realIndex;
+                        const percentage = ((index + 1) / totalSlides) * 100;
+                        progressBar.style.width = `${percentage}%`;
+                    }
+                }
+            }
+        });
+
+        function renderSlides(filterType) {
+            container.innerHTML = '';
+            testimonialData.forEach(item => {
+                if (filterType !== 'all' && item.category !== filterType) return;
+
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide h-auto';
+                slide.innerHTML = `
+                    <div class="bg-white border border-[#C8CCD9] p-8 rounded-xl h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-xl text-left font-helvetica font-bold text-[#19191A] mb-4">"${item.quote}"</h4>
+                        <p class="text-[#767C8C] text-left font-poppins leading-relaxed mb-6 flex-grow">${item.text}</p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <img src="${item.image}" alt="${item.author}" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <div class="text-left font-bold text-[#1E2A39]">${item.author}</div>
+                                <div class="text-left text-sm text-[#767C8C] font-poppins">${item.role}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(slide);
+            });
+            testimonialSwiper.update();
+        }
 
         // Tabs Logic
         function switchTab(tab) {

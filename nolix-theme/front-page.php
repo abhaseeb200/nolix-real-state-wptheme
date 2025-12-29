@@ -5,13 +5,13 @@
         class="relative h-[87vh] w-full bg-cover bg-center bg-[linear-gradient(180deg,rgba(0,0,0,0)_-29.3%,rgba(0,0,0,0.65)_100%)]"
         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/pexels-alex-staudinger.jpg');">
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 bg-black/50 md:bg-black/40"></div>
 
         <div
             class="relative z-10 container mx-auto px-6 lg:px-12 h-full flex flex-col justify-center items-center text-center">
-            <div class="mt-12 max-w-5xl">
+            <div class="my-14 max-w-5xl">
                 <!-- Trust Badge -->
-                <div class="flex items-center justify-center mb-3">
+                <div class="flex md:flex-row flex-col md:gap-0 gap-2 items-center justify-center mb-3">
                     <div class="flex -space-x-2 mr-3">
                         <img class="w-8 h-8 rounded-full object-cover"
                             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -23,7 +23,7 @@
                             src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                             alt="Client">
                     </div>
-                    <span class="text-white text-lg font-poppins">Relied on by 2M+ satisfied clients</span>
+                    <span class="text-white text-sm md:text-lg font-poppins">Relied on by 2M+ satisfied clients</span>
                 </div>
 
                 <!-- H1 Heading -->
@@ -41,13 +41,13 @@
                 </p>
 
                 <!-- Buttons -->
-                <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <div class="flex flex-col md:items-start items-center sm:flex-row justify-center gap-5">
                     <button
-                        class="bg-theme rounded-full text-white px-8 py-4 font-poppins font-medium hover:bg-opacity-90 transition-all">
+                        class="bg-theme rounded-full text-white px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-opacity-90 transition-all">
                         Request a Private Consultation
                     </button>
                     <button
-                        class="bg-white rounded-full text-gray-900 px-8 py-4 font-poppins font-medium hover:bg-gray-100 transition-all">
+                        class="bg-white rounded-full text-gray-900 px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-gray-100 transition-all">
                         Explore Properties
                     </button>
                 </div>
@@ -58,14 +58,14 @@
 
     <!-- Why Nolix Section -->
     <section class="py-24 bg-[#F5F6FA]">
-        <div class="container mx-auto px-6 lg:px-12">
+        <div class="container max-w-[1280px] mx-auto px-6">
 
             <!-- Heading -->
             <div class="text-center mb-16">
                 <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-4 uppercase tracking-wide">
                     Why <span class="text-theme">Nolix</span>
                 </h2>
-                <p class="text-lg font-poppins max-w-2xl mx-auto leading-relaxed text-[#00291B]">
+                <p class="md:text-lg text-[14px] font-poppins max-w-2xl mx-auto leading-relaxed text-[#00291B]">
                     NOLIX curates a private portfolio of prime and luxury homes across the UAE
                 </p>
             </div>
@@ -73,7 +73,7 @@
             <!-- Grid -->
             <div class="grid md:grid-cols-3 gap-12">
                 <!-- Item 1 -->
-                <div>
+                <div class="flex flex-col md:items-start items-center md:text-left text-center">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,14 +83,14 @@
                     </div>
                     <h3 class="text-h3-custom font-helvetica font-medium text-gray-900 mb-4 leading-tight">Curated
                         Inventory</h3>
-                    <p class="text-[18px] text-gray-500 font-poppins leading-relaxed">
+                    <p class="text-[18px] text-[#767C8C] font-poppins leading-relaxed">
                         We focus on the highest quality properties so each client receives considered options, not
                         endless lists.
                     </p>
                 </div>
 
                 <!-- Item 2 -->
-                <div>
+                <div class="flex flex-col md:items-start items-center md:text-left text-center">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,14 +100,14 @@
                     </div>
                     <h3 class="text-h3-custom font-helvetica font-medium text-gray-900 mb-4 leading-tight">Advisory, not
                         sales</h3>
-                    <p class="text-[18px] text-gray-500 font-poppins leading-relaxed">
+                    <p class="text-[18px] text-[#767C8C] font-poppins leading-relaxed">
                         We provide transparent guidance on pricing, yields and timing, backed by market data and
                         on-ground expertise.
                     </p>
                 </div>
 
                 <!-- Item 3 -->
-                <div>
+                <div class="flex flex-col md:items-start items-center md:text-left text-center">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@
                     </div>
                     <h3 class="text-h3-custom font-helvetica font-medium text-gray-900 mb-4 leading-tight">End-to-end
                         management</h3>
-                    <p class="text-[18px] text-gray-500 font-poppins leading-relaxed">
+                    <p class="text-[18px] text-[#767C8C] font-poppins leading-relaxed">
                         We provide transparent guidance on pricing, yields and timing, backed by market data and
                         on-ground expertise.
                     </p>
@@ -130,14 +130,14 @@
 
     <!-- Stats Section -->
     <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-12">
+        <div class="container max-w-[1280px] mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center items-center">
 
                 <!-- Stat 1 -->
                 <div class="flex flex-row items-center justify-center gap-6">
                     <span
-                        class="text-[80px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">8k<sup
-                            class="absolute top-4 right-0 text-[24px] text-theme font-medium">+</sup></span>
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">8k<sup
+                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
                     <span
                         class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Properties
                         Sold</span>
@@ -146,8 +146,8 @@
                 <!-- Stat 2 -->
                 <div class="flex flex-row items-center justify-center gap-6">
                     <span
-                        class="text-[80px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">14k<sup
-                            class="absolute top-4 right-0 text-[24px] text-theme font-medium">+</sup></span>
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">14k<sup
+                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
                     <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Happy
                         Clients</span>
                 </div>
@@ -155,8 +155,8 @@
                 <!-- Stat 3 -->
                 <div class="flex flex-row items-center justify-center gap-6">
                     <span
-                        class="text-[80px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">16k<sup
-                            class="absolute top-4 right-0 text-[24px] text-theme font-medium">+</sup></span>
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">16k<sup
+                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
                     <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Listed
                         Properties</span>
                 </div>
@@ -167,10 +167,10 @@
 
     <!-- Legacy Section -->
     <section class="pb-[62px] bg-white">
-        <div class="container mx-auto px-6 lg:px-12">
+        <div class="container max-w-[1280px] mx-auto px-6">
             <div class="flex flex-col md:flex-row gap-9 items-center">
                 <!-- Image Side -->
-                <div class="sm:max-w-[45%] max-w-full relative h-[550px] w-full rounded-lg overflow-hidden">
+                <div class="sm:max-w-[45%] max-w-full relative h-[330px] md:h-[550px] w-full rounded-lg overflow-hidden">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pexels-dawidtkocz.jpg" alt="Legacy Skyscraper"
                         class="w-full h-full object-cover object-top">
                 </div>
@@ -178,13 +178,13 @@
                 <!-- Text Side -->
                 <div class="sm:max-w-[55%] max-w-full">
                     <div class="border-l-4 border-theme pl-5 py-2">
-                        <h2 class="text-[33px] font-playfair font-bold text-gray-900 uppercase leading-tight">
+                        <h2 class="md:text-[33px] text-[26px] font-playfair font-bold text-gray-900 uppercase leading-tight">
                             A Legacy of Excellence:<br> Redefining Landscapes, Elevating Lives
                         </h2>
                     </div>
 
                     <div class="pl-5 mt-8">
-                        <p class="text-[20px] text-[#767C8C] font-poppins leading-relaxed">
+                        <p class="md:text-[18px] text-[16px] text-[#767C8C] font-poppins leading-relaxed">
                             At NOLIX Developments, we believe that each property possesses the potential to transcend
                             the ordinary and evolve into a true masterpiece. Every project we embark upon is an endeavor
                             and a profound opportunity to redefine
@@ -197,7 +197,7 @@
         </div>
     </section>
 
-    <!-- Quote / Slider Section -->
+	 <!-- Quote / Slider Section -->
     <section class="relative h-[500px] w-full bg-cover bg-center flex items-center justify-center"
         style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/pexels-maxavans.jpg');">
         <!-- Overlay -->
@@ -205,11 +205,26 @@
 
         <div class="relative z-10 container mx-auto px-6 lg:px-12 text-center">
 
-            <!-- Quote -->
-            <h2
-                class="text-[44px] max-w-[800px] font-playfair text-white text-center leading-tight mb-12 max-w-5xl mx-auto drop-shadow-2xl">
-                Excellence is not a destination but a continuous journey of refined service."
-            </h2>
+            <!-- Quote Slider -->
+            <div class="swiper myJourneySwiper max-w-5xl mx-auto mb-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h2 class="md:text-[44px] text-[26px] max-w-[800px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
+                            "Excellence is not a destination but a continuous journey of refined service."
+                        </h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2 class="md:text-[44px] text-[26px] max-w-[1000px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
+                            "True luxury is about the details that others overlook—creating moments of perfection."
+                        </h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2 class="md:text-[44px] text-[26px] max-w-[1000px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
+                            "Our commitment extends beyond the transaction, building lasting legacies for generations."
+                        </h2>
+                    </div>
+                </div>
+            </div>
 
             <!-- CTA Button -->
             <button
@@ -217,10 +232,11 @@
                 Explore Properties
             </button>
 
-            <!-- Slider Controls (Visual only for now) -->
+            <!-- Slider Controls -->
             <div class="flex items-center justify-center gap-4 max-w-2xl mx-auto">
-                <button
-                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group">
+                <!-- Prev Button -->
+                <button id="journey-prev"
+                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group z-20">
                     <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
@@ -228,14 +244,16 @@
                     </svg>
                 </button>
 
+                <!-- Progress Bar -->
                 <div class="h-1 bg-white/20 rounded-full flex-1 overflow-hidden">
-                    <div class="h-full bg-theme w-1/3 rounded-full relative overflow-hidden">
+                    <div id="journey-progress" class="h-full bg-theme w-1/3 rounded-full relative overflow-hidden transition-all duration-300">
                         <div class="absolute inset-0 bg-white/30 animate-pulse"></div>
                     </div>
                 </div>
 
-                <button
-                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group">
+                <!-- Next Button -->
+                <button id="journey-next"
+                    class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group z-20">
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -248,21 +266,21 @@
 
     <!-- Our Services Section -->
     <section class="py-24 bg-navy">
-        <div class="container mx-auto px-6 lg:px-12 text-center">
+        <div class="container max-w-[1280px] mx-auto px-6 text-center">
 
             <div class="mb-12">
                 <h2 class="text-h2-custom font-playfair font-bold text-white mb-2 uppercase tracking-wide">
                     Our <span class="text-theme">Services</span>
                 </h2>
-                <p class="text-white/80 font-poppins text-lg">Comprehensive real estate solutions tailored to your
+                <p class="text-white/80 font-poppins text-[14px] md:text-lg">Comprehensive real estate solutions tailored to your
                     unique needs</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 text-left">
-                <!-- Buy -->
+                  <!-- Buy -->
                 <div class="group">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        <img src="https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/pexels-a-darmel-7641859-scaled.jpg"
                             alt="Buy"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute top-4 left-4 bg-white/90 p-3 rounded-full">
@@ -273,7 +291,7 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="text-3xl font-helvetica font-bold text-white mb-3">Buy</h3>
+                    <h3 class="md:text-3xl text-2xl font-helvetica font-bold text-white mb-3">Buy</h3>
                     <p class="text-white/70 font-poppins mb-6 min-h-[48px]">Professional tailored guidance for the
                         end-users and investors.</p>
                     <button
@@ -284,7 +302,7 @@
                 <!-- Sell -->
                 <div class="group">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
-                        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        <img src="https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/pexels-a-darmel-7642000-1-scaled.jpg"
                             alt="Sell"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute top-4 left-4 bg-white/90 p-3 rounded-full">
@@ -295,7 +313,7 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="text-3xl font-helvetica font-bold text-white mb-3">Sell</h3>
+                    <h3 class="md:text-3xl text-2xl font-helvetica font-bold text-white mb-3">Sell</h3>
                     <p class="text-white/70 font-poppins mb-6 min-h-[48px]">Positioning your property to the right
                         buyers with discretion.</p>
                     <button
@@ -306,7 +324,7 @@
                 <!-- Rent -->
                 <div class="group">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        <img src="https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/pexels-asphotography-101808-scaled.jpg"
                             alt="Rent"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute top-4 left-4 bg-white/90 p-3 rounded-full">
@@ -319,7 +337,7 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="text-3xl font-helvetica font-bold text-white mb-3">Rent</h3>
+                    <h3 class="md:text-3xl text-2xl font-helvetica font-bold text-white mb-3">Rent</h3>
                     <p class="text-white/70 font-poppins mb-6 min-h-[48px]">Reliable, streamlined support for landlords
                         and tenants.</p>
                     <button
@@ -333,12 +351,12 @@
 
     <!-- Latest Properties -->
     <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-12">
+        <div class="container max-w-[1280px] mx-auto px-6">
             <div class="flex justify-between items-end mb-12">
                 <div>
-                    <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase">Lates Properites
+                    <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase">Latest Properites
                     </h2>
-                    <p class="text-[#00291B] font-poppins">Experience our communities and amenities from the comfort of
+                    <p class="text-[#00291B] text-[14px] md:text-lg font-poppins">Experience our communities and amenities from the comfort of
                         your home.</p>
                 </div>
                 <button
@@ -397,13 +415,13 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-24 bg-[#FAFAFA] border-t border-gray-100">
-        <div class="container mx-auto px-6 lg:px-12 text-center">
+    <section class="py-24 bg-[#FAFAFA] border-t border-gray-100 text-center">
+        <div class="container max-w-[1280px] mx-auto px-6">
 
             <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase">
                 What Buyers <span class="text-theme">Are Saying</span>
             </h2>
-            <p class="text-[#00291B] font-poppins mb-12 max-w-2xl mx-auto">
+            <p class="text-[#00291B] text-[14px] md:text-lg font-poppins mb-12 max-w-2xl mx-auto">
                 Explore our handpicked selection of homes that combine style, comfort, and location. Each property is
                 carefully.
             </p>
@@ -412,16 +430,16 @@
             <div class="flex justify-center mb-16">
                 <div class="inline-flex bg-white border border-gray-200 rounded-full p-1 shadow-sm">
                     <button onclick="switchTab('buyers')" id="tab-buyers"
-                        class="tab-btn px-8 py-2 rounded-full text-lg font-bold transition-all bg-theme text-white">Buyers</button>
+                        class="tab-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all bg-theme text-white">Buyers</button>
                     <button onclick="switchTab('sellers')" id="tab-sellers"
-                        class="tab-btn px-8 py-2 rounded-full text-lg font-bold transition-all text-gray-600 hover:text-theme">Sellers</button>
+                        class="tab-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all text-gray-600 hover:text-theme">Sellers</button>
                     <button onclick="switchTab('investors')" id="tab-investors"
-                        class="tab-btn px-8 py-2 rounded-full text-lg font-bold transition-all text-gray-600 hover:text-theme">Investors</button>
+                        class="tab-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all text-gray-600 hover:text-theme">Investors</button>
                 </div>
             </div>
 
             <!-- Swiper -->
-            <div class="swiper testimonialSwiper px-4 pb-12">
+            <div class="swiper testimonialSwiper sm:px-4 px-0 pb-12">
                 <div class="swiper-wrapper" id="testimonial-container">
                     
                     <!-- Dynamic Testimonial Loop -->
@@ -473,20 +491,54 @@
                 <div class="hidden md:block swiper-button-next !text-theme"></div>
                 <div class="hidden md:block swiper-button-prev !text-theme"></div>
             </div>
+			
+			<?php
+            // Prepare Testimonial Data from WP Loop
+            $testimonial_data = [];
+            $testimonials_query = new WP_Query(array(
+                'post_type' => 'testimonial',
+                'posts_per_page' => -1
+            ));
 
+            if ($testimonials_query->have_posts()) :
+                while ($testimonials_query->have_posts()) : $testimonials_query->the_post();
+                    $role = get_post_meta(get_the_ID(), '_nolix_role', true);
+                    $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
+                    $type = get_post_meta(get_the_ID(), '_nolix_type', true);
+                    $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+                    if(!$thumbnail) $thumbnail = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+                    
+                    // Use explicit type or fallback
+                    $category = $type ? $type : 'buyers'; // Default to buyers if not set
+                    
+                    $testimonial_data[] = [
+                        'quote' => $headline,
+                        'text' => get_the_content(),
+                        'author' => get_the_title(),
+                        'role' => $role,
+                        'category' => $category,
+                        'image' => $thumbnail
+                    ];
+                endwhile;
+                wp_reset_postdata();
+            endif;
+            ?>
+            <script>
+                const testimonialData = <?php echo json_encode($testimonial_data); ?>;
+            </script>
         </div>
     </section>
 
     <!-- Academy Section -->
     <section class="py-24 bg-[#F5F6FA]">
-        <div class="container mx-auto px-6 lg:px-12">
+        <div class="container max-w-[1280px] mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <!-- Content -->
                 <div>
                     <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-4">NOLIX Academy</h2>
-                    <p class="text-xl text-[#5F6D7E] font-playfair italic mb-6">Clarity for first-time and seasoned
+                    <p class="text-xl text-[#00291B] font-playfair italic mb-6">Clarity for first-time and seasoned
                         owners</p>
-                    <p class="text-gray-500 font-poppins leading-relaxed mb-8">
+                    <p class="text-[#767C8C] md:text-base text-[14px] font-poppins leading-relaxed mb-8">
                         We believe informed clients make confident decisions. NOLIX Academy demystifies the UAE property
                         market—covering financing options, ownership structures, legal requirements and investment
                         strategies. Whether you're a first-time buyer or a seasoned investor, our educational resources
@@ -502,7 +554,7 @@
                                     </path>
                                 </svg>
                             </div>
-                            <span class="text-gray-600 font-poppins">Comprehensive market guides and reports</span>
+                            <span class="text-[#767C8C] text-[14px] md:text-base font-poppins">Comprehensive market guides and reports</span>
                         </li>
                         <li class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-theme/10 flex items-center justify-center text-theme">
@@ -512,7 +564,7 @@
                                     </path>
                                 </svg>
                             </div>
-                            <span class="text-gray-600 font-poppins">Legal and financing documentation explained</span>
+                            <span class="text-[#767C8C] text-[14px] md:text-base font-poppins">Legal and financing documentation explained</span>
                         </li>
                         <li class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-theme/10 flex items-center justify-center text-theme">
@@ -524,7 +576,7 @@
                                     </path>
                                 </svg>
                             </div>
-                            <span class="text-gray-600 font-poppins">One-on-one consultation sessions</span>
+                            <span class="text-[#767C8C] text-[14px] md:text-base font-poppins">One-on-one consultation sessions</span>
                         </li>
                     </ul>
 
@@ -536,16 +588,16 @@
                 <!-- Image -->
                 <div class="relative">
                     <div
-                        class="rounded-2xl p-4 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:flex before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] before:left-[-6px] before:z-[-1] ">
+                        class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:flex before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] ">
                         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                            alt="Academy" class="rounded-xl shadow-2xl w-full object-cover">
+                            alt="Academy" class="h-[350px] md:h-full rounded-xl shadow-2xl w-full object-cover">
                     </div>
                     <!-- Floating Badge -->
                     <div
-                        class="absolute bottom-10 left-11 bg-navy text-white p-4 rounded-xl shadow-xl z-20 max-w-[300px]">
+                        class="absolute md:bottom-10 bottom-5 md:left-11 left-5 bg-navy text-white p-4 rounded-xl shadow-xl z-20 max-w-[300px]">
                         <div class="flex items-start gap-3">
                             <div class="flex items-center justify-center text-theme">
-                                <svg class="size-8 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="md:size-8 size-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                         d="M12 14l9-5-9-5-9 5 9 5z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -555,8 +607,8 @@
                             </div>
 
                             <div>
-                                <span class="text-theme font-bold text-[24px]">500+</span>
-                                <p class="text-[22px] font-poppins">Clients Educated</p>
+                                <span class="text-theme font-bold text-[22px] md:text-[24px]">500+</span>
+                                <p class="md:text-[22px] text-[14px] font-poppins">Clients Educated</p>
                             </div>
                         </div>
                     </div>
@@ -567,8 +619,8 @@
 
     <!-- FAQ Section -->
     <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-12 text-center">
-            <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-16 uppercase">
+        <div class="container max-w-[1280px] mx-auto px-6 text-center">
+            <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-8 md:mb-16 uppercase">
                 Frequently <span class="text-theme">Asked Questions</span>
             </h2>
 
@@ -576,11 +628,11 @@
                 <!-- Item 1 -->
                 <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
                     <button
-                        class="faq-btn w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center gap-4">
+                        class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
+                        <div class="flex items-center md:px-2 gap-4">
                             <span
-                                class="w-8 h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">01</span>
-                            <span class="text-lg font-bold font-helvetica text-gray-900">What is the process of Buying a
+                                class="w-8 h-6 md:h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">01</span>
+                            <span class="md:text-lg text-left text-base font-bold font-helvetica text-[#00291B]">What is the process of Buying a
                                 Home?</span>
                         </div>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none"
@@ -589,8 +641,8 @@
                             </path>
                         </svg>
                     </button>
-                    <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-6 pt-0 text-gray-500 font-poppins leading-relaxed border-t border-gray-50">
+                    <div class="faq-content h-0overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="pb-6 sm:pl-[1.2rem] sm:pr-[1.2rem] pl-16 pr-5  md:text-base text-p-custom md:px-20 text-[#767C8C] font-poppins leading-relaxed border-t border-gray-50">
                             Lorem Ipsum is simply dummy of the printing and typesetting industry Ipsum has been the
                             industry's dummy text ever since the 1500s.
                         </div>
@@ -600,11 +652,11 @@
                 <!-- Item 2 -->
                 <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
                     <button
-                        class="faq-btn w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center gap-4">
+                        class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
+                        <div class="flex items-center md:px-2 gap-4">
                             <span
-                                class="w-8 h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">02</span>
-                            <span class="text-lg font-bold font-helvetica text-gray-900">How much should I offer when I
+                                class="md:w-8 w-[2.4rem] h-6 md:h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">02</span>
+                            <span class="md:text-lg text-left text-base font-bold font-helvetica text-[#00291B] ">How much should I offer when I
                                 buying the home?</span>
                         </div>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none"
@@ -614,7 +666,7 @@
                         </svg>
                     </button>
                     <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-6 pt-0 text-gray-500 font-poppins leading-relaxed border-t border-gray-50">
+                        <div class="pb-6 sm:pl-[1.2rem] sm:pr-[1.2rem] pl-16 pr-5  md:text-base text-p-custom md:px-20 text-[#767C8C] font-poppins leading-relaxed border-t border-gray-50">
                             Determine your budget and check market rates. We assist you in valuing property correctly
                             before making an offer.
                         </div>
@@ -624,11 +676,11 @@
                 <!-- Item 3 -->
                 <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
                     <button
-                        class="faq-btn w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center gap-4">
+                        class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
+                        <div class="flex items-center md:px-2 gap-4">
                             <span
-                                class="w-8 h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">03</span>
-                            <span class="text-lg font-bold font-helvetica text-gray-900">What is the process of Buying a
+                                class="w-8 h-6 md:h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">03</span>
+                            <span class="md:text-lg text-left text-base font-bold font-helvetica text-[#00291B] ">What is the process of Buying a
                                 Home?</span>
                         </div>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none"
@@ -638,7 +690,7 @@
                         </svg>
                     </button>
                     <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-6 pt-0 text-gray-500 font-poppins leading-relaxed border-t border-gray-50">
+                        <div class="pb-6 sm:pl-[1.2rem] sm:pr-[1.2rem] pl-16 pr-5  md:text-base text-p-custom md:px-20 text-[#767C8C] font-poppins leading-relaxed border-t border-gray-50">
                             Typically involves viewing, making an offer, signing an MOU, and completing the transfer at
                             the DLD.
                         </div>
@@ -648,11 +700,11 @@
                 <!-- Item 4 -->
                 <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
                     <button
-                        class="faq-btn w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center gap-4">
+                        class="faq-btn w-full flex items-center justify-between p-6 bg-white">
+                        <div class="flex items-center md:px-2 gap-4">
                             <span
-                                class="w-8 h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">04</span>
-                            <span class="text-lg font-bold font-helvetica text-gray-900">Can I tour a property before
+                                class="w-8 h-6 md:h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">04</span>
+                            <span class="md:text-lg text-left text-base font-bold font-helvetica text-[#00291B] ">Can I tour a property before
                                 purchasing?</span>
                         </div>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none"
@@ -662,7 +714,7 @@
                         </svg>
                     </button>
                     <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-6 pt-0 text-gray-500 font-poppins leading-relaxed border-t border-gray-50">
+                        <div class="pb-6 sm:pl-[1.2rem] sm:pr-[1.2rem] pl-16 pr-5  md:text-base text-p-custom md:px-20 text-[#767C8C] font-poppins leading-relaxed border-t border-gray-50">
                             Absolutely. Viewing is an essential part of the buying process to ensure the property meets
                             your expectations.
                         </div>
@@ -672,11 +724,11 @@
                 <!-- Item 5 -->
                 <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
                     <button
-                        class="faq-btn w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center gap-4">
+                        class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
+                        <div class="flex items-center md:px-2 gap-4">
                             <span
-                                class="w-8 h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">05</span>
-                            <span class="text-lg font-bold font-helvetica text-gray-900">How I know which property I
+                                class="w-8 h-6 md:h-8 rounded-full bg-theme text-white flex items-center justify-center text-xs font-bold">05</span>
+                            <span class="md:text-lg text-left text-base font-bold font-helvetica text-[#00291B] ">How I know which property I
                                 should buy?</span>
                         </div>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none"
@@ -686,7 +738,7 @@
                         </svg>
                     </button>
                     <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-6 pt-0 text-gray-500 font-poppins leading-relaxed border-t border-gray-50">
+                        <div class="pb-6 sm:pl-[1.2rem] sm:pr-[1.2rem] pl-16 pr-5  md:text-base text-p-custom md:px-20 text-[#767C8C] font-poppins leading-relaxed border-t border-gray-50">
                             Our agents help identify your needs, budget, and lifestyle preferences to recommend the best
                             options for you.
                         </div>
