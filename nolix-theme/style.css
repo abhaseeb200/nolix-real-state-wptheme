@@ -1,0 +1,17 @@
+/*
+Theme Name: Nolix Theme
+Theme URI: https://example.com/nolix-theme
+Author: Nolix Dev
+Author URI: https://example.com
+Description: A custom WordPress theme for Nolix Real Estate, converted from static HTML/Tailwind.
+Version: 1.0
+Text Domain: nolix
+*/
+
+/* 
+   Tailwind is loaded via CDN for this version as per the original static site.
+   Add any custom overrides here if necessary.
+*/
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
