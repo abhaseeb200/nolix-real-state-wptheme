@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rent with Nolix</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: "1rem",
+              sm: "1.5rem",
+              lg: "2rem",
+            },
+            screens: {
+              xl: "1280px",
+            },
+          },
+          extend: {
+            colors: {
+              theme: "#C19A5C",
+              dark: "#19191A",
+              counter: "#C8CCD9",
+              navy: "#092947",
+              lightgray: "#F3F4F6",
+            },
+            fontFamily: {
+              playfair: ['"Playfair Display"', "serif"],
+              poppins: ['"Poppins"', "sans-serif"],
+              helvetica: [
+                '"Helvetica Neue"',
+                "Helvetica",
+                "Arial",
+                "sans-serif",
+              ],
+            },
+            fontSize: {
+              "h1-custom": ["clamp(34px, 5vw, 54px)", { lineHeight: "1.2" }],
+              "h2-custom": ["clamp(26px, 4vw, 48px)", { lineHeight: "1.25" }],
+              "h3-custom": ["clamp(22px, 3vw, 32px)", { lineHeight: "1.3" }],
+              "p-custom": ["clamp(14px, 2vw, 20px)", { lineHeight: "1.6" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Custom Utilities */
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .image-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+      }
+      /* Custom checkbox styles if needed */
+      input[type="checkbox"]:checked {
+        background-color: #c19a5c;
+        border-color: #c19a5c;
+      }
+    </style>
+  </head>
+  <body class="font-poppins text-dark antialiased">
+    <!-- Navbar Skipped as requested (assuming same header handling as Buy page) -->
+
+    <!-- Hero Section -->
+    <!-- <section
+      class="relative w-full h-[600px] lg:h-[500px] flex items-center justify-center text-center text-white overflow-hidden"
+    > -->
+    <!-- Background Image -->
+    <!-- <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=2670&auto=format&fit=crop"
+          alt="Luxury Rental"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/30"></div>
+      </div> -->
+
+    <!-- <div class="container relative z-10 px-4">
+        <h1 class="font-playfair text-h1-custom mb-4 font-bold tracking-wide">
+          FIND YOUR PERFECT<br />
+          <span class="text-theme">RENTAL IN THE UAE</span>
+        </h1>
+        <p
+          class="text-p-custom text-[#EBEDF0] max-w-2xl mx-auto mb-8 uppercase tracking-wider text-sm md:text-base"
+        >
+          From short-term stays to long-term homes, we have the perfect option
+          for you to call home.
+        </p>
+        <div
+          class="flex flex-col items-center sm:flex-row justify-center gap-4"
+        >
+          <a
+            href="#"
+            class="bg-theme text-white px-5 py-3 rounded-full text-sm font-medium uppercase hover:bg-opacity-90 transition shadow-lg"
+            >I Want to Rent</a
+          >
+          <a
+            href="#"
+            class="bg-white text-dark px-5 py-3 rounded-full text-sm font-medium uppercase hover:bg-gray-100 transition shadow-lg"
+            >I Want to List for Rent</a
+          >
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Available Rentals Section -->
+    <section class="py-16 lg:py-24 bg-white">
+      <div class="container">
+        <!-- New Header Position -->
+        <div
+          class="flex md:w-full md:gap-44 justify-between md:justify-end items-center mb-8"
+        >
+          <div class="md:w-1/2">
+            <h2 class="font-playfair text-h2-custom font-bold text-dark">
+              AVAILABLE RENTALS
+            </h2>
+            <p class="text-[#474C59] md:text-[16px] text-xs tracking-wide mt-2">
+              156 properties available for rent
+            </p>
+          </div>
+          <div class="flex border border-[#C8CCD9] px-2 py-2 rounded-lg gap-4">
+            <!-- Grid View (Active) -->
+            <button
+              class="md:w-10 md:h-10 w-8 h-8 flex items-center justify-center bg-theme text-white rounded hover:bg-opacity-90 transition"
+            >
+              <svg
+                class="md:w-5 md:h-5 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                ></path>
+              </svg>
+            </button>
+            <!-- List View (Inactive) -->
+            <button
+              class="md:w-10 md:h-10 w-8 h-8 flex items-center justify-center border border-gray-200 bg-white text-[#00291B] rounded hover:bg-gray-50 transition"
+            >
+              <svg
+                class="md:w-5 md:h-5 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-10">
+          <!-- Sidebar Filters -->
+          <aside
+            class="w-full lg:w-1/4 border border-[#C8CCD9] bg-white p-6 rounded-lg shadow-sm h-fit"
+          >
+            <h3
+              class="font-poppins text-xl font-bold mb-6 text-[#474C59] opacity-90"
+            >
+              Filters
+            </h3>
+
+            <div class="mb-6">
+              <button
+                class="flex justify-between items-center w-full font-semibold mb-4 text-sm uppercase tracking-wide"
+              >
+                PROPERTY TYPE
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="space-y-3">
+                <label class="flex items-center space-x-3 cursor-pointer group">
+                  <div class="relative flex items-center">
+                    <input
+                      type="checkbox"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 transition-all checked:border-theme checked:bg-theme hover:border-theme"
+                    />
+                    <svg
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 text-white transition-opacity"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 7L5.5 9.5L11.5 3.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm text-gray-600 group-hover:text-theme transition"
+                    >Villa</span
+                  >
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer group">
+                  <div class="relative flex items-center">
+                    <input
+                      type="checkbox"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 transition-all checked:border-theme checked:bg-theme hover:border-theme"
+                    />
+                    <svg
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 text-white transition-opacity"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 7L5.5 9.5L11.5 3.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm text-gray-600 group-hover:text-theme transition"
+                    >Apartment</span
+                  >
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer group">
+                  <div class="relative flex items-center">
+                    <input
+                      type="checkbox"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 transition-all checked:border-theme checked:bg-theme hover:border-theme"
+                    />
+                    <svg
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 text-white transition-opacity"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 7L5.5 9.5L11.5 3.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm text-gray-600 group-hover:text-theme transition"
+                    >Penthouse</span
+                  >
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer group">
+                  <div class="relative flex items-center">
+                    <input
+                      type="checkbox"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 transition-all checked:border-theme checked:bg-theme hover:border-theme"
+                    />
+                    <svg
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 text-white transition-opacity"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 7L5.5 9.5L11.5 3.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm text-gray-600 group-hover:text-theme transition"
+                    >Townhouse</span
+                  >
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer group">
+                  <div class="relative flex items-center">
+                    <input
+                      type="checkbox"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 transition-all checked:border-theme checked:bg-theme hover:border-theme"
+                    />
+                    <svg
+                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 text-white transition-opacity"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 7L5.5 9.5L11.5 3.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="text-sm text-gray-600 group-hover:text-theme transition"
+                    >Studio</span
+                  >
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label
+                class="block font-semibold mb-3 text-sm uppercase tracking-wide"
+                >Bedrooms</label
+              >
+              <div class="relative">
+                <select
+                  class="w-full appearance-none border border-gray-200 rounded px-4 py-2.5 text-sm bg-[#F5F6FA] text-gray-600 focus:outline-none focus:border-theme"
+                >
+                  <option class="text-gray-400">Bedrooms</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3+</option>
+                </select>
+                <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#00291B]"
+                >
+                  <svg
+                    class="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <label
+                class="block font-semibold mb-3 text-sm uppercase tracking-wide"
+                >Annual Rent Range (AED)</label
+              >
+              <div class="space-y-3">
+                <div class="relative">
+                  <input
+                    type="text"
+                    placeholder="Min: 30,000"
+                    class="w-full border border-gray-200 rounded px-4 py-2.5 text-sm bg-[#F5F6FA] focus:outline-none focus:border-theme"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400"
+                  >
+                    <svg
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="relative">
+                  <input
+                    type="text"
+                    placeholder="Max: 30,000"
+                    class="w-full border border-gray-200 rounded px-4 py-2.5 text-sm bg-[#F5F6FA] focus:outline-none focus:border-theme"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400"
+                  >
+                    <svg
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-theme text-white py-3.5 rounded-lg text-sm hover:bg-opacity-90 transition shadow-sm"
+            >
+              Apply
+            </button>
+          </aside>
+
+          <!-- Listings -->
+          <div class="w-full lg:w-3/4">
+            <!-- Previous Header removed from here -->
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Rental Card 1 -->
+              <div
+                class="group bg-white shadow-[0_0_24px_0_#00000014] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="relative h-60 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=800&auto=format&fit=crop"
+                    alt="Rental 1"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div
+                    class="absolute top-4 left-4 bg-theme text-white text-xs px-3 py-1 rounded tracking-wider"
+                  >
+                    Featured
+                  </div>
+                  <div
+                    class="absolute bottom-4 left-4 bg-[#FFFFFF1C] backdrop-blur-sm px-3 py-1 rounded text-white text-sm font-medium"
+                  >
+                    AED 180,000 / year
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3
+                    class="font-poppins text-lg font-bold mb-2 truncate uppercase text-dark"
+                  >
+                    LUXURY VILLA WITH PRIVATE BEACH
+                  </h3>
+                  <div class="flex items-center text-[#00291B] text-sm mb-4">
+                    <svg
+                      class="h-4 w-4 mr-1 text-theme"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Palm Jumeirah
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-sm text-gray-600 mb-6 font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">5</span> Beds</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">6</span> Baths</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">7,500</span>
+                        sqft</span
+                      >
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    class="flex items-center justify-center w-[50%] bg-theme text-white py-3 rounded-md hover:bg-opacity-90 transition duration-300 font-medium text-sm"
+                  >
+                    View Details <span class="ml-2">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Rental Card 2 -->
+              <div
+                class="group bg-white shadow-[0_0_24px_0_#00000014] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="relative h-60 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop"
+                    alt="Rental 2"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div
+                    class="absolute top-4 left-4 bg-theme text-white text-xs px-3 py-1 rounded tracking-wider"
+                  >
+                    Featured
+                  </div>
+                  <div
+                    class="absolute bottom-4 left-4 bg-[#FFFFFF1C] backdrop-blur-sm px-3 py-1 rounded text-white text-sm font-medium"
+                  >
+                    AED 180,000 / year
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3
+                    class="font-poppins text-lg font-bold mb-2 truncate uppercase text-dark"
+                  >
+                    OCEAN VIEW PENTHOUSE
+                  </h3>
+                  <div class="flex items-center text-[#00291B] text-sm mb-4">
+                    <svg
+                      class="h-4 w-4 mr-1 text-theme"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Jumeirah Village Circle
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-sm text-gray-600 mb-6 font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">3</span> Beds</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">3</span> Baths</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">2,800</span>
+                        sqft</span
+                      >
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    class="flex items-center justify-center w-[50%] bg-theme text-white py-3 rounded-md hover:bg-opacity-90 transition duration-300 font-medium text-sm"
+                  >
+                    View Details <span class="ml-2">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Rental Card 3 -->
+              <div
+                class="group bg-white shadow-[0_0_24px_0_#00000014] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="relative h-60 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=2670&auto=format&fit=crop"
+                    alt="Rental 3"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div
+                    class="absolute top-4 left-4 bg-theme text-white text-xs px-3 py-1 rounded tracking-wider"
+                  >
+                    Featured
+                  </div>
+                  <div
+                    class="absolute bottom-4 left-4 bg-[#FFFFFF1C] backdrop-blur-sm px-3 py-1 rounded text-white text-sm font-medium"
+                  >
+                    AED 180,000 / year
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3
+                    class="font-poppins text-lg font-bold mb-2 truncate uppercase text-dark"
+                  >
+                    MODERN STUDIO APARTMENT
+                  </h3>
+                  <div class="flex items-center text-[#00291B] text-sm mb-4">
+                    <svg
+                      class="h-4 w-4 mr-1 text-theme"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Downtown Dubai
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-sm text-gray-600 mb-6 font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">1</span> Bed</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">1</span> Bath</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">950</span> sqft</span
+                      >
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    class="flex items-center justify-center w-[50%] bg-theme text-white py-3 rounded-md hover:bg-opacity-90 transition duration-300 font-medium text-sm"
+                  >
+                    View Details <span class="ml-2">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Rental Card 4 -->
+              <div
+                class="group bg-white shadow-[0_0_24px_0_#00000014] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="relative h-60 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
+                    alt="Rental 4"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div
+                    class="absolute bottom-4 left-4 bg-[#FFFFFF1C] backdrop-blur-sm px-3 py-1 rounded text-white text-sm font-medium"
+                  >
+                    AED 180,000 / year
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3
+                    class="font-poppins text-lg font-bold mb-2 truncate uppercase text-dark"
+                  >
+                    SPACIOUS FAMILY VILLA
+                  </h3>
+                  <div class="flex items-center text-[#00291B] text-sm mb-4">
+                    <svg
+                      class="h-4 w-4 mr-1 text-theme"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Business Bay
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-sm text-gray-600 mb-6 font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">4</span> Beds</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">5</span> Baths</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">4,500</span>
+                        sqft</span
+                      >
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    class="flex items-center justify-center w-[50%] bg-theme text-white py-3 rounded-md hover:bg-opacity-90 transition duration-300 font-medium text-sm"
+                  >
+                    View Details <span class="ml-2">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Rental Card 5 -->
+              <div
+                class="group bg-white shadow-[0_0_24px_0_#00000014] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="relative h-60 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
+                    alt="Rental 4"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div
+                    class="absolute bottom-4 left-4 bg-[#FFFFFF1C] backdrop-blur-sm px-3 py-1 rounded text-white text-sm font-medium"
+                  >
+                    AED 180,000 / year
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3
+                    class="font-poppins text-lg font-bold mb-2 truncate uppercase text-dark"
+                  >
+                    SPACIOUS FAMILY VILLA
+                  </h3>
+                  <div class="flex items-center text-[#00291B] text-sm mb-4">
+                    <svg
+                      class="h-4 w-4 mr-1 text-theme"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Arabian Ranches
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-sm text-gray-600 mb-6 font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">4</span> Beds</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">5</span> Baths</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">4,500</span>
+                        sqft</span
+                      >
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    class="flex items-center justify-center w-[50%] bg-theme text-white py-3 rounded-md hover:bg-opacity-90 transition duration-300 font-medium text-sm"
+                  >
+                    View Details <span class="ml-2">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Rental Card 6 -->
+              <div
+                class="group bg-white shadow-[0_0_24px_0_#00000014] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              >
+                <div class="relative h-60 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
+                    alt="Rental 4"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div
+                    class="absolute bottom-4 left-4 bg-[#FFFFFF1C] backdrop-blur-sm px-3 py-1 rounded text-white text-sm font-medium"
+                  >
+                    AED 180,000 / year
+                  </div>
+                </div>
+                <div class="p-6">
+                  <h3
+                    class="font-poppins text-lg font-bold mb-2 truncate uppercase text-dark"
+                  >
+                    SPACIOUS FAMILY VILLA
+                  </h3>
+                  <div class="flex items-center text-[#00291B] text-sm mb-4">
+                    <svg
+                      class="h-4 w-4 mr-1 text-theme"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Arabian Ranches
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-sm text-gray-600 mb-6 font-medium"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">4</span> Beds</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">5</span> Baths</span
+                      >
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        ><span class="font-bold text-dark">4,500</span>
+                        sqft</span
+                      >
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    class="flex items-center justify-center w-[50%] bg-theme text-white py-3 rounded-md hover:bg-opacity-90 transition duration-300 font-medium text-sm"
+                  >
+                    View Details <span class="ml-2">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center mt-12">
+              <a
+                href="#"
+                class="inline-block bg-theme text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition font-medium uppercase shadow-lg hover:shadow-xl"
+              >
+                View All Rentals
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Rent With Nolix -->
+    <section class="py-20 bg-navy text-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="font-playfair text-h2-custom font-bold mb-4">
+            WHY RENT <span class="text-theme">WITH NOLIX</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+          <!-- Feature 1 -->
+          <div
+            class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300"
+          >
+            <div
+              class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white"
+            >
+              <img src="./assets/check-circle.png" class="w-7 h-7" alt="">
+            </div>
+            <h3 class="font-poppins tracking-wider text-xl font-bold mb-3 text-white">
+              Verified Listings
+            </h3>
+            <p class="text-[#FFFFFF99] text-sm leading-relaxed tracking-wide">
+              Every property on our platform is personally verified by our
+              agents to ensure accuracy and quality.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div
+            class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300"
+          >
+            <div
+              class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white"
+            >
+              <img src="./assets/notification-text.png" class="w-7 h-7" alt="">
+            </div>
+            <h3 class="font-poppins tracking-wider text-xl font-bold mb-3 text-white">
+              Transparent Pricing
+            </h3>
+            <p class="text-[#FFFFFF99] text-sm leading-relaxed tracking-wide">
+              No hidden fees or surprise costs. What you see is what you pay
+              when you rent with us.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div
+            class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300"
+          >
+            <div
+              class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white"
+            >
+             <img src="./assets/star-02.png" class="w-7 h-7" alt="">
+            </div>
+            <h3 class="font-poppins tracking-wider text-xl font-bold mb-3 text-white">
+              Dedicated Support
+            </h3>
+            <p class="text-[#FFFFFF99] text-sm leading-relaxed tracking-wide">
+              From viewing to move-in and beyond, our dedicated relationship
+              managers are here to assist you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Your Rental Process -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4">
+            YOUR RENTAL PROCESS
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Step 1 -->
+          <div
+            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
+            >
+              01
+            </div>
+            <h4 class="font-bold text-dark mb-2 text-base uppercase">
+              SEARCH & SHORTLIST
+            </h4>
+            <p class="text-sm text-[#00291B]">
+              Browse verified listings and save your favorites
+            </p>
+          </div>
+          <!-- Step 2 -->
+          <div
+            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
+            >
+              02
+            </div>
+            <h4 class="font-bold text-dark mb-2 text-base uppercase">
+              BOOK VIEWING
+            </h4>
+            <p class="text-sm text-[#00291B]">
+              Schedule property tours at your convenience
+            </p>
+          </div>
+          <!-- Step 3 -->
+          <div
+            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
+            >
+              03
+            </div>
+            <h4 class="font-bold text-dark mb-2 text-base uppercase">
+              SUBMIT APPLICATION
+            </h4>
+            <p class="text-sm text-[#00291B]">
+              Quick and easy rental application process
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:w-2/2">
+          <!-- Step 4 -->
+          <div
+            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
+            >
+              04
+            </div>
+            <h4 class="font-bold text-dark mb-2 text-base uppercase">
+              SIGN TENANCY CONTRACT
+            </h4>
+            <p class="text-sm text-[#00291B]">
+              Secure your rental with proper documentation
+            </p>
+          </div>
+          <!-- Step 5 -->
+          <div
+            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
+            >
+              05
+            </div>
+            <h4 class="font-bold text-dark mb-2 text-base uppercase">
+              MOVE IN
+            </h4>
+            <p class="text-sm text-[#00291B]">
+              Get your keys and settle into your new home
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tenant Services -->
+    <section class="py-20 bg-navy text-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="font-playfair text-h2-custom font-bold mb-4">
+            TENANT <span class="text-theme">SERVICES</span>
+          </h2>
+          <p class="text-gray-400 md:text-lg max-w-2xl mx-auto">
+            Comprehensive support throughout your tenancy period
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Service 1 -->
+          <div
+            class="block p-5 bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] rounded-lg border border-white/10 hover:border-theme/50 transition duration-300"
+          >
+            <div
+              class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white"
+            >
+              <img src="./assets/notification-text.png" class="w-7 h-7" alt="">
+            </div>
+            <h3 class="font-poppins text-xl font-semibold tracking-wider mb-3 text-white">
+              Visa Processing Support
+            </h3>
+            <p class="text-[#FFFFFF99] md:text-lg text-sm leading-relaxed tracking-wider">
+              Assistance with tenancy contract registration and visa
+              requirements for you and your family.
+            </p>
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="block p-5 bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] rounded-lg border border-white/10 hover:border-theme/50 transition duration-300"
+          >
+            <div
+              class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white"
+            >
+             <img src="./assets/wifi.png" class="w-7 h-7" alt="">
+            </div>
+            <h3 class="font-poppins text-xl font-semibold tracking-wider mb-3 text-white">
+              Utility Connection
+            </h3>
+            <p class="text-[#FFFFFF99] md:text-lg text-sm leading-relaxed tracking-wider">
+              Help with DEWA, internet, and other utility setup and activation.
+            </p>
+          </div>
+
+          <!-- Service 3 -->
+          <div
+            class="block p-5 bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] rounded-lg border border-white/10 hover:border-theme/50 transition duration-300"
+          >
+            <div
+              class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white"
+            >
+             <img src="./assets/home-03.png" class="w-7 h-7" alt="">
+            </div>
+            <h3 class="font-poppins text-xl font-semibold tracking-wider mb-3 text-white">
+              Ejari Registration
+            </h3>
+            <p class="text-[#FFFFFF99] md:text-lg text-sm leading-relaxed tracking-wider">
+              Complete tenancy contract registration with Dubai Land Department.
+            </p>
+          </div>
+
+          <!-- Service 4 -->
+          <div
+            class="block p-5 bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] rounded-lg border border-white/10 hover:border-theme/50 transition duration-300"
+          >
+            <div
+              class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white"
+            >
+              <img src="./assets/settings-02.png" class="w-7 h-7" alt="">
+            </div>
+            <h3 class="font-poppins text-xl font-semibold tracking-wider mb-3 text-white">
+              Maintenance Coordination
+            </h3>
+            <p class="text-[#FFFFFF99] md:text-lg text-sm leading-relaxed tracking-wider">
+              24/7 support for maintenance requests and emergency repairs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- <section class="relative py-32 flex items-center justify-center"> -->
+      <!-- Background Image Parallax Effect -->
+      <!-- <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2670&auto=format&fit=crop"
+          alt="Keys Handover"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/50 mix-blend-multiply"></div>
+      </div>
+
+      <div class="container relative z-10 text-center text-white">
+        <h2 class="font-playfair tracking-wider text-h2-custom font-bold mb-6">
+          Ready to Find Your Perfect Rental?
+        </h2>
+        <p
+          class="text-[#C8CCD9] md:text-[16px] text-sm mx-auto mb-10 max-w-2xl"
+        >
+          Browse our extensive portfolio of premium rental properties or speak
+          to one of our leasing specialists today.
+        </p>
+        <div
+          class="flex items-center mt-5 flex-col md:flex-row gap-4 justify-center"
+        >
+          <a
+            href="#"
+            class="inline-block bg-[linear-gradient(90deg,#D4AF37_0%,#B8860B_100%)] text-white px-8 py-4 rounded-lg hover:bg-white hover:text-navy transition duration-300 font-medium uppercase tracking-wider"
+          >
+            BROWSE RENTALS
+          </a>
+          <a
+            href="#"
+            class="inline-block bg-white text-black px-8 py-4 rounded-lg hover:bg-gray-100 transition duration-300 font-medium uppercase tracking-wider"
+          >
+            CONTACT US
+          </a>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        direction: "horizontal",
+        loop: true,
+      });
+    </script>
+  </body>
+</html>
