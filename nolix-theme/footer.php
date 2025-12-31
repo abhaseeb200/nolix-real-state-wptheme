@@ -4,7 +4,9 @@
             <div class="flex flex-col md:flex-row justify-between gap-12 mb-16">
                 <!-- Logo & Desc -->
                 <div class="sm:max-w-[24%] max-w-full">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" width="200" height="140" alt="Logo" class="mb-8 brightness-[100]">
+                    <a href="<?php echo home_url(); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" width="200" height="140" alt="Logo" class="mb-8 brightness-[100]">
+                    </a>
                     <p class="text-white font-poppins leading-relaxed mb-6">
                         A curated approach to luxury property in the UAE. Advisory-led service for discerning buyers,
                         sellers and investors.
@@ -33,11 +35,13 @@
                 <div class="max-w-full">
                     <h4 class="text-xl font-helvetica font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-white font-poppins">
-                        <li><a href="#" class="hover:text-white transition-colors">Buy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Sell</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Rent</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Off Plan</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="<?php echo site_url('/buy'); ?>" class="hover:text-white transition-colors">Buy</a></li>
+                        <li><a href="<?php echo site_url('/sell'); ?>" class="hover:text-white transition-colors">Sell</a></li>
+                        <li><a href="<?php echo site_url('/rent'); ?>" class="hover:text-white transition-colors">Rent</a></li>
+                        <li><a href="<?php echo site_url('/our-services'); ?>" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="<?php echo site_url('/mortgage'); ?>" class="hover:text-white transition-colors">Mortgage</a></li>
+                        <li><a href="<?php echo site_url('/valuation'); ?>" class="hover:text-white transition-colors">Valuation</a></li>
+                        <li><a href="<?php echo site_url('/consultancy'); ?>" class="hover:text-white transition-colors">Consultancy</a></li>
                     </ul>
                 </div>
 
@@ -45,7 +49,7 @@
                 <div class="max-w-full">
                     <h4 class="text-xl font-helvetica font-bold mb-6">Company Links</h4>
                     <ul class="space-y-3 text-white font-poppins">
-                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="<?php echo site_url('/about-us'); ?>" class="hover:text-white transition-colors">About</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Insights</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Contact US</a></li>
                     </ul>

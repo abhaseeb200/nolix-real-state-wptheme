@@ -28,22 +28,25 @@ get_template_part('template-parts/hero', null, [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <?php
-        $properties_query = new WP_Query(array(
-            'post_type' => 'property',
-            'posts_per_page' => 6 // Limit to 6 as per design
-        ));
+    <?php
+    $properties_query = new WP_Query(array(
+        'post_type'      => 'property',
+        'posts_per_page' => 6
+    ));
 
-        if ($properties_query->have_posts()) :
-            while ($properties_query->have_posts()) : $properties_query->the_post();
-                <?php get_template_part('template-parts/content-property-card'); ?>
-            <?php endwhile;
-            wp_reset_postdata();
-        else:
-            echo '<p class="col-span-3 text-center">No properties found.</p>';
-        endif; 
-        ?>
-    </div>
+    if ($properties_query->have_posts()) :
+        while ($properties_query->have_posts()) :
+            $properties_query->the_post();
+
+            get_template_part('template-parts/content-property-card');
+
+        endwhile;
+        wp_reset_postdata();
+    else :
+        echo '<p class="col-span-3 text-center">No properties found.</p>';
+    endif;
+    ?>
+</div>
 
     <div class="text-center mt-12">
       <a href="#" class="inline-block bg-theme text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition font-medium uppercase shadow-lg hover:shadow-xl">

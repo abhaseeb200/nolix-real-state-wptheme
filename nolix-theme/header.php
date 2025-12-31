@@ -83,32 +83,32 @@
                 <div class="space-y-2">
                     <!-- About Menu Item -->
                     <div class="border-b border-gray-100 pb-2">
-                        <button class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
+                        <a href="<?php echo site_url('/about-us'); ?>" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
                             <span class="text-sm uppercase tracking-wide">About</span>
                             <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
-                        </button>
+                        </a>
                     </div>
                     
                     <!-- Properties Menu Item -->
                     <div class="border-b border-gray-100 pb-2">
-                        <button class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
+                        <a href="<?php echo site_url('/buy'); ?>" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
                             <span class="text-sm uppercase tracking-wide">Properties</span>
                             <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
-                        </button>
+                        </a>
                     </div>
                     
                     <!-- Services Menu Item -->
                     <div class="border-b border-gray-100 pb-2">
-                        <button class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
+                        <a href="<?php echo site_url('/our-services'); ?>" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
                             <span class="text-sm uppercase tracking-wide">Services</span>
                             <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
-                        </button>
+                        </a>
                     </div>
                     
                     <!-- Insights Menu Item -->
@@ -129,7 +129,7 @@
             
             <!-- Sidebar Footer -->
             <div class="p-6 border-t border-gray-200 bg-lightgray">
-                <a href="#" class="block w-full text-center rounded-full bg-theme text-white px-6 py-4 text-sm font-semibold hover:bg-opacity-90 transition-all shadow-lg">
+                <a href="<?php echo site_url('/consultancy'); ?>" class="block w-full text-center rounded-full bg-theme text-white px-6 py-4 text-sm font-semibold hover:bg-opacity-90 transition-all shadow-lg">
                     Book Consultation
 				</a>
             </div>
@@ -140,15 +140,15 @@
     <header class="bg-white py-6 px-6 lg:px-12 flex justify-between items-center sticky top-0 z-50 shadow-sm font-poppins">
         <!-- Left Links -->
         <nav class="hidden lg:flex gap-8 text-sm font-medium text-[#181818] uppercase tracking-wide">
-            <a href="#" class="flex items-center gap-1 hover:text-theme transition-colors">About <svg class="w-4 h-4"
+            <a href="<?php echo site_url('/about-us'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors">About <svg class="w-4 h-4"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></a>
-            <a href="#" class="flex items-center gap-1 hover:text-theme transition-colors">Properties
+            <a href="<?php echo site_url('/buy'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors">Properties
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></a>
-            <a href="#" class="flex items-center gap-1 hover:text-theme transition-colors">Services
+            <a href="<?php echo site_url('/our-services'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors">Services
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></a>
@@ -157,7 +157,9 @@
         <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div class="flex flex-col items-center">
                 <!-- Use dynamic path for logo -->
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" width="111" height="74" class="w-full md:h-auto h-[60px]" alt="Logo">
+                <a href="<?php echo home_url(); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" width="111" height="74" class="w-full md:h-auto h-[60px]" alt="Logo">
+                </a>
             </div>
         </div>
         <!-- Right Links -->
@@ -166,7 +168,7 @@
                 <a href="#" class="hover:text-theme transition-colors">Insights</a>
                 <a href="#" class="hover:text-theme transition-colors">Contact Us</a>
             </nav>
-            <a href="#"
+            <a href="<?php echo site_url('/consultancy'); ?>"
                 class="rounded-full bg-theme text-white px-6 py-3 text-sm font-medium hover:bg-opacity-90 transition-all font-poppins">Book
                 Consultation</a>
         </div>
