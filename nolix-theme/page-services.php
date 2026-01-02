@@ -129,68 +129,8 @@ get_template_part('template-parts/hero', null, [
       </div>
     </section>
 
-     <section class="py-20 bg-[#F9FAFB]">
-      <div class="container">
-        <div class="text-center md:pb-16 pb-8">
-          <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
-            MEET <span class="text-theme">THE TEAM</span>
-          </h2>
-          <p class="text-[#474C59] text-base md:text-[20px] max-w-xl mx-auto">
-            Experienced professionals dedicated to delivering exceptional service and results.
-          </p>
-        </div>
+     <?php get_template_part('template-parts/section-team'); ?>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="text-left group">
-            <div class="relative overflow-hidden rounded-lg mb-6 shadow-sm">
-              <img
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/member1.webp"
-                alt="Team Member"
-                class="w-full h-[308px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <h3 class="font-poppins text-xl font-bold text-dark mb-1">Team Member</h3>
-            <p class="text-theme text-sm tracking-wide">Managing Director</p>
-          </div>
-
-          <div class="text-left group">
-            <div class="relative overflow-hidden rounded-lg mb-6 shadow-sm">
-              <img
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/member2.webp"
-                alt="Team Member"
-                class="w-full h-[308px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <h3 class="font-poppins text-xl font-bold text-dark mb-1">Team Member</h3>
-            <p class="text-theme text-sm tracking-wide">Head of Sales</p>
-          </div>
-
-          <div class="text-left group">
-            <div class="relative overflow-hidden rounded-lg mb-6 shadow-sm">
-              <img
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/member3.webp"
-                alt="Team Member"
-                class="w-full h-[308px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <h3 class="font-poppins text-xl font-bold text-dark mb-1">Team Member</h3>
-            <p class="text-theme text-sm tracking-wide">Property Consultant</p>
-          </div>
-
-          <div class="text-left group">
-            <div class="relative overflow-hidden rounded-lg mb-6 shadow-sm">
-              <img
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/member4.webp"
-                alt="Team Member"
-                class="w-full h-[308px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <h3 class="font-poppins text-xl font-bold text-dark mb-1">Team Member</h3>
-            <p class="text-theme text-sm tracking-wide">Investment Advisor</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="py-20 lg:py-28 bg-white">
       <div class="container">
@@ -244,6 +184,18 @@ get_template_part('template-parts/hero', null, [
     </section>
 
 <?php 
-get_template_part('template-parts/cta');
+get_template_part('template-parts/cta', null, [
+    'title' => 'Ready to Get Started?',
+	'image' => 'https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/Testimonals.png',
+    'text' => 'Connect with our team to discuss how we can support your property goals with clarity and expertise.',
+    'buttons' => [
+        [
+            'text' => 'Request a Consultation',
+            'url' => '#',
+            'style' => 'gradient'
+        ]
+    ]
+]);
+
 get_footer(); 
 ?>

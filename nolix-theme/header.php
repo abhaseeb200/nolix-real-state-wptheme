@@ -93,7 +93,7 @@
                     
                     <!-- Properties Menu Item -->
                     <div class="border-b border-gray-100 pb-2">
-                        <a href="<?php echo site_url('/buy'); ?>" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
+                        <a href="<?php echo site_url('/property-management'); ?>" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
                             <span class="text-sm uppercase tracking-wide">Properties</span>
                             <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>

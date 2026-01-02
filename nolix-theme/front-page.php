@@ -388,12 +388,6 @@
                             
                             <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                                 <span class="text-white text-lg font-bold font-helvetica text-center block"><?php the_title(); ?></span>
-                                <?php if($location): ?>
-                                    <span class="text-white/80 text-sm font-poppins text-center block mt-1"><?php echo esc_html($location); ?></span>
-                                <?php endif; ?>
-                                <?php if($price): ?>
-                                     <span class="text-theme font-bold text-center block mt-2"><?php echo esc_html($price); ?></span>
-                                <?php endif; ?>
                             </div>
                         </div>
                     <?php

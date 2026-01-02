@@ -126,8 +126,72 @@ function nolix_register_post_types() {
         'publicly_queryable'    => false, // Usually just for display on front
     );
     register_post_type( 'testimonial', $args_testimonial );
+
+    // Team Members CPT
+    $labels_team = array(
+        'name'                  => _x( 'Team Members', 'Post Type General Name', 'nolix' ),
+        'singular_name'         => _x( 'Team Member', 'Post Type Singular Name', 'nolix' ),
+        'menu_name'             => __( 'Team Members', 'nolix' ),
+        'add_new'               => __( 'Add New Member', 'nolix' ),
+        'add_new_item'          => __( 'Add New Team Member', 'nolix' ),
+        'edit_item'             => __( 'Edit Team Member', 'nolix' ),
+        'new_item'              => __( 'New Team Member', 'nolix' ),
+        'view_item'             => __( 'View Team Member', 'nolix' ),
+        'search_items'          => __( 'Search Team Members', 'nolix' ),
+        'not_found'             => __( 'No team members found', 'nolix' ),
+        'not_found_in_trash'    => __( 'No team members found in Trash', 'nolix' ),
+    );
+    $args_team = array(
+        'label'                 => __( 'Team Member', 'nolix' ),
+        'labels'                => $labels_team,
+        'supports'              => array( 'title', 'thumbnail' ), // Title = Name, Thumbnail = Photo
+        'public'                => false, // Not publicly queryable as single pages
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_icon'             => 'dashicons-groups',
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => false,
+        'hierarchical'          => false,
+        'show_in_nav_menus'     => false,
+        'has_archive'           => false,
+    );
+    register_post_type( 'team_member', $args_team );
 }
 add_action( 'init', 'nolix_register_post_types', 0 );
+
+// Add Meta Boxes for Team Members
+function nolix_add_team_meta_boxes() {
+    add_meta_box(
+        'nolix_team_details',
+        'Team Member Details',
+        'nolix_team_details_callback',
+        'team_member',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'nolix_add_team_meta_boxes' );
+
+function nolix_team_details_callback( $post ) {
+    wp_nonce_field( 'nolix_save_team_details', 'nolix_team_details_nonce' );
+
+    $role = get_post_meta( $post->ID, '_nolix_role', true );
+
+    echo '<p><label for="nolix_role">Job Role (e.g. "Managing Director"):</label><br>';
+    echo '<input type="text" id="nolix_role" name="nolix_role" value="' . esc_attr( $role ) . '" class="widefat"></p>';
+}
+
+function nolix_save_team_details( $post_id ) {
+    if ( ! isset( $_POST['nolix_team_details_nonce'] ) ) return;
+    if ( ! wp_verify_nonce( $_POST['nolix_team_details_nonce'], 'nolix_save_team_details' ) ) return;
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+    if ( isset( $_POST['nolix_role'] ) ) {
+        update_post_meta( $post_id, '_nolix_role', sanitize_text_field( $_POST['nolix_role'] ) );
+    }
+}
+add_action( 'save_post', 'nolix_save_team_details' );
 
 
 // Add Meta Boxes for Properties

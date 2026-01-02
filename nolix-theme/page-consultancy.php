@@ -9,36 +9,33 @@ get_header();
 get_template_part('template-parts/hero', null, [
     'title' => 'Strategic advisory for buyers, <br/> <span class="text-theme">sellers, and investors</span>',
     'subtitle' => 'NOLIX provides clarity at every stage: from acquisition and portfolio planning to  timing, pricing, and exit strategy.',
-    'image' => 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=2670', // Placeholder
+	'image' => get_template_directory_uri() . '/assets/images/two person sitting on table.webp',
     'buttons' => []
 ]);
 ?>
 <!-- What We Cover -->
 <section class="py-24 bg-[#FAFAFA] border-t border-gray-100">
   <div class="container mx-auto px-6 text-center">
-    <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase">
-      What We Cover
+    <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-9 uppercase">
+      What <span class="text-theme">We Cover</span>
     </h2>
-    <p class="text-[#00291B] font-poppins mb-12 max-w-2xl mx-auto">
-      Lorem ipsum is a dummy or placeholder text commonly used in graphic
-      design, publishing, and web 
-    </p>
 
     <div class="flex justify-center mb-16">
       <div class="inline-flex bg-white border border-gray-200 rounded-full p-1 shadow-sm">
-        <button onclick="switchTab('buyers')" id="tab-buyers" class="tab-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all bg-theme text-white">
+        <button onclick="switchConsultancyTab('buyers')" id="tab-consult-buyers" class="tab-consult-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all bg-theme text-white">
           Buyers
         </button>
-        <button onclick="switchTab('sellers')" id="tab-sellers" class="tab-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all text-gray-600 hover:text-theme">
+        <button onclick="switchConsultancyTab('sellers')" id="tab-consult-sellers" class="tab-consult-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all text-gray-600 hover:text-theme">
           Sellers
         </button>
-        <button onclick="switchTab('investors')" id="tab-investors" class="tab-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all text-gray-600 hover:text-theme">
+        <button onclick="switchConsultancyTab('investors')" id="tab-consult-investors" class="tab-consult-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all text-gray-600 hover:text-theme">
           Investors
         </button>
       </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content" id="content-buyers">
+    <!-- Buyers Content -->
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult" id="content-consult-buyers">
       <div class="w-full lg:w-1/2 text-left">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
@@ -91,6 +88,130 @@ get_template_part('template-parts/hero', null, [
       </div>
     </div>
 
+    <!-- Sellers Content -->
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult hidden" id="content-consult-sellers" style="display: none;">
+      <div class="w-full lg:w-1/2 text-left">
+        <div class="flex items-center gap-4 mb-8">
+           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shield-tick.webp" alt="Sellers Icon" class="w-7 h-7" />
+          </div>
+          <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
+            Strategic Sales & Marketing
+          </h2>
+        </div>
+        <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
+            <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Accurate market valuation</span>
+          </li>
+          <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Professional staging and photography</span>
+          </li>
+           <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Targeted marketing campaigns</span>
+          </li>
+           <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Viewing management and feedback</span>
+          </li>
+        </ul>
+      </div>
+      <div class="w-full lg:w-1/2 relative">
+         <div class="relative md:ml-0 ml-5">
+           <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
+             <!-- Placeholder image for Sellers -->
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000" alt="Strategic Sales" class="h-[240px] md:h-[400px] rounded-lg w-full shadow-2xl md:w-[500px] object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Investors Content -->
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult hidden" id="content-consult-investors" style="display: none;">
+      <div class="w-full lg:w-1/2 text-left">
+        <div class="flex items-center gap-4 mb-8">
+           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Users Icon" class="w-7 h-7" />
+          </div>
+          <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
+            Portfolio Growth & ROI
+          </h2>
+        </div>
+        <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
+            <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Market trend analysis</span>
+          </li>
+          <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">High-yield opportunity identification</span>
+          </li>
+           <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Risk assessment and mitigation</span>
+          </li>
+           <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Exit strategy planning</span>
+          </li>
+        </ul>
+      </div>
+      <div class="w-full lg:w-1/2 relative">
+         <div class="relative md:ml-0 ml-5">
+           <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
+            <!-- Placeholder image for Investors -->
+             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="Portfolio Growth" class="h-[240px] md:h-[400px] rounded-lg w-full shadow-2xl md:w-[500px] object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Script for Consultancy Tabs -->
+    <script>
+    function switchConsultancyTab(tab) {
+        // Reset all buttons
+        document.querySelectorAll('.tab-consult-btn').forEach(btn => {
+            btn.classList.remove('bg-theme', 'text-white');
+            btn.classList.add('text-gray-600', 'hover:text-theme');
+        });
+        
+        // Activate clicked button
+        const activeBtn = document.getElementById(`tab-consult-${tab}`);
+        if(activeBtn) {
+            activeBtn.classList.remove('text-gray-600', 'hover:text-theme');
+            activeBtn.classList.add('bg-theme', 'text-white');
+        }
+
+        // Hide all content
+        document.querySelectorAll('.tab-content-consult').forEach(content => {
+            content.style.display = 'none';
+        });
+
+        // Show selected content
+        const activeContent = document.getElementById(`content-consult-${tab}`);
+        if(activeContent) {
+            activeContent.style.display = 'flex';
+        }
+    }
+    </script>
     </div>
 </section>
 <!-- Our Difference Section -->
@@ -136,133 +257,27 @@ get_template_part('template-parts/hero', null, [
     </div>
   </div>
 </section>
-<!-- Book a Consultation Section -->
-<section
-      class="relative py-20 lg:py-28 bg-cover bg-center bg-no-repeat"
-      style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/form-bg.webp')"
-    >
-      <div class="absolute inset-0 bg-black/50"></div>
-      <div class="container relative z-10 px-4">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="font-playfair text-h2-custom font-bold text-white uppercase tracking-wide"
-          >
-            Book a<span class="text-theme">Consultation</span>
-          </h2>
-        </div>
 
-        <div class="max-w-4xl mx-auto">
-          <form class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Name -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Full Name</label
-                >
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  class="w-full bg-[#E5E7EB] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-                />
-              </div>
+<?php 
+// CTA Section
+get_template_part('template-parts/cta', null, [
+    'title' => 'Book a consultation ',
+	'image' => get_template_directory_uri() . '/assets/images/flyover with glowing light.webp', 
+    'text' => 'Speak directly with a senior advisor who understands your property goals and guides you with clear, practical advice.',
+    'buttons' => [
+        [
+            'text' => 'Book Consultation',
+            'url' => '#',
+            'style' => 'gradient'
+        ],
+		[
+            'text' => 'Learn More',
+            'url' => '#',
+            'style' => 'white'
+        ]
+    ]
+]);
+?>
 
-              <!-- Email -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Email Address</label
-                >
-                <input
-                  type="email"
-                  placeholder="realestate112@gmail.com"
-                  class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-                />
-              </div>
-
-              <!-- Phone -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Phone Number</label
-                >
-                <input
-                  type="tel"
-                  placeholder="+92"
-                  class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-                />
-              </div>
-
-              <!-- Property Type -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Property Type</label
-                >
-                <div class="relative">
-                  <select
-                    class="w-full bg-[#F3F4F6] text-dark px-4 py-3 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-theme"
-                  >
-                    <option>Select type</option>
-                    <option>Residential</option>
-                    <option>Commercial</option>
-                    <option>Mixed Use</option>
-                  </select>
-                  <div
-                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-dark"
-                  >
-                    <svg
-                      class="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Units -->
-            <div>
-              <label
-                class="block text-white md:text-lg text-base mb-2 font-poppins"
-                >Number of Units</label
-              >
-              <input
-                type="text"
-                placeholder="e.g., 1, 5, 10+"
-                class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-              />
-            </div>
-
-            <!-- Message -->
-            <div>
-              <label
-                class="block text-white md:text-lg text-base mb-2 font-poppins"
-                >Your Goals & Questions</label
-              >
-              <textarea
-                rows="6"
-                placeholder="Tell us more about your situation..."
-                class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme resize-none"
-              ></textarea>
-            </div>
-
-            <!-- Submit -->
-            <div>
-              <button
-                type="submit"
-                class="bg-theme text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition duration-300"
-              >
-                Book Consultation
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
 
 <?php get_footer(); ?>

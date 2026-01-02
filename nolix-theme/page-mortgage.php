@@ -232,133 +232,22 @@ get_template_part('template-parts/hero', null, [
     </div>
   </div>
 </section>
- <!-- Start Your Mortgage Journey Section -->
-    <section
-      class="relative py-20 font-poppins lg:py-28 bg-cover bg-center bg-no-repeat"
-      style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/form-bg.webp')"
-    >
-      <div class="absolute inset-0 bg-black/50"></div>
-      <div class="container relative z-10 px-4">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="font-playfair text-h2-custom font-bold text-white uppercase tracking-wide"
-          >
-            START YOUR <span class="text-theme">MORTGAGE JOURNEY</span>
-          </h2>
-        </div>
 
-        <div class="max-w-4xl mx-auto">
-          <form class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Name -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Full Name</label
-                >
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  class="w-full bg-[#E5E7EB] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-                />
-              </div>
+<?php 
+// CTA Section
+get_template_part('template-parts/cta', null, [
+    'title' => 'Start Your Mortgage Journey ',
+	'image' => get_template_directory_uri() . '/assets/images/flyover with glowing light.webp', 
+    'text' => 'A senior advisor will contact you personally. You will get   clear and confident guidance.',
+    'buttons' => [
+        [
+            'text' => 'Learn More',
+            'url' => '#',
+            'style' => 'gradient'
+        ]
+    ]
+]);
+?>
 
-              <!-- Email -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Email Address</label
-                >
-                <input
-                  type="email"
-                  placeholder="realestate112@gmail.com"
-                  class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-                />
-              </div>
-
-              <!-- Phone -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Phone Number</label
-                >
-                <input
-                  type="tel"
-                  placeholder="+92"
-                  class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-                />
-              </div>
-
-              <!-- Property Type -->
-              <div>
-                <label
-                  class="block text-white md:text-lg text-base mb-2 font-poppins"
-                  >Property Type</label
-                >
-                <div class="relative">
-                  <select
-                    class="w-full bg-[#F3F4F6] text-dark px-4 py-3 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-theme"
-                  >
-                    <option>Select type</option>
-                    <option>Residential</option>
-                    <option>Commercial</option>
-                    <option>Mixed Use</option>
-                  </select>
-                  <div
-                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-dark"
-                  >
-                    <svg
-                      class="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Units -->
-            <div>
-              <label
-                class="block text-white md:text-lg text-base mb-2 font-poppins"
-                >Number of Units</label
-              >
-              <input
-                type="text"
-                placeholder="e.g., 1, 5, 10+"
-                class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme"
-              />
-            </div>
-
-            <!-- Message -->
-            <div>
-              <label
-                class="block text-white md:text-lg text-base mb-2 font-poppins"
-                >Your Goals & Questions</label
-              >
-              <textarea
-                rows="6"
-                placeholder="Tell us more about your situation..."
-                class="w-full bg-[#F3F4F6] text-dark placeholder-[#19191A] px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-theme resize-none"
-              ></textarea>
-            </div>
-
-            <!-- Submit -->
-            <div>
-              <button
-                type="submit"
-                class="bg-theme text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition duration-300"
-              >
-                Book Consultation
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
 
 <?php get_footer(); ?>
