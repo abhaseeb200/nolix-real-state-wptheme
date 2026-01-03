@@ -35,7 +35,7 @@ function nolix_enqueue_assets() {
                         lightgray: '#F3F4F6',
                     },
                     fontFamily: {
-                        playfair: ['\"Playfair Display\"', 'serif'],
+                        playfair: ['\"The Seasons\"', '\"Playfair Display\"', 'serif'],
                         poppins: ['\"Poppins\"', 'sans-serif'],
                         helvetica: ['\"Helvetica Neue\"', 'Helvetica', 'Arial', 'sans-serif'],
                     },

@@ -42,14 +42,14 @@
 
                 <!-- Buttons -->
                 <div class="flex flex-col md:items-start items-center sm:flex-row justify-center gap-5">
-                    <button
-                        class="bg-theme rounded-full text-white px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-opacity-90 transition-all">
+                    <a href="<?php echo site_url('/consultancy'); ?>"
+                        class="bg-theme cursor-pointer rounded-full text-white px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-opacity-90 transition-all">
                         Request a Private Consultation
-                    </button>
-                    <button
+                    </a>
+                    <a href="<?php echo site_url('/rent'); ?>"
                         class="bg-white rounded-full text-gray-900 px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-gray-100 transition-all">
                         Explore Properties
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -210,27 +210,27 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <h2 class="md:text-[44px] text-[26px] max-w-[800px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
-                            "Excellence is not a destination but a continuous journey of refined service."
+                            <span class="font-poppins">"</span>Excellence is not a destination but a continuous journey of refined service. <span class="font-poppins">"</span>
                         </h2>
                     </div>
                     <div class="swiper-slide">
                         <h2 class="md:text-[44px] text-[26px] max-w-[1000px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
-                            "True luxury is about the details that others overlook—creating moments of perfection."
+                            <span class="font-poppins">"</span>True luxury is about the details that others overlook—creating moments of perfection. <span class="font-poppins">"</span>
                         </h2>
                     </div>
                     <div class="swiper-slide">
                         <h2 class="md:text-[44px] text-[26px] max-w-[1000px] font-playfair text-white text-center leading-tight mx-auto drop-shadow-2xl">
-                            "Our commitment extends beyond the transaction, building lasting legacies for generations."
+                             <span class="font-poppins">"</span>Our commitment extends beyond the transaction, building lasting legacies for generations. <span class="font-poppins">"</span>
                         </h2>
                     </div>
                 </div>
             </div>
 
             <!-- CTA Button -->
-            <button
+            <a href="<?php echo site_url('/property-management'); ?>"
                 class="bg-[#526370] backdrop-blur-md text-white border border-white/20 px-8 py-3 rounded-full font-poppins text-sm uppercase tracking-wide transition-all mb-16 shadow-2xl hover:shadow-theme/20">
                 Explore Properties
-            </button>
+            </a>
 
             <!-- Slider Controls -->
             <div class="flex items-center justify-center gap-4 max-w-2xl mx-auto">
@@ -294,9 +294,9 @@
                     <h3 class="md:text-3xl text-2xl font-helvetica font-bold text-white mb-3">Buy</h3>
                     <p class="text-white/70 font-poppins mb-6 min-h-[48px]">Professional tailored guidance for the
                         end-users and investors.</p>
-                    <button
+                    <a href="<?php echo site_url('/buy'); ?>"
                         class="bg-theme text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-white hover:text-theme transition-all">Buy
-                        with NOLIX</button>
+                        with NOLIX</a>
                 </div>
 
                 <!-- Sell -->
@@ -316,9 +316,9 @@
                     <h3 class="md:text-3xl text-2xl font-helvetica font-bold text-white mb-3">Sell</h3>
                     <p class="text-white/70 font-poppins mb-6 min-h-[48px]">Positioning your property to the right
                         buyers with discretion.</p>
-                    <button
+                    <a href="<?php echo site_url('/sell'); ?>"
                         class="bg-theme text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-white hover:text-theme transition-all">Sell
-                        with NOLIX</button>
+                        with NOLIX</a>
                 </div>
 
                 <!-- Rent -->
@@ -340,9 +340,9 @@
                     <h3 class="md:text-3xl text-2xl font-helvetica font-bold text-white mb-3">Rent</h3>
                     <p class="text-white/70 font-poppins mb-6 min-h-[48px]">Reliable, streamlined support for landlords
                         and tenants.</p>
-                    <button
+                    <a href="<?php echo site_url('/rent'); ?>"
                         class="bg-theme text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-white hover:text-theme transition-all">Rent
-                        with NOLIX</button>
+                        with NOLIX</a>
                 </div>
             </div>
 
@@ -359,9 +359,9 @@
                     <p class="text-[#00291B] text-[14px] md:text-lg font-poppins">Experience our communities and amenities from the comfort of
                         your home.</p>
                 </div>
-                <button
+                <a href="<?php echo site_url('/rent'); ?>"
                     class="hidden md:block bg-theme text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">View
-                    All Properties</button>
+                    All Properties</a>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
@@ -402,9 +402,9 @@
                 <?php endif; ?>
             </div>
             
-            <button
+            <a href="<?php echo site_url('/about-us'); ?>"
                 class="mt-8 mx-auto block md:hidden bg-theme text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">View
-                All Properties</button>
+                All Properties</a>
         </div>
     </section>
 

@@ -42,7 +42,7 @@ get_template_part('template-parts/hero', null, [
               <p class="text-[#00291B] text-sm leading-relaxed mb-6 min-h-[48px]">
                 Accurate, data-driven valuations supported by on-ground experience and transparent methodology.
               </p>
-              <a href="#" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
+              <a href="<?php echo site_url('/valuation'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Request Valuation
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -67,7 +67,7 @@ get_template_part('template-parts/hero', null, [
               <p class="text-[#00291B] text-sm leading-relaxed mb-6 min-h-[48px]">
                 Strategic guidance for acquisitions, disposals, portfolio planning, and market entry, tailored to your goals.
               </p>
-              <a href="#" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
+              <a  href="<?php echo site_url('/consultancy'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Speak With an Advisor
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -92,7 +92,7 @@ get_template_part('template-parts/hero', null, [
               <p class="text-[#00291B] text-sm leading-relaxed mb-6">
                 Straightforward mortgage guidance for buyers and investors.
               </p>
-              <a href="#" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
+              <a  href="<?php echo site_url('/mortgage'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Speak to a Mortgage Advisor
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -117,7 +117,7 @@ get_template_part('template-parts/hero', null, [
               <p class="text-[#00291B] text-sm leading-relaxed mb-6 min-h-[48px]">
                 Quiet, reliable management designed to protect your asset and deliver consistent performance.
               </p>
-              <a href="#" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
+              <a  href="<?php echo site_url('/property-management'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Explore Management
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -191,7 +191,7 @@ get_template_part('template-parts/cta', null, [
     'buttons' => [
         [
             'text' => 'Request a Consultation',
-            'url' => '#',
+            'url' => site_url('/consultancy'),
             'style' => 'gradient'
         ]
     ]

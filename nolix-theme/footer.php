@@ -1,5 +1,5 @@
     <!-- Footer -->
-    <footer class="bg-theme text-white pt-[30px] md:pt-[90px] pb-8">
+    <footer class="bg-theme text-white pt-[30px] md:pt-[90px]">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="flex flex-col md:flex-row justify-between gap-12 mb-16">
                 <!-- Logo & Desc -->
@@ -55,7 +55,7 @@
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
+            <!-- Contact Info -->
                 <div class="max-w-full">
                     <h4 class="text-xl font-helvetica font-bold mb-6">Contact Info</h4>
                     <ul class="space-y-3 text-base text-white font-poppins">
@@ -66,9 +66,11 @@
                     </ul>
                 </div>
             </div>
-
-            <div
-                class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[#F5F6FA] text-base font-poppins">
+        </div>
+        
+        <!-- Copyright Section -->
+        <div class="bg-navy py-8 mt-auto w-full">
+            <div class="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-[#F5F6FA] text-base font-poppins">
                 <div>© 2026 NOLIX Real Estate. All rights reserved.</div>
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-white">Privacy Policy</a>

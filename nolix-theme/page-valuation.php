@@ -142,12 +142,12 @@ get_template_part('template-parts/cta', null, [
     'buttons' => [
         [
             'text' => 'Request Valuation',
-            'url' => '#',
+            'url' => site_url('/consultancy'),
             'style' => 'gradient'
         ],
 		[
             'text' => 'Learn More',
-            'url' => '#',
+            'url' => site_url('/consultancy'),
             'style' => 'white'
         ]
     ]

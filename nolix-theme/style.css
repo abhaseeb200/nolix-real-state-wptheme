@@ -15,3 +15,45 @@ Text Domain: nolix
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('assets/fonts/theseasons-reg.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('assets/fonts/theseasons-bd.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('assets/fonts/theseasons-lt.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('assets/fonts/theseasons-it.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('assets/fonts/theseasons-bdit.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'The Seasons';
+    src: url('assets/fonts/theseasons-ltit.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}

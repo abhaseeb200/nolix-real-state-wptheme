@@ -185,12 +185,12 @@ get_template_part('template-parts/cta', null, [
     'buttons' => [
         [
             'text' => 'Explore Our Services',
-            'url' => '#',
+            'url' => site_url('/our-services'),
             'style' => 'gradient'
         ],
 		 [
             'text' => 'Request a Consultation',
-            'url' => '#',
+            'url' => site_url('/consultancy'),
             'style' => 'white'
         ]
     ]

@@ -242,7 +242,7 @@ get_template_part('template-parts/cta', null, [
     'buttons' => [
         [
             'text' => 'Learn More',
-            'url' => '#',
+            'url' => site_url('/consultancy'),
             'style' => 'gradient'
         ]
     ]

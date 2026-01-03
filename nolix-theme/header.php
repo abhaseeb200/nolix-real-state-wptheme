@@ -144,7 +144,7 @@
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></a>
-            <a href="<?php echo site_url('/buy'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors">Properties
+            <a href="<?php echo site_url('/property-management'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors">Properties
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></a>

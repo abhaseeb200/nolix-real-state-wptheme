@@ -15,13 +15,13 @@ $defaults = [
     'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.jpg', // Fallback or placeholder
     'buttons' => [
         [
-            'text' => 'Get Free Valuation ↗',
-            'url' => '#',
+            'text' => 'Get Free Valuation',
+            'url' => site_url('/consultancy'),
             'style' => 'gradient'
         ],
         [
-            'text' => 'Schedule a Call ↗',
-            'url' => '#',
+            'text' => 'Schedule a Call',
+            'url' => site_url('/consultancy'),
             'style' => 'white'
         ]
     ]
@@ -43,24 +43,35 @@ $args = wp_parse_args( $args, $defaults );
         <h2 class="font-playfair tracking-wider text-h2-custom font-bold mb-6">
             <?php echo wp_kses_post( $args['title'] ); ?>
         </h2>
-        <p class="text-[#C8CCD9] md:text-[16px] text-sm mx-auto mb-10">
+        <p class="text-[#C8CCD9] md:text-[16px] text-sm mx-auto mb-10 max-w-[850px]">
             <?php echo wp_kses_post( $args['text'] ); ?>
         </p>
 
         <?php if ( ! empty( $args['buttons'] ) ) : ?>
             <div class="flex items-center mt-5 flex-col md:flex-row gap-4 justify-center">
                 <?php foreach ( $args['buttons'] as $button ) : 
-                     $btn_class = 'capitalize inline-block px-5 py-4 rounded-lg transition duration-300 font-medium tracking-wider';
+                     $btn_class = 'flex gap-1 px-[22px] py-[14px] sm:text-lg text-base rounded-lg transition duration-300 font-medium tracking-wider';
                      if ( isset($button['style']) && $button['style'] === 'white' ) {
                          $btn_class .= ' bg-white text-black hover:bg-white/90 hover:text-navy';
                      } else {
-                         // gradient default
-                         $btn_class .= ' bg-[linear-gradient(90deg,#D4AF37_0%,#B8860B_100%)] text-white hover:bg-white hover:text-navy uppercase';
+                         // theme default
+                         $btn_class .= ' bg-theme text-white hover:bg-opacity-90 ';
                      }
                 ?>
-                    <a href="<?php echo esc_url( $button['url'] ); ?>" class="<?php echo esc_attr( $btn_class ); ?>">
-                        <?php echo esc_html( $button['text'] ); ?>
-                    </a>
+                   <a href="<?php echo esc_url( $button['url'] ); ?>" class="<?php echo esc_attr( $btn_class ); ?>">
+						<?php 
+						echo esc_html( $button['text'] ); 
+
+						// Determine logic and classes
+						if ( isset($button['style']) && $button['style'] === 'white' ) {
+							$icon_url = get_template_directory_uri() . '/assets/images/arrow icon black.svg';
+						} else {
+							// Note: $btn_class change here won't affect the <a> tag above because it's already echoed.
+							$icon_url = get_template_directory_uri() . '/assets/images/arrow icon white.svg';
+						}
+						?>
+						<img src="<?php echo esc_url( $icon_url ); ?>" alt="icon">
+					</a>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>

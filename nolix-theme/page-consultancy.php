@@ -42,7 +42,7 @@ get_template_part('template-parts/hero', null, [
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Users Icon" class="w-7 h-7" />
           </div>
           <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
-            Mortgage Buyer Advisory & Selection
+            Mortgage Buyer Advisory <span class="font-poppins"> & </span> Selection
           </h2>
         </div>
         <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
@@ -96,7 +96,7 @@ get_template_part('template-parts/hero', null, [
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shield-tick.webp" alt="Sellers Icon" class="w-7 h-7" />
           </div>
           <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
-            Strategic Sales & Marketing
+            Strategic Sales  <span class="font-poppins"> & </span> Marketing
           </h2>
         </div>
         <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
@@ -144,7 +144,7 @@ get_template_part('template-parts/hero', null, [
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Users Icon" class="w-7 h-7" />
           </div>
           <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
-            Portfolio Growth & ROI
+            Portfolio Growth <span class="font-poppins"> & </span> ROI
           </h2>
         </div>
         <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
