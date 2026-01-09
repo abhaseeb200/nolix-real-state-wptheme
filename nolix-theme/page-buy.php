@@ -132,6 +132,13 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 
+<!-- Property Inquiry Form Section -->
+<section class="py-16 lg:py-24 bg-[#F5F6FA]">
+  <div class="container mx-auto px-6 lg:px-12">
+    <?php echo do_shortcode('[buy_property_form]'); ?>
+  </div>
+</section>
+
 <?php 
 // CTA Section
 get_template_part('template-parts/cta', null, [

@@ -260,24 +260,12 @@ get_template_part('template-parts/hero', null, [
 
 <?php 
 // CTA Section
-get_template_part('template-parts/cta', null, [
-    'title' => 'Book a consultation ',
-	'image' => get_template_directory_uri() . '/assets/images/flyover with glowing light.webp', 
-    'text' => 'Speak directly with a senior advisor who understands your property goals and guides you with clear, practical advice.',
-    'buttons' => [
-        [
-            'text' => 'Book Consultation',
-            'url' => '#',
-            'style' => 'gradient'
-        ],
-		[
-            'text' => 'Learn More',
-            'url' => '#',
-            'style' => 'white'
-        ]
-    ]
-]);
+
+<?php 
+// CTA Section Replaced with PixxiCRM Form
+echo do_shortcode('[pixxicrm_form]');
 ?>
+
 
 
 <?php get_footer(); ?>
