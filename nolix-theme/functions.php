@@ -435,6 +435,163 @@ function nolix_duplicate_post_link( $actions, $post ) {
 add_filter( 'post_row_actions', 'nolix_duplicate_post_link', 10, 2 );
 add_filter( 'page_row_actions', 'nolix_duplicate_post_link', 10, 2 );
 
+// =========================================================================
+// AJAX Handler for Rent Property Filtering
+// =========================================================================
+
+function nolix_filter_rent_properties() {
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $posts_per_page = 6;
+
+    // Build base query args
+    $base_args = array(
+        'post_type' => 'property',
+        'post_status' => 'publish'
+    );
+
+    $meta_query = array('relation' => 'AND');
+
+    // Property types filter
+    if (isset($_POST['property_types']) && !empty($_POST['property_types'])) {
+        $property_types = json_decode(stripslashes($_POST['property_types']), true);
+        if (is_array($property_types) && !empty($property_types)) {
+            $meta_query[] = array(
+                'key' => '_nolix_type',
+                'value' => $property_types,
+                'compare' => 'IN'
+            );
+        }
+    }
+
+    // Bedrooms filter
+    if (isset($_POST['bedrooms']) && !empty($_POST['bedrooms'])) {
+        $bedrooms = sanitize_text_field($_POST['bedrooms']);
+        if ($bedrooms === '5+') {
+            $meta_query[] = array(
+                'key' => '_nolix_beds',
+                'value' => 5,
+                'compare' => '>=',
+                'type' => 'NUMERIC'
+            );
+        } else {
+            $meta_query[] = array(
+                'key' => '_nolix_beds',
+                'value' => intval($bedrooms),
+                'compare' => '=',
+                'type' => 'NUMERIC'
+            );
+        }
+    }
+
+    // Rent range filter
+    $rent_min = isset($_POST['rent_min']) ? floatval(str_replace(',', '', $_POST['rent_min'])) : 0;
+    $rent_max = isset($_POST['rent_max']) ? floatval(str_replace(',', '', $_POST['rent_max'])) : 0;
+
+    // If we have rent filters, we need to filter by price string (stored as text)
+    if ($rent_min > 0 || $rent_max > 0) {
+        // First, get all properties matching other filters
+        $filter_args = array_merge($base_args, array(
+            'posts_per_page' => -1,
+            'meta_query' => $meta_query
+        ));
+
+        $all_properties = new WP_Query($filter_args);
+        $filtered_ids = array();
+        
+        while ($all_properties->have_posts()) {
+            $all_properties->the_post();
+            $price_str = get_post_meta(get_the_ID(), '_nolix_price', true);
+            $price_value = nolix_extract_price_value($price_str);
+
+            $match = true;
+            if ($rent_min > 0 && $price_value < $rent_min) {
+                $match = false;
+            }
+            if ($rent_max > 0 && $price_value > $rent_max) {
+                $match = false;
+            }
+
+            if ($match) {
+                $filtered_ids[] = get_the_ID();
+            }
+        }
+        wp_reset_postdata();
+
+        $total_count = count($filtered_ids);
+        
+        if (!empty($filtered_ids)) {
+            // Paginate the filtered IDs
+            $offset = ($page - 1) * $posts_per_page;
+            $paginated_ids = array_slice($filtered_ids, $offset, $posts_per_page);
+            
+            $args = array_merge($base_args, array(
+                'post__in' => $paginated_ids,
+                'orderby' => 'post__in',
+                'posts_per_page' => $posts_per_page
+            ));
+            $has_more = $total_count > ($offset + $posts_per_page);
+        } else {
+            $args = array_merge($base_args, array(
+                'post__in' => array(0), // Return no results
+                'posts_per_page' => $posts_per_page
+            ));
+            $has_more = false;
+        }
+    } else {
+        // No rent filter, use normal query with meta_query
+        $args = array_merge($base_args, array(
+            'posts_per_page' => $posts_per_page,
+            'paged' => $page
+        ));
+        
+        if (!empty($meta_query)) {
+            $args['meta_query'] = $meta_query;
+        }
+        
+        // Get count first
+        $count_args = array_merge($args, array('posts_per_page' => -1));
+        $count_query = new WP_Query($count_args);
+        $total_count = $count_query->found_posts;
+        wp_reset_postdata();
+        
+        $query = new WP_Query($args);
+        $has_more = $query->max_num_pages > $page;
+        wp_reset_postdata();
+    }
+
+    // Execute final query
+    $query = new WP_Query($args);
+    
+    ob_start();
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            get_template_part('template-parts/content-property-card');
+        }
+    } else {
+        echo '<p class="col-span-full text-center">No properties found.</p>';
+    }
+    $html = ob_get_clean();
+    wp_reset_postdata();
+
+    wp_send_json_success(array(
+        'html' => $html,
+        'count' => isset($total_count) ? $total_count : 0,
+        'has_more' => isset($has_more) ? $has_more : false,
+        'page' => $page
+    ));
+}
+add_action('wp_ajax_filter_rent_properties', 'nolix_filter_rent_properties');
+add_action('wp_ajax_nopriv_filter_rent_properties', 'nolix_filter_rent_properties');
+
+// Helper function to extract numeric value from price string
+function nolix_extract_price_value($price_string) {
+    if (empty($price_string)) return 0;
+    // Remove all non-numeric characters except commas and periods
+    $cleaned = preg_replace('/[^\d,.]/', '', $price_string);
+    // Remove commas and convert to number
+    return floatval(str_replace(',', '', $cleaned));
+}
 
 // =========================================================================
 // Include Form Files
