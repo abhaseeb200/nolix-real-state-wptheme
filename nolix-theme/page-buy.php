@@ -9,8 +9,8 @@ get_header();
 get_template_part('template-parts/hero', null, [
     'title' => 'BUY YOUR DREAM PROPERTY<br><span class="text-theme">IN THE UAE</span>',
     'subtitle' => 'Explore curated villas, apartments, and penthouses tailored guidance for end-users and investors.',
-    'image' => 'https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2670&auto=format&fit=crop',
-    'buttons' => [] // No buttons needed here based on buy.html, but structure allows it
+    'image' => get_template_directory_uri() . '/assets/images/Hero-section.webp',
+    'buttons' => [] 
 ]);
 
 ?>
@@ -49,8 +49,8 @@ get_template_part('template-parts/hero', null, [
 </div>
 
     <div class="text-center mt-12">
-      <a href="<?php echo site_url('/rent'); ?>" class="inline-block bg-theme text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition font-medium uppercase shadow-lg hover:shadow-xl">
-        View All Properties
+      <a href="<?php echo site_url('/buy-property'); ?>" class="inline-block bg-theme text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition font-medium uppercase shadow-lg hover:shadow-xl">
+       Buy your Property
       </a>
     </div>
   </div>
@@ -80,7 +80,9 @@ get_template_part('template-parts/hero', null, [
           Golden Visa Support
         </h3>
         <p class="text-[#FFFFFF99] md:text-base text-sm leading-relaxed tracking-wider">
-          Assistance with application and eligibility for the UAE 10-year Golden Visa through property ownership, including family sponsorship and renewal guidance.
+          Assistance with application and eligibility for the UAE 10-year Golden Visa through property
+ownership + (includes family sponsorship and renewal guidance)* conditions apply depending on
+developer and project.
         </p>
       </div>
 
@@ -95,7 +97,8 @@ get_template_part('template-parts/hero', null, [
           Mortgage Advisory
         </h3>
         <p class="text-[#FFFFFF99] md:text-base text-sm leading-relaxed tracking-wider">
-          Expert mortgage consultation, connecting you with top UAE banks for the best rates and helping you understand payment plans and eligibility criteria.
+          Expert mortgage consultation, connecting you with top UAE banks for the best rates and helping you
+understand off-plan payment plans, eligibility criteria, and financing strategy.
         </p>
       </div>
 
@@ -110,7 +113,9 @@ get_template_part('template-parts/hero', null, [
           Legal & Compliance Guidance
         </h3>
         <p class="text-[#FFFFFF99] md:text-base text-sm leading-relaxed tracking-wider">
-          Full support with contract review, safe transfer of funds, and developer due diligence for off-plan and resale properties.
+        Full support with contract review, safe transfer of funds, and developer due diligence for off-plan and
+resale properties. Ensuring secure transactions and regulatory compliance.
+
         </p>
       </div>
 
@@ -125,34 +130,29 @@ get_template_part('template-parts/hero', null, [
           Ownership & Move-in Services
         </h3>
         <p class="text-[#FFFFFF99] md:text-base text-sm leading-relaxed tracking-wider">
-          Help with property registration, title deed transfer, DEWA & utility activation, and move-in coordination including snagging support.
+         Help with property registration, title deed transfer, DEWA & utility activation, and move-in
+coordination (including snagging and property handover support).
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Property Inquiry Form Section -->
-<section class="py-16 lg:py-24 bg-[#F5F6FA]">
-  <div class="container mx-auto px-6 lg:px-12">
-    <?php echo do_shortcode('[buy_property_form]'); ?>
-  </div>
-</section>
-
 <?php 
 // CTA Section
 get_template_part('template-parts/cta', null, [
-    'title' => 'Ready to Sell Your Property?',
-    'text' => 'Get a complimentary property valuation and discover how we can maximize your property\'s potential.',
-    'image' => 'https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/Testimonals.png',
+    'title' => 'Ready to Buy Your Property?',
+     'text'  => 'Buy Your Dream Property in the UAE Explore curated villas, apartments, and penthouse.',
+     'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
     'buttons' => [
         [
             'text' => 'Request a Private Consultation',
-           	'url'   => site_url('/consultancy'),
+           	'url'   => site_url('/buy-property'),
             'style' => 'gradient'
         ]
     ]
 ]);
 ?>
+
 
 <?php get_footer(); ?>

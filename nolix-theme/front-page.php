@@ -42,7 +42,7 @@
 
                 <!-- Buttons -->
                 <div class="flex flex-col md:items-start items-center sm:flex-row justify-center gap-5">
-                    <a href="<?php echo site_url('/consultancy'); ?>"
+                    <a href="<?php echo site_url('/buy-property/'); ?>"
                         class="bg-theme cursor-pointer rounded-full text-white px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-opacity-90 transition-all">
                         Request a Private Consultation
                     </a>
@@ -119,8 +119,7 @@
                     <h3 class="text-h3-custom font-helvetica font-medium text-gray-900 mb-4 leading-tight">End-to-end
                         management</h3>
                     <p class="text-[18px] text-[#767C8C] font-poppins leading-relaxed">
-                        We provide transparent guidance on pricing, yields and timing, backed by market data and
-                        on-ground expertise.
+                        One team remains dedicated to you from first conversation to handover and leasing.
                     </p>
                 </div>
             </div>
@@ -233,7 +232,7 @@
             </a>
 
             <!-- Slider Controls -->
-            <div class="flex items-center justify-center gap-4 max-w-2xl mx-auto">
+            <div class="flex items-center justify-center gap-4 max-w-2xl mx-auto mt-6">
                 <!-- Prev Button -->
                 <button id="journey-prev"
                     class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur flex items-center justify-center text-white transition-all group z-20">
@@ -280,7 +279,7 @@
                   <!-- Buy -->
                 <div class="group">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
-                        <img src="https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/pexels-a-darmel-7641859-scaled.jpg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/property-bg.webp"
                             alt="Buy"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute top-4 left-4 bg-white/90 p-3 rounded-full">
@@ -302,7 +301,7 @@
                 <!-- Sell -->
                 <div class="group">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
-                        <img src="https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/pexels-a-darmel-7642000-1-scaled.jpg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pexels-a-darmel-7642000.webp"
                             alt="Sell"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute top-4 left-4 bg-white/90 p-3 rounded-full">
@@ -324,7 +323,7 @@
                 <!-- Rent -->
                 <div class="group">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
-                        <img src="https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/pexels-asphotography-101808-scaled.jpg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/key-inside-door.webp"
                             alt="Rent"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute top-4 left-4 bg-white/90 p-3 rounded-full">
@@ -402,7 +401,7 @@
                 <?php endif; ?>
             </div>
             
-            <a href="<?php echo site_url('/about-us'); ?>"
+            <a href="<?php echo site_url('/team'); ?>"
                 class="mt-8 mx-auto block md:hidden bg-theme text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">View
                 All Properties</a>
         </div>

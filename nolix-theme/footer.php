@@ -38,10 +38,12 @@
                         <li><a href="<?php echo site_url('/buy'); ?>" class="hover:text-white transition-colors">Buy</a></li>
                         <li><a href="<?php echo site_url('/sell'); ?>" class="hover:text-white transition-colors">Sell</a></li>
                         <li><a href="<?php echo site_url('/rent'); ?>" class="hover:text-white transition-colors">Rent</a></li>
-                        <li><a href="<?php echo site_url('/our-services'); ?>" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="<?php echo site_url('/mortgage'); ?>" class="hover:text-white transition-colors">Mortgage</a></li>
-                        <li><a href="<?php echo site_url('/valuation'); ?>" class="hover:text-white transition-colors">Valuation</a></li>
-                        <li><a href="<?php echo site_url('/consultancy'); ?>" class="hover:text-white transition-colors">Consultancy</a></li>
+                        <li><a href="<?php echo site_url('/off-plan'); ?>" class="hover:text-white transition-colors">Off-Plan</a></li>
+                        <li><a href="<?php echo site_url('/services'); ?>" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="<?php echo site_url('/services/mortgage'); ?>" class="hover:text-white transition-colors">Mortgage Services</a></li>
+                        <li><a href="<?php echo site_url('/services/valuation'); ?>" class="hover:text-white transition-colors">Valuation</a></li>
+                        <li><a href="<?php echo site_url('/services/consultancy'); ?>" class="hover:text-white transition-colors">Consultancy</a></li>
+                        <li><a href="<?php echo site_url('/property-management'); ?>" class="hover:text-white transition-colors">Property Management</a></li>
                     </ul>
                 </div>
 
@@ -49,9 +51,9 @@
                 <div class="max-w-full">
                     <h4 class="text-xl font-helvetica font-bold mb-6">Company Links</h4>
                     <ul class="space-y-3 text-white font-poppins">
-                        <li><a href="<?php echo site_url('/about-us'); ?>" class="hover:text-white transition-colors">About</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Insights</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact US</a></li>
+                        <li><a href="<?php echo site_url('/team'); ?>" class="hover:text-white transition-colors">About us / Meet the Team</a></li>
+                        <li><a href="<?php echo site_url('/insights'); ?>" class="hover:text-white transition-colors">Blog & Guides</a></li>
+                        <li><a href="<?php echo site_url('/contact'); ?>" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
 

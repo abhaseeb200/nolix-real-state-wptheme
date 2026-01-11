@@ -23,6 +23,44 @@ get_template_part('template-parts/hero', null, [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+		<div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/notification-text2.webp" alt="Tenant Management Icon" class="w-8 h-8" />
+          </div>
+          <h3 class="font-poppins font-semibold text-xl text-dark">
+            Tenant Management
+          </h3>
+        </div>
+
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-base font-light"> Sourcing and screening tenants</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-base font-light"> Contract drafting and renewals</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-base font-light"> Rent collection and timely follow-ups</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-base font-light"> Handling notices and legal compliance</span>
+          </li>
+        </ul>
+      </div>
+		
       <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
@@ -95,44 +133,6 @@ get_template_part('template-parts/hero', null, [
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
             <span class="text-[#767C8C] md:text-lg text-base font-light">Market-based rent reviews</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
-        <div class="flex items-center gap-4 mb-8">
-          <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/notification-text2.webp" alt="Tenant Management Icon" class="w-8 h-8" />
-          </div>
-          <h3 class="font-poppins font-semibold text-xl text-dark">
-            Tenant Management
-          </h3>
-        </div>
-
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3">
-            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
-            </div>
-            <span class="text-[#767C8C] md:text-lg text-base font-light">Sourcing and screening tenants</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
-            </div>
-            <span class="text-[#767C8C] md:text-lg text-base font-light">Contract drafting and renewals</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
-            </div>
-            <span class="text-[#767C8C] md:text-lg text-base font-light">Rent collection and timely follow ups</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
-            </div>
-            <span class="text-[#767C8C] md:text-lg text-base font-light">Handling notices and legal compliance</span>
           </li>
         </ul>
       </div>
@@ -247,7 +247,7 @@ get_template_part('template-parts/cta', null, [
     'buttons' => [
         [
             'text' => 'Discuss Your Portfolio',
-            'url' => site_url('/consultancy'),
+            'url' => site_url('/services/consultancy'),
             'style' => 'gradient'
         ]
     ]

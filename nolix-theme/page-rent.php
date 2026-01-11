@@ -9,16 +9,16 @@ get_header();
 get_template_part('template-parts/hero', null, [
     'title' => 'FIND YOUR PERFECT<br><span class="text-theme">RENTAL IN THE UAE</span>',
     'subtitle' => 'From short-term stays to long-term homes, we have the perfect option for you to call home.',
-    'image' => 'https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=2670&auto=format&fit=crop',
+     'image' => get_template_directory_uri() . '/assets/images/key-inside-door.webp',
     'buttons' => [
         [
             'text' => 'I Want to Rent',
-            'url' => '#',
+            'url'   => site_url('/find-rent-dubai'),
             'style' => 'solid'
         ],
         [
             'text' => 'I Want to List for Rent',
-            'url' => '#',
+            'url'   => site_url('/lease-out-my-property'),
             'style' => 'secondary' 
         ]
     ]
@@ -277,10 +277,10 @@ get_template_part('template-parts/hero', null, [
 
 <?php 
 get_template_part('template-parts/cta', null, [
-    'title' => 'Ready to Sell Your Property?',
-    'text' => 'Get a complimentary property valuation and discover how we can maximize your property\'s potential.',
-    'image' => 'https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/Testimonals.png',
-    'buttons' => [['text' => 'Request a Private Consultation', 'url'   => site_url('/consultancy'), 'style' => 'gradient']]
+    'title' => 'Find Rent in Dubai',
+    'text' => 'Discover your perfect rental property with expert guidance.',
+   'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
+    'buttons' => [['text' => 'Request a Private Consultation', 'url'   => site_url('/find-rent-dubai'), 'style' => 'gradient']]
 ]);
 get_footer(); 
 ?>

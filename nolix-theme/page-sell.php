@@ -9,7 +9,7 @@ get_header();
 get_template_part('template-parts/hero', null, [
     'title' => 'Sell Your Property<br><span class="text-theme">With Confidence</span>',
     'subtitle' => 'Expert advisory, premium positioning, and access to qualified buyers',
-    'image' =>  home_url('/wp-content/uploads/2025/12/Hero-section.png'),
+     'image' => get_template_directory_uri() . '/assets/images/house-property.webp',
     'buttons' => []
 ]);
 ?>
@@ -31,7 +31,9 @@ get_template_part('template-parts/hero', null, [
           </svg>
         </div>
         <h3 class="font-poppins text-xl font-bold mb-3 text-dark">Premium Marketing</h3>
-        <p class="text-[#767C8C] md:text-[20px] text-sm leading-relaxed">Professional photography, listing on top portals, and targeted digital campaigns to showcase your property.</p>
+        <p class="text-[#767C8C] md:text-[20px] text-sm leading-relaxed">Professional photography, 3D virtual tours, and targeted digital campaigns across major property portals. Your listing reaches thousands of qualified buyers through our multi-channel marketing
+approach.
+</p>
       </div>
 
       <!-- Card 2 -->
@@ -42,7 +44,8 @@ get_template_part('template-parts/hero', null, [
           </svg>
         </div>
         <h3 class="font-poppins text-xl font-bold mb-3 text-dark">Qualified Buyers</h3>
-        <p class="text-[#767C8C] md:text-[20px] text-sm leading-relaxed">Access to our extensive database of verified investors and end-users actively looking for properties.</p>
+        <p class="text-[#767C8C] md:text-[20px] text-sm leading-relaxed">Access to our curated database of verified, serious buyers actively searching for properties like yours. Pre-qualified clients mean faster sales and fewer time-wasters.
+</p>
       </div>
 
       <!-- Card 3 -->
@@ -53,7 +56,8 @@ get_template_part('template-parts/hero', null, [
           </svg>
         </div>
         <h3 class="font-poppins text-xl font-bold mb-3 text-dark">Expert Negotiation</h3>
-        <p class="text-[#767C8C] md:text-[20px] text-sm leading-relaxed">Our experienced agents handle all specific negotiations to ensure you get the best possible market price.</p>
+        <p class="text-[#767C8C] md:text-[20px] text-sm leading-relaxed">Data-led pricing strategy combined with skilled negotiation to maximize your property value. Our team secures the best possible terms while ensuring a smooth transaction.
+</p>
       </div>
     </div>
   </div>
@@ -93,7 +97,7 @@ get_template_part('template-parts/hero', null, [
           <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">02</h3>
             <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Marketing Plan</h4>
-            <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Tailored strategy for your property including professional media production, listing optimization, and targeted promotion.</p>
+            <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Tailored strategy for your property including professional media production, listing optimization, and targeted promotion to reach the right buyers.</p>
           </div>
         </div>
       </div>
@@ -318,16 +322,16 @@ get_template_part('template-parts/hero', null, [
 get_template_part('template-parts/cta', null, [
     'title' => 'Ready to Sell Your Property?',
     'text' => 'Get a complimentary property valuation and discover how we can maximize your property\'s potential.',
-    'image' => 'https://lightyellow-hippopotamus-770612.hostingersite.com/wp-content/uploads/2025/12/Testimonals.png',
+     'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
     'buttons' => [
         [
             'text' => 'Get Free Valuation',
-            'url' => '#',
+ 			'url' => site_url('/sell-your-property-in-the-uae/'),
             'style' => 'gradient'
         ],
         [
             'text' => 'Schedule a Call',
-            'url' => '#',
+            'url' => site_url('/sell-your-property-in-the-uae/'),
             'style' => 'white'
         ]
     ]

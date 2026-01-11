@@ -236,13 +236,13 @@ get_template_part('template-parts/hero', null, [
 <?php 
 // CTA Section
 get_template_part('template-parts/cta', null, [
-    'title' => 'Start Your Mortgage Journey ',
+    'title' => 'Start your mortgage journey with clarity and confidence.',
 	'image' => get_template_directory_uri() . '/assets/images/flyover with glowing light.webp', 
-    'text' => 'A senior advisor will contact you personally. You will get   clear and confident guidance.',
+    'text' => 'A senior advisor will contact you personally.',
     'buttons' => [
         [
             'text' => 'Learn More',
-            'url' => site_url('/consultancy'),
+            'url' => site_url('/buy-property/'),
             'style' => 'gradient'
         ]
     ]

@@ -16,12 +16,12 @@ $defaults = [
     'buttons' => [
         [
             'text' => 'Get Free Valuation',
-            'url' => site_url('/consultancy'),
+            'url' => site_url('/services/consultancy'),
             'style' => 'gradient'
         ],
         [
             'text' => 'Schedule a Call',
-            'url' => site_url('/consultancy'),
+            'url' => site_url('/services/consultancy'),
             'style' => 'white'
         ]
     ]
@@ -40,7 +40,7 @@ $args = wp_parse_args( $args, $defaults );
     </div>
 
     <div class="container relative z-10 text-center text-white">
-        <h2 class="font-playfair tracking-wider text-h2-custom font-bold mb-6">
+        <h2 class="font-playfair tracking-wider text-h2-custom font-bold mb-6 max-w-4xl mx-auto">
             <?php echo wp_kses_post( $args['title'] ); ?>
         </h2>
         <p class="text-[#C8CCD9] md:text-[16px] text-sm mx-auto mb-10 max-w-[850px]">

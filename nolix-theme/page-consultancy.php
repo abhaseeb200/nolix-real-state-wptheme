@@ -42,7 +42,7 @@ get_template_part('template-parts/hero', null, [
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Users Icon" class="w-7 h-7" />
           </div>
           <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
-            Mortgage Buyer Advisory <span class="font-poppins"> & </span> Selection
+            Buyer Advisory
           </h2>
         </div>
         <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
@@ -96,7 +96,7 @@ get_template_part('template-parts/hero', null, [
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shield-tick.webp" alt="Sellers Icon" class="w-7 h-7" />
           </div>
           <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
-            Strategic Sales  <span class="font-poppins"> & </span> Marketing
+            Seller Advisory
           </h2>
         </div>
         <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
@@ -104,25 +104,31 @@ get_template_part('template-parts/hero', null, [
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">Accurate market valuation</span>
+            <span class="text-[#767C8C] md:text-lg text-sm"> Best timing to enter the market</span>
           </li>
           <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">Professional staging and photography</span>
+            <span class="text-[#767C8C] md:text-lg text-sm">Pricing strategy based on real demand</span>
           </li>
            <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">Targeted marketing campaigns</span>
+            <span class="text-[#767C8C] md:text-lg text-sm">Presentation and positioning recommendations</span>
           </li>
            <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">Viewing management and feedback</span>
+            <span class="text-[#767C8C] md:text-lg text-sm">Negotiation and offer handling</span>
+          </li>
+		 <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm"> Review of competing inventory</span>
           </li>
         </ul>
       </div>
@@ -144,7 +150,7 @@ get_template_part('template-parts/hero', null, [
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Users Icon" class="w-7 h-7" />
           </div>
           <h2 class="font-playfair text-[24px] md:text-[28px] font-medium text-dark">
-            Portfolio Growth <span class="font-poppins"> & </span> ROI
+            Investor Advisory
           </h2>
         </div>
         <ul class="space-y-2 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
@@ -152,25 +158,31 @@ get_template_part('template-parts/hero', null, [
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">Market trend analysis</span>
+            <span class="text-[#767C8C] md:text-lg text-sm">Portfolio structuring</span>
           </li>
           <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">High-yield opportunity identification</span>
+            <span class="text-[#767C8C] md:text-lg text-sm">Exit planning</span>
           </li>
            <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">Risk assessment and mitigation</span>
+            <span class="text-[#767C8C] md:text-lg text-sm"> Risk analysis</span>
           </li>
            <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
             <div class="bg-theme rounded-full flex justify-center w-6 h-6">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
             </div>
-            <span class="text-[#767C8C] md:text-lg text-sm">Exit strategy planning</span>
+            <span class="text-[#767C8C] md:text-lg text-sm">Market entry strategies</span>
+          </li>
+		  <li class="flex items-start px-2 py-2 border border-[#EBEDF0] rounded-[16px] gap-3">
+            <div class="bg-theme rounded-full flex justify-center w-6 h-6">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-circle.webp" alt="Check Icon" class="w-4 h-4 mt-1 flex-shrink-0" />
+            </div>
+            <span class="text-[#767C8C] md:text-lg text-sm">Payment plan evaluations for off-plan</span>
           </li>
         </ul>
       </div>
@@ -244,6 +256,8 @@ get_template_part('template-parts/hero', null, [
             depth over breadth. Each client receives personalized attention
             and strategic advice tailored to their unique situation.
           </p>
+			
+		<a href='<?php site_url('/buy-property') ?>' class="max-w-max block bg-theme text-base text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">Book a Consultation</a>
         </div>
       </div>
 
@@ -258,14 +272,9 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 
-<?php 
-// CTA Section
+
+
 
 <?php 
-// CTA Section Replaced with PixxiCRM Form
-echo do_shortcode('[pixxicrm_form]');
+	get_footer(); 
 ?>
-
-
-
-<?php get_footer(); ?>

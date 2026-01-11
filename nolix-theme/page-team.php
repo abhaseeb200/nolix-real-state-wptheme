@@ -1,15 +1,15 @@
 <?php
 /**
- * Template Name: About Us Page
+ * Template Name: Team Page (About us / Meet the Team)
  */
 
 get_header();
 
 // Hero Section
 get_template_part('template-parts/hero', null, [
-    'title' => 'ABOUT <span class="text-theme">US</span>',
-    'subtitle' => 'Nolix is a premier real estate agency in Dubai, dedicated to providing exceptional service.',
-    'image' => get_template_directory_uri() . '/assets/images/about-hero-bg.webp',
+    'title' => 'ABOUT US / <span class="text-theme">MEET THE TEAM</span>',
+    'subtitle' => 'Nolix is a premier real estate agency in Dubai, dedicated to providing exceptional service. Meet our experienced team of professionals.',
+    'image' => 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2670', // Placeholder or generic
     'buttons' => [] 
 ]);
 ?>
@@ -198,3 +198,4 @@ get_template_part('template-parts/cta', null, [
 ?>
 
 <?php get_footer(); ?>
+

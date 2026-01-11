@@ -1,7 +1,4 @@
 <?php
-/**
- * Template for displaying single blog posts (default WordPress posts)
- */
 
 get_header();
 ?>
