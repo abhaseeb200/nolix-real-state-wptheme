@@ -214,10 +214,10 @@ get_template_part('template-parts/hero', null, [
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           <!-- Step 1 -->
           <div
-            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+            class="bg-white p-6 border border-[#C8CCD9] flex flex-col items-center text-center rounded-xl shadow-sm hover:shadow-md transition"
           >
             <div
               class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
@@ -233,7 +233,7 @@ get_template_part('template-parts/hero', null, [
           </div>
           <!-- Step 2 -->
           <div
-            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+            class="flex flex-col items-center text-center bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
           >
             <div
               class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
@@ -249,7 +249,7 @@ get_template_part('template-parts/hero', null, [
           </div>
           <!-- Step 3 -->
           <div
-            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+            class="flex flex-col items-center text-center bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
           >
             <div
               class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
@@ -263,11 +263,11 @@ get_template_part('template-parts/hero', null, [
               Quick and easy rental application process
             </p>
           </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:w-2/3 mx-auto">
+<!--         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:w-2/3 mx-auto"> -->
           <!-- Step 4 -->
           <div
-            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+            class="flex flex-col items-center text-center bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
           >
             <div
               class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
@@ -283,7 +283,7 @@ get_template_part('template-parts/hero', null, [
           </div>
           <!-- Step 5 -->
           <div
-            class="text-left bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
+            class="flex flex-col items-center text-center bg-white p-6 border border-[#C8CCD9] rounded-xl shadow-sm hover:shadow-md transition"
           >
             <div
               class="w-10 h-10 rounded-full bg-theme text-white text-sm font-bold flex items-center justify-center mb-4"
@@ -309,7 +309,7 @@ get_template_part('template-parts/hero', null, [
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       <div class="block p-5 bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
         <div class="w-12 h-12 mb-6 bg-theme rounded-full flex items-center justify-center text-white">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/notification-text.webp" class="w-7 h-7" alt="">

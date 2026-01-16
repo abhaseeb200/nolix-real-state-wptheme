@@ -7,7 +7,7 @@ get_header();
 
 // Hero Section
 get_template_part('template-parts/hero', null, [
-    'title' => 'Precise valuations for <br> <span class="text-theme">confident decisions</span>',
+    'title' => 'Accurate, data<span class="font-poppins">-</span>driven valuations supported by <span class="text-theme">on<span class="font-poppins">-</span>ground experience and transparent methodology</span>',
     'subtitle' => 'Our valuations combine transaction data, community trends, property condition, and buyer demand. We give you a clear, realistic understanding of your assets current market value.',
 	'image' => get_template_directory_uri() . '/assets/images/contract.webp',
     'buttons' => []

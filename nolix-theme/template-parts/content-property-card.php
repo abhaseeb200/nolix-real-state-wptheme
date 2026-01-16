@@ -30,7 +30,7 @@ if(!$thumb_url) $thumb_url = 'https://images.unsplash.com/photo-1512917774080-99
         <?php endif; ?>
     </div>
     
-    <div class="p-6">
+    <div class="p-6 flex flex-col items-center">
         <h3 class="font-poppins text-lg font-bold mb-2 truncate uppercase text-dark">
             <?php the_title(); ?>
         </h3>
@@ -45,7 +45,7 @@ if(!$thumb_url) $thumb_url = 'https://images.unsplash.com/photo-1512917774080-99
         </div>
         <?php endif; ?>
 
-        <div class="flex justify-between items-center text-sm text-gray-600 mb-6 font-medium">
+        <div class="flex justify-between w-full items-center text-sm text-gray-600 mb-6 font-medium">
             <?php if($beds): ?>
             <div class="flex items-center gap-2">
                 <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,7 +75,7 @@ if(!$thumb_url) $thumb_url = 'https://images.unsplash.com/photo-1512917774080-99
         </div>
 
         <a href="<?php the_permalink(); ?>" class="flex items-center justify-center w-[50%] bg-theme text-white py-3 rounded-md hover:bg-opacity-90 transition duration-300 font-medium text-sm">
-            View Details <span class="ml-2">→</span>
+            View Details
         </a>
     </div>
 </div>

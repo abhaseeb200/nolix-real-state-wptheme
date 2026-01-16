@@ -101,6 +101,12 @@
             <!-- Sidebar Navigation -->
             <nav class="flex-1 overflow-y-auto px-4 py-12">
                 <div class="space-y-2">
+					<!-- Home -->
+                    <div class="border-b border-gray-100 pb-2">
+                        <a href="<?php echo site_url('/'); ?>" class="block px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
+                            <span class="text-sm uppercase tracking-wide">Home</span>
+                        </a>
+                    </div>
                     <!-- Buy -->
                     <div class="border-b border-gray-100 pb-2">
                         <a href="<?php echo site_url('/buy'); ?>" class="block px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
@@ -155,7 +161,7 @@
                     <!-- Insights Menu Item with Dropdown -->
                     <div class="border-b border-gray-100 pb-2">
                         <button id="mobileInsightsToggle" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
-                            <span class="text-sm uppercase tracking-wide">Insights</span>
+                            <span class="text-sm uppercase tracking-wide">Nolix Academy</span>
                             <svg id="mobileInsightsIcon" class="w-4 h-4 text-black transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
@@ -166,18 +172,18 @@
                     </div>
                     
                     <!-- Contact -->
-                    <div class="border-b border-gray-100 pb-2">
+<!--                     <div class="border-b border-gray-100 pb-2">
                         <a href="<?php echo site_url('/contact'); ?>" class="block px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
                             <span class="text-sm uppercase tracking-wide">Contact</span>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </nav>
             
             <!-- Sidebar Footer -->
             <div class="p-6 border-t border-gray-200 bg-lightgray">
-                <a href="<?php echo site_url('/services/consultancy'); ?>" class="block w-full text-center rounded-full bg-theme text-white px-6 py-4 text-sm font-semibold hover:bg-opacity-90 transition-all shadow-lg">
-                    Book Consultation
+                <a href="<?php echo site_url('/contact'); ?>" class="block w-full text-center rounded-full bg-theme text-white px-6 py-4 text-sm font-semibold hover:bg-opacity-90 transition-all shadow-lg">
+                    Contact Us
 				</a>
             </div>
         </div>
@@ -194,6 +200,7 @@
 
         <!-- Menu Items - Right Side (Desktop) -->
         <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#181818] uppercase tracking-wide">
+			<a href="<?php echo site_url('/'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Home</a>
             <a href="<?php echo site_url('/buy'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Buy</a>
             <a href="<?php echo site_url('/sell'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Sell</a>
             <a href="<?php echo site_url('/rent'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Rent</a>
@@ -220,7 +227,7 @@
             <!-- Insights Dropdown -->
             <div class="relative group">
                 <a href="<?php echo site_url('/insights'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors cursor-pointer whitespace-nowrap">
-                    Insights
+                    Nolix Academy
                     <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
@@ -230,10 +237,10 @@
                 </div>
             </div>
             
-            <a href="<?php echo site_url('/contact'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Contact</a>
+<!--             <a href="<?php echo site_url('/contact'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Contact</a> -->
             
-            <a href="<?php echo site_url('/services/consultancy'); ?>" class="rounded-full bg-theme text-white px-6 py-3 text-sm font-medium hover:bg-opacity-90 transition-all font-poppins whitespace-nowrap ml-2">
-                Book Consultation
+            <a href="<?php echo site_url('/contact'); ?>" class="rounded-full bg-theme text-white px-6 py-3 text-sm font-medium hover:bg-opacity-90 transition-all font-poppins whitespace-nowrap ml-2">
+                Contact Us
             </a>
         </nav>
 

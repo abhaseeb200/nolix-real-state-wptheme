@@ -45,14 +45,14 @@ get_template_part('template-parts/hero', null, [
           </div>
         </div>
 
-        <div
+<!--         <div
           class="absolute md:-bottom-12 -bottom-3 md:left-3 left-8 bg-navy text-white p-4 rounded-xl shadow-xl z-20 max-w-[420px]">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/apostrophe.webp" class="w-[20px] h-[20px] mb-2" alt="" />
           <p class="font-poppins text-base md:text-xl">
             Quality over quantity, always.
           </p>
-        </div>
-      </div>
+        </div> -->
+      </div>
     </div>
   </div>
 </section>

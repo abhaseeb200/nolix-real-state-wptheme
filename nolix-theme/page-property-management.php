@@ -238,7 +238,7 @@ get_template_part('template-parts/hero', null, [
 </section>
 
 <?php
-get_template_part('template-parts/section-team');
+// get_template_part('template-parts/section-team');
 
 get_template_part('template-parts/cta', null, [
     'title' => 'Discuss Your Portfolio',

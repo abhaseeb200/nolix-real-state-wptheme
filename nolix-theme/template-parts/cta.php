@@ -63,14 +63,14 @@ $args = wp_parse_args( $args, $defaults );
 						echo esc_html( $button['text'] ); 
 
 						// Determine logic and classes
-						if ( isset($button['style']) && $button['style'] === 'white' ) {
-							$icon_url = get_template_directory_uri() . '/assets/images/arrow icon black.svg';
-						} else {
+// 						if ( isset($button['style']) && $button['style'] === 'white' ) {
+// 							$icon_url = get_template_directory_uri() . '/assets/images/arrow icon black.svg';
+// 						} else {
 							// Note: $btn_class change here won't affect the <a> tag above because it's already echoed.
-							$icon_url = get_template_directory_uri() . '/assets/images/arrow icon white.svg';
-						}
-						?>
-						<img src="<?php echo esc_url( $icon_url ); ?>" alt="icon">
+// 							$icon_url = get_template_directory_uri() . '/assets/images/arrow icon white.svg';
+// 						}
+// 						?>
+<!-- 			<img src="<?php echo esc_url( $icon_url ); ?>" alt="icon"> -->
 					</a>
                 <?php endforeach; ?>
             </div>

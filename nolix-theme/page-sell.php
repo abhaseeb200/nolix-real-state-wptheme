@@ -65,32 +65,70 @@ approach.
 
 <!-- The Selling Process -->
 <section class="py-20 bg-navy text-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center sm:mb-16 mb-8">
+	  <div class="container mx-auto px-6 lg:px-12">
+          <div class="text-center sm:mb-16 mb-8">
       <h2 class="font-playfair text-h2-custom font-bold mb-4"><span class="text-white">THE </span><span class="text-theme">SELLING PROCESS</span></h2>
       <p class="text-[#F0F1F5] text-p-custom max-w-2xl mx-auto">A streamlined journey from listing to successful sale</p>
     </div>
 
-    <!-- Timeline Steps -->
-    <div class="relative max-w-5xl mx-auto sm:px-4 px-0">
-      <!-- Vertical Line (Tablet/Desktop) -->
-      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-3 bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)]"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Step 1 -->
+            <div class="">
+          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] h-full p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <h3 class="font-poppins text-3xl font-bold mb-4 text-white">01</h3>
+            <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Property Valuation</h4>
+            <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Free assessment by certified experts analyzing comparable sales, market trends, and unique property features to determine optimal pricing.</p>
+          </div>
+        </div>
+          <!-- Step 2 -->
+          <div class="">
+          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <h3 class="font-poppins text-3xl font-bold mb-4 text-white">02</h3>
+            <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Marketing Plan</h4>
+            <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Tailored strategy for your property including professional media production, listing optimization, and targeted promotion to reach the right buyers.</p>
+          </div>
+        </div>
+          <!-- Step 3 -->
+       <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <h3 class="font-poppins text-3xl font-bold mb-4 text-white">03</h3>
+            <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Viewings</h4>
+            <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Coordinated showings with pre-qualified buyers at times convenient for you. We handle all scheduling, screening, and follow-ups.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:w-2/3 mx-auto">
+          <!-- Step 4 -->
+          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <h3 class="font-poppins text-3xl font-bold mb-4 text-white">04</h3>
+            <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Negotiation</h4>
+            <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Expert handling of offers, counteroffers, and terms. We ensure you receive the best possible price while maintaining deal momentum.</p>
+          </div>
+          <!-- Step 5 -->
+         <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <h3 class="font-poppins text-3xl font-bold mb-4 text-white">05</h3>
+            <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Completion</h4>
+            <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Smooth handover with comprehensive legal support. We coordinate all documentation, payment transfers, and final property handover.</p>
+          </div>
+        </div>
+      </div>
+<!--     <div class="text-center sm:mb-16 mb-8">
+      <h2 class="font-playfair text-h2-custom font-bold mb-4"><span class="text-white">THE </span><span class="text-theme">SELLING PROCESS</span></h2>
+      <p class="text-[#F0F1F5] text-p-custom max-w-2xl mx-auto">A streamlined journey from listing to successful sale</p>
+    </div> -->
 
+    <!-- Timeline Steps -->
+<!--     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Step 1 -->
-      <div class="relative md:flex items-center sm:mb-16 mb-8">
-        <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0">
+<!--         <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0">
           <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">01</h3>
             <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Property Valuation</h4>
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Free assessment by certified experts analyzing comparable sales, market trends, and unique property features to determine optimal pricing.</p>
           </div>
         </div>
-        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full hidden md:block border border-theme bg-theme shadow-[0_0_10px_rgba(193,154,92,0.5)]"></div>
-        <div class="md:w-1/2 md:pl-16"></div>
-      </div>
+      </div> -->
 
       <!-- Step 2 -->
-      <div class="relative md:flex items-center sm:mb-16 mb-8">
+<!--       <div class="relative md:flex items-center sm:mb-16 mb-8">
         <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0"></div>
         <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full hidden md:block border border-theme bg-theme shadow-[0_0_10px_rgba(193,154,92,0.5)]"></div>
         <div class="md:w-1/2 md:pl-16">
@@ -100,11 +138,11 @@ approach.
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Tailored strategy for your property including professional media production, listing optimization, and targeted promotion to reach the right buyers.</p>
           </div>
         </div>
-      </div>
+      </div> -->
       
       <!-- Step 3, 4, 5 omitted for brevity but following same pattern -->
        <!-- Step 3 -->
-      <div class="relative md:flex items-center sm:mb-16 mb-8">
+<!--       <div class="relative md:flex items-center sm:mb-16 mb-8">
         <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0">
           <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">03</h3>
@@ -115,9 +153,10 @@ approach.
         <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full hidden md:block border border-theme bg-theme shadow-[0_0_10px_rgba(193,154,92,0.5)]"></div>
         <div class="md:w-1/2 md:pl-16"></div>
       </div>
+	</div> -->
 
        <!-- Step 4 -->
-      <div class="relative md:flex items-center sm:mb-16 mb-8">
+<!--       <div class="relative md:flex items-center sm:mb-16 mb-8">
         <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0"></div>
         <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full hidden md:block border border-theme bg-theme shadow-[0_0_10px_rgba(193,154,92,0.5)]"></div>
         <div class="md:w-1/2 md:pl-16">
@@ -127,10 +166,10 @@ approach.
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Expert handling of offers, counteroffers, and terms. We ensure you receive the best possible price while maintaining deal momentum.</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
        <!-- Step 5 -->
-      <div class="relative md:flex items-center sm:mb-16 mb-8">
+<!--       <div class="relative md:flex items-center sm:mb-16 mb-8">
         <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0">
           <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">05</h3>
@@ -140,10 +179,7 @@ approach.
         </div>
         <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full hidden md:block border border-theme bg-theme shadow-[0_0_10px_rgba(193,154,92,0.5)]"></div>
         <div class="md:w-1/2 md:pl-16"></div>
-      </div>
-
-    </div>
-  </div>
+      </div> -->
 </section>
 
 <!-- Recently Sold -->
@@ -151,7 +187,7 @@ approach.
   <div class="container mx-auto px-6">
     <div class="text-center sm:mb-16 mb-8">
       <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">RECENTLY SOLD</h2>
-      <p class="text-[#474C59] md:text-[18px] text-sm tracking-wide font-poppins">A track record of successful transactions</p>
+<!--       <p class="text-[#474C59] md:text-[18px] text-sm tracking-wide font-poppins">A track record of successful transactions</p> -->
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

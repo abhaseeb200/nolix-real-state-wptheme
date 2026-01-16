@@ -34,7 +34,7 @@ $args = wp_parse_args( $args, $defaults );
         </h1>
         
         <?php if ( $args['subtitle'] ) : ?>
-            <p class="text-p-custom max-w-2xl mx-auto mb-8 uppercase tracking-wider text-sm md:text-base font-medium opacity-90">
+            <p class="text-p-custom max-w-2xl mx-auto mb-8 tracking-wider text-sm md:text-base font-medium opacity-90">
                 <?php echo wp_kses_post( $args['subtitle'] ); ?>
             </p>
         <?php endif; ?>

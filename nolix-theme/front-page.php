@@ -63,7 +63,7 @@
             <!-- Heading -->
             <div class="text-center mb-16">
                 <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-4 uppercase tracking-wide">
-                    Why <span class="text-theme">Nolix</span>
+                    Why <span class="text-theme">Nolix?</span>
                 </h2>
                 <p class="md:text-lg text-[14px] font-poppins max-w-2xl mx-auto leading-relaxed text-[#00291B]">
                     NOLIX curates a private portfolio of prime and luxury homes across the UAE
@@ -73,7 +73,7 @@
             <!-- Grid -->
             <div class="grid md:grid-cols-3 gap-12">
                 <!-- Item 1 -->
-                <div class="flex flex-col md:items-start items-center md:text-left text-center">
+                <div class="flex flex-col md:justify-center items-center text-center">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@
                 </div>
 
                 <!-- Item 2 -->
-                <div class="flex flex-col md:items-start items-center md:text-left text-center">
+                <div class="flex flex-col items-center text-center">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@
                 </div>
 
                 <!-- Item 3 -->
-                <div class="flex flex-col md:items-start items-center md:text-left text-center">
+                <div class="flex flex-col items-center text-center">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,7 +133,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center items-center">
 
                 <!-- Stat 1 -->
-                <div class="flex flex-row items-center justify-center gap-6">
+                <div class="flex flex-col items-center justify-center gap-6">
                     <span
                         class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">8k<sup
                             class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
@@ -143,7 +143,7 @@
                 </div>
 
                 <!-- Stat 2 -->
-                <div class="flex flex-row items-center justify-center gap-6">
+                <div class="flex flex-col items-center justify-center gap-6">
                     <span
                         class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">14k<sup
                             class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
@@ -152,7 +152,7 @@
                 </div>
 
                 <!-- Stat 3 -->
-                <div class="flex flex-row items-center justify-center gap-6">
+                <div class="flex flex-col items-center justify-center gap-6">
                     <span
                         class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">16k<sup
                             class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
@@ -355,8 +355,8 @@
                 <div>
                     <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase">Latest Properites
                     </h2>
-                    <p class="text-[#00291B] text-[14px] md:text-lg font-poppins">Experience our communities and amenities from the comfort of
-                        your home.</p>
+<!--                     <p class="text-[#00291B] text-[14px] md:text-lg font-poppins">Experience our communities and amenities from the comfort of
+                        your home.</p> -->
                 </div>
                 <a href="<?php echo site_url('/rent'); ?>"
                     class="hidden md:block bg-theme text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">View
