@@ -14,9 +14,9 @@ get_template_part('template-parts/hero', null, [
 ]);
 ?>
 <!-- Why Accurate Valuation Matters -->
-<section class="py-20 bg-[#F5F6FA] font-poppins text-black">
+<section class="py-20 bg-[#F5F6FA] font-poppins text-black" data-aos="fade-up">
   <div class="container">
-    <div class="text-center mb-8 md:mb-16">
+    <div class="text-center mb-8 md:mb-16" data-aos="fade-up">
       <h2 class="font-playfair uppercase text-h2-custom font-bold mb-5">
         <span class="text-black">Why Accurate </span><span class="text-theme">Valuation Matters</span>
       </h2>
@@ -26,7 +26,7 @@ get_template_part('template-parts/hero', null, [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-      <div class="text-center flex flex-col items-center">
+      <div class="text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
         <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mb-6 text-black">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-03.webp" class="w-8 h-8" alt="Positioning Icon" />
         </div>
@@ -36,7 +36,7 @@ get_template_part('template-parts/hero', null, [
         </h3>
       </div>
 
-      <div class="text-center flex flex-col items-center">
+      <div class="text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
         <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mb-6 text-black">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/line-chart-up.webp" class="w-8 h-8" alt="Negotiation Leverage Icon" />
         </div>
@@ -46,7 +46,7 @@ get_template_part('template-parts/hero', null, [
         </h3>
       </div>
 
-      <div class="text-center flex flex-col items-center">
+      <div class="text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
         <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mb-6 text-black">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/clock.webp" class="w-8 h-8" alt="Timeline Icon" />
         </div>
@@ -56,7 +56,7 @@ get_template_part('template-parts/hero', null, [
         </h3>
       </div>
 
-      <div class="text-center flex flex-col items-center">
+      <div class="text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
         <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mb-6 text-white">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
@@ -68,7 +68,7 @@ get_template_part('template-parts/hero', null, [
         </h3>
       </div>
 
-      <div class="text-center flex flex-col items-center md:col-span-2 lg:col-span-1">
+      <div class="text-center flex flex-col items-center md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="500">
         <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mb-6 text-black">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shield-02.webp" class="w-8 h-8" alt="Protection Icon" />
         </div>
@@ -80,10 +80,10 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 <!-- Methodology -->
-<section class="py-20 lg:py-20 font-poppins bg-white">
+<section class="py-20 lg:py-20 font-poppins bg-white" data-aos="fade-up">
   <div class="container px-4">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-      <div class="w-full lg:w-1/2 text-left">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-right">
         <span class="block text-theme font-bold tracking-wide mb-6 font-playfair text-lg">
           Methodology
         </span>
@@ -127,13 +127,13 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="w-full lg:w-1/2 relative">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
         <div class="relative md:ml-0 ml-5">
           <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/our-approach.webp" alt="Our Valuation Approach" class="h-[240px] md:h-[443px] rounded-lg w-full shadow-2xl md:w-[553px] object-cover" />
           </div>
         </div>
-        <div class="absolute md:-bottom-5 px-5 -bottom-3 md:left-0 left-8 bg-navy text-white py-4 rounded-xl shadow-xl z-20 max-w-[420px]">
+        <div class="absolute md:-bottom-5 px-5 -bottom-3 md:left-0 left-8 bg-navy text-white py-4 rounded-xl shadow-xl z-20 max-w-[420px]" data-aos="fade-up" data-aos-delay="300">
           <h1 class="text-theme text-2xl mb-3 font-bold">500+</h1>
           <p class="font-poppins text-base md:text-xl">Properties Valued</p>
         </div>

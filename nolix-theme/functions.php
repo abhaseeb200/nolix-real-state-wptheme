@@ -614,3 +614,6 @@ require_once get_template_directory() . '/forms/lease-property-form.php';
 
 // Include Off-Plan Consultation Form
 require_once get_template_directory() . '/forms/off-plan-consultation-form.php';
+
+// Include Contact Form
+require_once get_template_directory() . '/forms/contact-form.php';

@@ -18,9 +18,9 @@ get_template_part('template-parts/hero', null, [
 ?>
 
 <!-- Featured Developers Section -->
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12" data-aos="fade-up">
             <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
                 Featured <span class="text-theme">Developers</span>
             </h2>
@@ -36,23 +36,25 @@ get_template_part('template-parts/hero', null, [
                 'Nakheel',
                 'Sobha Realty'
             ];
-            
+            $delay = 100;
             foreach ($developers as $developer) :
             ?>
-                <div class="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>">
                     <h3 class="font-playfair text-dark text-lg font-semibold leading-tight">
                         <?php echo esc_html($developer); ?>
                     </h3>
                 </div>
-            <?php endforeach; ?>
+            <?php 
+            $delay += 50;
+            endforeach; ?>
         </div>
     </div>
 </section>
 
 <!-- Featured Off-Plan Projects Section -->
-<section id="featured-projects" class="py-16 lg:py-24 bg-[#FAFAFA]">
+<section id="featured-projects" class="py-16 lg:py-24 bg-[#FAFAFA]" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
-        <div class="mb-12">
+        <div class="mb-12" data-aos="fade-up">
             <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
 				Featured <span class="text-theme">Off Plan Projects</span>
             </h2>
@@ -93,9 +95,10 @@ get_template_part('template-parts/hero', null, [
                 ]
             ];
             
+            $project_delay = 100;
             foreach ($projects as $project) :
             ?>
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="<?php echo $project_delay; ?>">
                     <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <h3 class="font-playfair text-2xl font-bold text-dark"><?php echo esc_html($project['name']); ?></h3>
@@ -158,22 +161,24 @@ get_template_part('template-parts/hero', null, [
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php 
+                $project_delay += 100;
+            endforeach; ?>
         </div>
     </div>
 </section>
 
 <!-- ROI Calculator Section -->
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
         <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
                     Calculate Your Off Plan Investment <span class="text-theme">Returns</span>
                 </h2>
             </div>
             
-            <div class="bg-[#F5F5F0] rounded-2xl p-8 md:p-12">
+            <div class="bg-[#F5F5F0] rounded-2xl p-8 md:p-12" data-aos="fade-up" data-aos-delay="100">
                 <form id="roi-calculator-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -266,9 +271,9 @@ get_template_part('template-parts/hero', null, [
 </section>
 
 <!-- Why Buy Off-Plan with NOLIX Section -->
-<section class="py-20 bg-navy text-white">
+<section class="py-20 bg-navy text-white" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
             <h2 class="font-playfair text-h2-custom font-bold mb-4">
                 <span class="text-white">WHY BUY OFF PLAN WITH <span class="font-poppins">&</span> </span><span class="text-theme">NOLIX</span>
             </h2>
@@ -279,7 +284,7 @@ get_template_part('template-parts/hero', null, [
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Benefit 1 -->
-            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="100">
                 <div class="w-12 h-12 bg-theme rounded-full flex items-center justify-center mb-6 text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -294,7 +299,7 @@ get_template_part('template-parts/hero', null, [
             </div>
             
             <!-- Benefit 2 -->
-            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-12 h-12 bg-theme rounded-full flex items-center justify-center mb-6 text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -309,7 +314,7 @@ get_template_part('template-parts/hero', null, [
             </div>
             
             <!-- Benefit 3 -->
-            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="300">
                 <div class="w-12 h-12 bg-theme rounded-full flex items-center justify-center mb-6 text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -324,7 +329,7 @@ get_template_part('template-parts/hero', null, [
             </div>
             
             <!-- Benefit 4 -->
-            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+            <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-6 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="400">
                 <div class="w-12 h-12 bg-theme rounded-full flex items-center justify-center mb-6 text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -342,9 +347,9 @@ get_template_part('template-parts/hero', null, [
 </section>
 
 <!-- Investor Success Stories Section -->
-<section class="py-20 bg-[FAFAFA]">
+<section class="py-20 bg-[FAFAFA]" data-aos="fade-up">
     <div class="container mx-auto px-6">
-        <div class="text-center sm:mb-16 mb-8">
+        <div class="text-center sm:mb-16 mb-8" data-aos="fade-up">
             <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
                 Investor <span class="text-theme">Success Stories</span>
             </h2>
@@ -373,9 +378,10 @@ get_template_part('template-parts/hero', null, [
                 ]
             ];
             
+            $testimonial_delay = 100;
             foreach ($testimonials as $testimonial) :
             ?>
-                <div class="p-8 bg-white border border-[#C8CCD9] rounded-lg shadow-sm">
+                <div class="p-8 bg-white border border-[#C8CCD9] rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="<?php echo $testimonial_delay; ?>">
                     <div class="text-[#767C8C] mb-6 leading-relaxed">
                         "<?php echo esc_html($testimonial['quote']); ?>"
                     </div>
@@ -387,13 +393,15 @@ get_template_part('template-parts/hero', null, [
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php 
+                $testimonial_delay += 100;
+            endforeach; ?>
         </div>
     </div>
 </section>
 
 <!-- Consultation Form Section -->
-<section id="consultation-form" class="py-16 lg:py-24 bg-[#F5F6FA]">
+<section id="consultation-form" class="py-16 lg:py-24 bg-[#F5F6FA]" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
         <?php echo do_shortcode('[off_plan_consultation_form]'); ?>
     </div>

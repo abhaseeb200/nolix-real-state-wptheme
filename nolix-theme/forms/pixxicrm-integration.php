@@ -577,3 +577,60 @@ function nolix_handle_off_plan_consultation_submit() {
 // Register AJAX handlers for off-plan consultation form
 add_action('wp_ajax_off_plan_consultation_submit', 'nolix_handle_off_plan_consultation_submit');
 add_action('wp_ajax_nopriv_off_plan_consultation_submit', 'nolix_handle_off_plan_consultation_submit');
+
+/**
+ * AJAX Handler for Contact Form Submission
+ */
+function nolix_handle_contact_form_submit() {
+    check_ajax_referer('contact_form_submit_nonce', 'security');
+    
+    // Get form data
+    $name = sanitize_text_field($_POST['name'] ?? '');
+    $email = sanitize_email($_POST['email'] ?? '');
+    $phone = sanitize_text_field($_POST['phone'] ?? '');
+    $subject = sanitize_text_field($_POST['subject'] ?? '');
+    $message = sanitize_textarea_field($_POST['message'] ?? '');
+    
+    // Validate required fields
+    if (empty($name) || empty($phone) || empty($email) || empty($subject) || empty($message)) {
+        wp_send_json_error('All fields are required.');
+        return;
+    }
+    
+    // Build extraData object
+    $extra_data = [];
+    
+    if (!empty($subject)) {
+        $extra_data['Subject'] = $subject;
+    }
+    
+    if (!empty($message)) {
+        $extra_data['Message'] = $message;
+    }
+    
+    // Add form source
+    $extra_data['Form Source'] = 'Contact Form';
+    $extra_data['Page'] = 'Contact Page';
+    
+    // Prepare API payload
+    $api_data = [
+        'name' => $name,
+        'phone' => $phone,
+        'email' => $email,
+        'extraData' => $extra_data
+    ];
+    
+    // Submit to PixxiCRM API with contact form ID (using default if not defined)
+    $contact_form_id = defined('PIXXICRM_CONTACT_FORM_ID') ? PIXXICRM_CONTACT_FORM_ID : PIXXICRM_DEFAULT_FORM_ID;
+    $result = nolix_pixxicrm_api_submit($api_data, $contact_form_id);
+    
+    if ($result['success']) {
+        wp_send_json_success($result['message']);
+    } else {
+        wp_send_json_error($result['message']);
+    }
+}
+
+// Register AJAX handlers for contact form
+add_action('wp_ajax_contact_form_submit', 'nolix_handle_contact_form_submit');
+add_action('wp_ajax_nopriv_contact_form_submit', 'nolix_handle_contact_form_submit');

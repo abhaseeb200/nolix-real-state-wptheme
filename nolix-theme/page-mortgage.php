@@ -14,16 +14,16 @@ get_template_part('template-parts/hero', null, [
 ]);
 ?>
 
-<section class="py-16 lg:py-24 font-poppins bg-[#F5F6FA]">
+<section class="py-16 lg:py-24 font-poppins bg-[#F5F6FA]" data-aos="fade-up">
   <div class="container px-4">
-    <div class="text-center mb-8 md:mb-16">
+    <div class="text-center mb-8 md:mb-16" data-aos="fade-up">
       <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
         WHAT WE<span class="text-theme"> HELP YOU WITH</span>
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">
-      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/file-check.webp" alt="File Check Icon" class="w-7 h-7" />
@@ -61,7 +61,7 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/camera.webp" alt="Selection Icon" class="w-8 h-8" />
@@ -99,7 +99,7 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bank.webp" alt="Bank Icon" class="w-8 h-8" />
@@ -137,7 +137,7 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shopping-bag.webp" alt="Investor Support Icon" class="w-8 h-8" />
@@ -178,10 +178,10 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 
-<section class="py-20 lg:py-20 font-poppins bg-white">
+<section class="py-20 lg:py-20 font-poppins bg-white" data-aos="fade-up">
   <div class="container px-4">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-      <div class="w-full lg:w-1/2 text-left">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-right">
         <span class="block text-theme font-bold tracking-wide uppercase mb-6 font-playfair text-lg">
           Your Deliverables
         </span>
@@ -222,7 +222,7 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="w-full lg:w-1/2 relative">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
         <div class="relative md:ml-0 ml-5">
           <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/what-you-recieve.webp" alt="Deliverables Showcase" class="h-[240px] md:h-[443px] rounded-lg shadow-2xl md:w-[553px] object-cover" />

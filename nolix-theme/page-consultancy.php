@@ -14,13 +14,13 @@ get_template_part('template-parts/hero', null, [
 ]);
 ?>
 <!-- What We Cover -->
-<section class="py-24 bg-[#FAFAFA] border-t border-gray-100">
+<section class="py-24 bg-[#FAFAFA] border-t border-gray-100" data-aos="fade-up">
   <div class="container mx-auto px-6 text-center">
-    <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-9 uppercase">
+    <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-9 uppercase" data-aos="fade-up">
       What <span class="text-theme">We Cover</span>
     </h2>
 
-    <div class="flex justify-center mb-16">
+    <div class="flex justify-center mb-16" data-aos="fade-up" data-aos-delay="100">
       <div class="inline-flex bg-white border border-gray-200 rounded-full p-1 shadow-sm">
         <button onclick="switchConsultancyTab('buyers')" id="tab-consult-buyers" class="tab-consult-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all bg-theme text-white">
           Buyers
@@ -35,8 +35,8 @@ get_template_part('template-parts/hero', null, [
     </div>
 
     <!-- Buyers Content -->
-    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult" id="content-consult-buyers">
-      <div class="w-full lg:w-1/2 text-left">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult" id="content-consult-buyers" data-aos="fade-up">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-right">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Users Icon" class="w-7 h-7" />
@@ -79,7 +79,7 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="w-full lg:w-1/2 relative">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
         <div class="relative md:ml-0 ml-5">
           <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mortgage-buyer.webp" alt="Mortgage Buyer Advisory" class="h-[240px] md:h-[400px] rounded-lg w-full shadow-2xl md:w-[500px] object-cover" />
@@ -89,8 +89,8 @@ get_template_part('template-parts/hero', null, [
     </div>
 
     <!-- Sellers Content -->
-    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult hidden" id="content-consult-sellers" style="display: none;">
-      <div class="w-full lg:w-1/2 text-left">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult hidden" id="content-consult-sellers" style="display: none;" data-aos="fade-up">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-right">
         <div class="flex items-center gap-4 mb-8">
            <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shield-tick.webp" alt="Sellers Icon" class="w-7 h-7" />
@@ -132,7 +132,7 @@ get_template_part('template-parts/hero', null, [
           </li>
         </ul>
       </div>
-      <div class="w-full lg:w-1/2 relative">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
          <div class="relative md:ml-0 ml-5">
            <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
              <!-- Placeholder image for Sellers -->
@@ -143,8 +143,8 @@ get_template_part('template-parts/hero', null, [
     </div>
 
     <!-- Investors Content -->
-    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult hidden" id="content-consult-investors" style="display: none;">
-      <div class="w-full lg:w-1/2 text-left">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32 tab-content-consult hidden" id="content-consult-investors" style="display: none;" data-aos="fade-up">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-right">
         <div class="flex items-center gap-4 mb-8">
            <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Users Icon" class="w-7 h-7" />
@@ -186,7 +186,7 @@ get_template_part('template-parts/hero', null, [
           </li>
         </ul>
       </div>
-      <div class="w-full lg:w-1/2 relative">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
          <div class="relative md:ml-0 ml-5">
            <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
             <!-- Placeholder image for Investors -->
@@ -227,10 +227,10 @@ get_template_part('template-parts/hero', null, [
     </div>
 </section>
 <!-- Our Difference Section -->
-<section class="py-20 lg:py-24 bg-white">
+<section class="py-20 lg:py-24 bg-white" data-aos="fade-up">
   <div class="container px-4">
     <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
-      <div class="w-full lg:w-1/2 text-left">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-left">
         <span class="block text-theme font-bold tracking-wide uppercase mb-6 font-playfair text-lg">
           Our Difference
         </span>
@@ -257,11 +257,11 @@ get_template_part('template-parts/hero', null, [
             and strategic advice tailored to their unique situation.
           </p>
 			
-		<a href='<?php site_url('/buy-property') ?>' class="max-w-max block bg-theme text-base text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">Book a Consultation</a>
+		<a href="<?php echo site_url('/buy-property') ?>" class="max-w-max block bg-theme text-base text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">Book a Consultation</a>
         </div>
       </div>
 
-      <div class="w-full lg:w-1/2 relative">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
         <div class="relative md:ml-0 ml-5">
           <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/nolix-consultancy.webp" alt="NOLIX Consultancy Team" class="h-[240px] md:h-[400px] rounded-lg w-full shadow-2xl md:w-[500px] object-cover" />

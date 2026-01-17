@@ -8,6 +8,9 @@
     
     <?php wp_head(); ?>
     
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         .swiper-button-next:after,
         .swiper-button-prev:after {
@@ -161,7 +164,7 @@
                     <!-- Insights Menu Item with Dropdown -->
                     <div class="border-b border-gray-100 pb-2">
                         <button id="mobileInsightsToggle" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
-                            <span class="text-sm uppercase tracking-wide">Nolix Academy</span>
+                            <span class="text-sm uppercase tracking-wide">Insights</span>
                             <svg id="mobileInsightsIcon" class="w-4 h-4 text-black transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
@@ -190,7 +193,7 @@
     </aside>
     
     <!-- Navigation -->
-    <header class="bg-white py-4 px-4 sm:px-6 lg:py-4 lg:px-12 flex justify-between items-center sticky top-0 z-50 shadow-sm font-poppins">
+    <header class="bg-white py-4 px-4 sm:px-6 lg:py-4 lg:px-12 flex flex-col gap-5 justify-center items-center sticky top-0 z-50 shadow-sm font-poppins">
         <!-- Logo - Left Side -->
         <div class="flex-shrink-0 z-10">
             <a href="<?php echo home_url(); ?>" class="flex items-center">
@@ -227,7 +230,7 @@
             <!-- Insights Dropdown -->
             <div class="relative group">
                 <a href="<?php echo site_url('/insights'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors cursor-pointer whitespace-nowrap">
-                    Nolix Academy
+                    Insights
                     <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>

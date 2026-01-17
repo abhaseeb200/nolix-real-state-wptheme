@@ -46,7 +46,7 @@
                         class="bg-theme cursor-pointer rounded-full text-white px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-opacity-90 transition-all">
                         Request a Private Consultation
                     </a>
-                    <a href="<?php echo site_url('/rent'); ?>"
+                    <a href="<?php echo site_url('/buy'); ?>"
                         class="bg-white rounded-full text-gray-900 px-5 md:px-8 sm:py-4 py-3 font-poppins text-[15px] md:text-base font-medium hover:bg-gray-100 transition-all">
                         Explore Properties
                     </a>
@@ -57,23 +57,23 @@
     </section>
 
     <!-- Why Nolix Section -->
-    <section class="py-24 bg-[#F5F6FA]">
+    <section class="py-24 bg-[#F5F6FA]" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6">
 
             <!-- Heading -->
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-4 uppercase tracking-wide">
                     Why <span class="text-theme">Nolix?</span>
                 </h2>
                 <p class="md:text-lg text-[14px] font-poppins max-w-2xl mx-auto leading-relaxed text-[#00291B]">
-                    NOLIX curates a private portfolio of prime and luxury homes across the UAE
+                   A NOLIX curates a private portfolio of prime and luxury homes across the UAE
                 </p>
             </div>
 
             <!-- Grid -->
             <div class="grid md:grid-cols-3 gap-12">
                 <!-- Item 1 -->
-                <div class="flex flex-col md:justify-center items-center text-center">
+                <div class="flex flex-col md:justify-center items-center text-center" data-aos="fade-up" data-aos-delay="100">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@
                 </div>
 
                 <!-- Item 2 -->
-                <div class="flex flex-col items-center text-center">
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@
                 </div>
 
                 <!-- Item 3 -->
-                <div class="flex flex-col items-center text-center">
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
                     <div
                         class="w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,14 +128,14 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-[#F5F6FA]" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center items-center">
 
                 <!-- Stat 1 -->
-                <div class="flex flex-col items-center justify-center gap-6">
+                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="100">
                     <span
-                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">8k<sup
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="8">0</span>k<sup
                             class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
                     <span
                         class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Properties
@@ -143,18 +143,18 @@
                 </div>
 
                 <!-- Stat 2 -->
-                <div class="flex flex-col items-center justify-center gap-6">
+                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
                     <span
-                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">14k<sup
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="14">0</span>k<sup
                             class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
                     <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Happy
                         Clients</span>
                 </div>
 
                 <!-- Stat 3 -->
-                <div class="flex flex-col items-center justify-center gap-6">
+                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="300">
                     <span
-                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative">16k<sup
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="16">0</span>k<sup
                             class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
                     <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Listed
                         Properties</span>
@@ -165,17 +165,17 @@
     </section>
 
     <!-- Legacy Section -->
-    <section class="pb-[62px] bg-white">
+    <section class="pb-[62px] pt-[62px] bg-white" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6">
             <div class="flex flex-col md:flex-row gap-9 items-center">
                 <!-- Image Side -->
-                <div class="sm:max-w-[45%] max-w-full relative h-[330px] md:h-[550px] w-full rounded-lg overflow-hidden">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pexels-dawidtkocz.jpg" alt="Legacy Skyscraper"
+                <div class="sm:max-w-[45%] max-w-full relative h-[330px] md:h-[550px] w-full rounded-lg overflow-hidden" data-aos="fade-right">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/emaar.webp" alt="Legacy Skyscraper"
                         class="w-full h-full object-cover object-top">
                 </div>
 
                 <!-- Text Side -->
-                <div class="sm:max-w-[55%] max-w-full">
+                <div class="sm:max-w-[55%] max-w-full" data-aos="fade-left">
                     <div class="border-l-4 border-theme pl-5 py-2">
                         <h2 class="md:text-[33px] text-[26px] font-playfair font-bold text-gray-900 uppercase leading-tight">
                             A Legacy of Excellence:<br> Redefining Landscapes, Elevating Lives
@@ -197,8 +197,8 @@
     </section>
 
 	 <!-- Quote / Slider Section -->
-    <section class="relative h-[500px] w-full bg-cover bg-center flex items-center justify-center"
-        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/pexels-maxavans.jpg');">
+    <section class="relative h-[500px] w-full bg-cover bg-center flex items-center justify-center" data-aos="fade-up"
+        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/pexels-apasaric-325193.webp');">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/60"></div>
 
@@ -264,10 +264,10 @@
     </section>
 
     <!-- Our Services Section -->
-    <section class="py-24 bg-navy">
+    <section class="py-24 bg-navy" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6 text-center">
 
-            <div class="mb-12">
+            <div class="mb-12" data-aos="fade-up">
                 <h2 class="text-h2-custom font-playfair font-bold text-white mb-2 uppercase tracking-wide">
                     Our <span class="text-theme">Services</span>
                 </h2>
@@ -277,7 +277,7 @@
 
             <div class="grid md:grid-cols-3 gap-8 text-left">
                   <!-- Buy -->
-                <div class="group">
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/property-bg.webp"
                             alt="Buy"
@@ -299,7 +299,7 @@
                 </div>
 
                 <!-- Sell -->
-                <div class="group">
+                <div class="group" data-aos="fade-up" data-aos-delay="200">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pexels-a-darmel-7642000.webp"
                             alt="Sell"
@@ -321,7 +321,7 @@
                 </div>
 
                 <!-- Rent -->
-                <div class="group">
+                <div class="group" data-aos="fade-up" data-aos-delay="300">
                     <div class="rounded-xl overflow-hidden mb-6 relative h-64">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/key-inside-door.webp"
                             alt="Rent"
@@ -349,9 +349,9 @@
     </section>
 
     <!-- Latest Properties -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
+            <div class="flex justify-between items-end mb-12" data-aos="fade-up">
                 <div>
                     <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase">Latest Properites
                     </h2>
@@ -376,7 +376,7 @@
                         $location = get_post_meta(get_the_ID(), '_nolix_location', true);
                         $price = get_post_meta(get_the_ID(), '_nolix_price', true);
                         ?>
-                        <div class="relative rounded-xl overflow-hidden group aspect-[4/3] cursor-pointer">
+                        <div class="relative rounded-xl overflow-hidden group aspect-[4/3] cursor-pointer" data-aos="fade-up" data-aos-delay="<?php echo ($properties_query->current_post * 100); ?>">
                             <?php if (has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110']); ?>
                             <?php else: ?>
@@ -408,19 +408,19 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-24 bg-[#FAFAFA] border-t border-gray-100 text-center">
+    <section class="py-24 bg-[#FAFAFA] border-t border-gray-100 text-center" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6">
 
-            <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase">
+            <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-2 uppercase" data-aos="fade-up">
                 What Buyers <span class="text-theme">Are Saying</span>
             </h2>
-            <p class="text-[#00291B] text-[14px] md:text-lg font-poppins mb-12 max-w-2xl mx-auto">
+            <p class="text-[#00291B] text-[14px] md:text-lg font-poppins mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                 Explore our handpicked selection of homes that combine style, comfort, and location. Each property is
                 carefully.
             </p>
 
             <!-- Tabs -->
-            <div class="flex justify-center mb-16">
+            <div class="flex justify-center mb-16" data-aos="fade-up" data-aos-delay="200">
                 <div class="inline-flex bg-white border border-gray-200 rounded-full p-1 shadow-sm">
                     <button onclick="switchTab('buyers')" id="tab-buyers"
                         class="tab-btn px-4 md:px-8 py-2 rounded-full text-base md:text-lg font-bold transition-all bg-theme text-white">Buyers</button>
@@ -523,11 +523,11 @@
     </section>
 
     <!-- Academy Section -->
-    <section class="py-24 bg-[#F5F6FA]">
+    <section class="py-24 bg-[#F5F6FA]" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <!-- Content -->
-                <div>
+                <div data-aos="fade-right">
                     <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-4">NOLIX Academy</h2>
                     <p class="text-xl text-[#00291B] font-playfair italic mb-6">Clarity for first-time and seasoned
                         owners</p>
@@ -579,7 +579,7 @@
                 </div>
 
                 <!-- Image -->
-                <div class="relative">
+                <div class="relative" data-aos="fade-left">
                     <div
                         class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:flex before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] ">
                         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
@@ -611,15 +611,15 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6 text-center">
-            <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-8 md:mb-16 uppercase">
+            <h2 class="text-h2-custom font-playfair font-bold text-gray-900 mb-8 md:mb-16 uppercase" data-aos="fade-up">
                 Frequently <span class="text-theme">Asked Questions</span>
             </h2>
 
             <div class="space-y-4 text-left">
                 <!-- Item 1 -->
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="100">
                     <button
                         class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
                         <div class="flex items-center md:px-2 gap-4">
@@ -643,7 +643,7 @@
                 </div>
 
                 <!-- Item 2 -->
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="200">
                     <button
                         class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
                         <div class="flex items-center md:px-2 gap-4">
@@ -667,7 +667,7 @@
                 </div>
 
                 <!-- Item 3 -->
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="300">
                     <button
                         class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
                         <div class="flex items-center md:px-2 gap-4">
@@ -691,7 +691,7 @@
                 </div>
 
                 <!-- Item 4 -->
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="400">
                     <button
                         class="faq-btn w-full flex items-center justify-between p-6 bg-white">
                         <div class="flex items-center md:px-2 gap-4">
@@ -715,7 +715,7 @@
                 </div>
 
                 <!-- Item 5 -->
-                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="500">
                     <button
                         class="faq-btn w-full flex items-center justify-between px-6 py-6 bg-white">
                         <div class="flex items-center md:px-2 gap-4">

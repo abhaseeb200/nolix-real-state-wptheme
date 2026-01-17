@@ -16,10 +16,10 @@ if (!defined('ABSPATH')) {
 function nolix_off_plan_consultation_form_shortcode() {
     ob_start();
     ?>
-    <div id="off-plan-consultation-form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100 max-w-5xl mx-auto relative overflow-hidden">
+    <div id="off-plan-consultation-form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100 max-w-5xl mx-auto relative overflow-hidden" data-aos="fade-up">
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-theme to-[#a37e45]"></div>
         
-        <div class="text-center mb-10">
+        <div class="text-center mb-10" data-aos="fade-up" data-aos-delay="100">
             <span class="text-theme font-bold tracking-wider uppercase text-sm font-playfair mb-2 block">Off-Plan Investment</span>
             <h3 class="font-playfair text-3xl md:text-4xl text-dark font-bold mb-4">Start Your Off Plan Investment Journey</h3>
             <p class="text-gray-500 max-w-2xl mx-auto font-poppins font-light">

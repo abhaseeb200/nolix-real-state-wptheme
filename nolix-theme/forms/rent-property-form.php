@@ -16,10 +16,10 @@ if (!defined('ABSPATH')) {
 function nolix_rent_property_form_shortcode() {
     ob_start();
     ?>
-    <div id="rent-property-form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100 max-w-5xl mx-auto relative overflow-hidden">
+    <div id="rent-property-form-container" class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100 max-w-5xl mx-auto relative overflow-hidden" data-aos="fade-up">
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-theme to-[#a37e45]"></div>
         
-        <div class="text-center mb-10">
+        <div class="text-center mb-10" data-aos="fade-up" data-aos-delay="100">
             <span class="text-theme font-bold tracking-wider uppercase text-sm font-playfair mb-2 block">Tenant Inquiry</span>
             <h3 class="font-playfair text-3xl md:text-4xl text-dark font-bold mb-4">Find Rent in Dubai</h3>
             <p class="text-gray-500 max-w-2xl mx-auto font-poppins font-light">
@@ -95,8 +95,26 @@ function nolix_rent_property_form_shortcode() {
                 <!-- Preferred Locations -->
                 <div>
                     <label class="block text-gray-700 text-sm font-medium mb-2 font-poppins">Preferred Locations <span class="text-red-500">*</span></label>
-                    <input type="text" name="preferred_locations" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-theme focus:ring-1 focus:ring-theme outline-none transition-all" placeholder="e.g., Marina, Downtown, Business Bay, JBR">
-                    <p class="text-gray-400 text-xs mt-1 font-poppins">You can enter multiple locations separated by commas</p>
+                    <select name="preferred_locations" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-theme focus:ring-1 focus:ring-theme outline-none transition-all appearance-none">
+                        <option value="">Select Location</option>
+                        <option value="Downtown Burj Khalifa">Downtown Burj Khalifa</option>
+                        <option value="Palm Jumeirah">Palm Jumeirah</option>
+                        <option value="Palm Jebel Ali">Palm Jebel Ali</option>
+                        <option value="Dubai Marina">Dubai Marina</option>
+                        <option value="Dubai Hills Estate">Dubai Hills Estate</option>
+                        <option value="Business Bay">Business Bay</option>
+                        <option value="Dubai Creek Harbour">Dubai Creek Harbour</option>
+                        <option value="Jumeirah Village Circle (JVC)">Jumeirah Village Circle (JVC)</option>
+                        <option value="Jumeirah Golf Estate">Jumeirah Golf Estate</option>
+                        <option value="Dubai South">Dubai South</option>
+                        <option value="Arabian Ranches">Arabian Ranches</option>
+                        <option value="Jumeirah Lake Towers (JLT)">Jumeirah Lake Towers (JLT)</option>
+                        <option value="Emaar Beachfront">Emaar Beachfront</option>
+                        <option value="Dubai Islands">Dubai Islands</option>
+                        <option value="Meydan">Meydan</option>
+                        <option value="Al Furjan">Al Furjan</option>
+                        <option value="Others">Others</option>
+                    </select>
                 </div>
 
                 <!-- Bedrooms -->
@@ -156,7 +174,15 @@ function nolix_rent_property_form_shortcode() {
                 <!-- Annual Rent Budget -->
                 <div>
                     <label class="block text-gray-700 text-sm font-medium mb-2 font-poppins">Annual Rent Budget (AED) <span class="text-red-500">*</span></label>
-                    <input type="text" name="annual_rent_budget" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-theme focus:ring-1 focus:ring-theme outline-none transition-all" placeholder="e.g., 80000">
+                    <select name="annual_rent_budget" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-theme focus:ring-1 focus:ring-theme outline-none transition-all appearance-none">
+                        <option value="">Select Budget Range</option>
+                        <option value="Under AED 50K">Under AED 50K</option>
+                        <option value="AED 50K - 80K">AED 50K - 80K</option>
+                        <option value="AED 80K - 120K">AED 80K - 120K</option>
+                        <option value="AED 120K - 200K">AED 120K - 200K</option>
+                        <option value="AED 200K - 300K">AED 200K - 300K</option>
+                        <option value="Above AED 300K">Above AED 300K</option>
+                    </select>
                 </div>
 
                 <!-- Move-in Date -->

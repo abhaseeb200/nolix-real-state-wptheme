@@ -14,16 +14,16 @@ get_template_part('template-parts/hero', null, [
 ]);
 ?>
  <!-- What We Handle Section -->
-   <section class="py-16 lg:py-24">
+   <section class="py-16 lg:py-24" data-aos="fade-up">
   <div class="container px-4">
-    <div class="text-center mb-8 md:mb-16">
+    <div class="text-center mb-8 md:mb-16" data-aos="fade-up">
       <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
         WHAT <span class="text-theme">WE HANDLE</span>
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
-		<div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+		<div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/notification-text2.webp" alt="Tenant Management Icon" class="w-8 h-8" />
@@ -61,7 +61,7 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 		
-      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Property Care Icon" class="w-7 h-7" />
@@ -99,7 +99,7 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300">
+      <div class="bg-white rounded-2xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.03)] hover:shadow-[0_0_30px_rgba(193,154,92,0.1)] transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-14 h-14 rounded-xl bg-[#EFE7D9] flex items-center justify-center flex-shrink-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/credit-card.webp" alt="Financial Reporting Icon" class="w-8 h-8" />
@@ -140,9 +140,9 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 
-<section class="py-20 bg-navy text-white">
+<section class="py-20 bg-navy text-white" data-aos="fade-up">
   <div class="container">
-    <div class="text-center mb-8 md:mb-16">
+    <div class="text-center mb-8 md:mb-16" data-aos="fade-up">
       <h2 class="font-playfair uppercase text-h2-custom font-bold mb-4">
         <span class="text-white">Why owners </span><span class="text-theme">Choose Nolix</span>
       </h2>
@@ -152,7 +152,7 @@ get_template_part('template-parts/hero', null, [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="100">
         <div class="w-16 h-16 bg-[#314A6E] rounded-full flex items-center justify-center mb-6 text-white">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/message-chat-circle.webp" class="w-8 h-8" alt="Communication Icon" />
         </div>
@@ -161,7 +161,7 @@ get_template_part('template-parts/hero', null, [
         </h3>
       </div>
 
-      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="200">
         <div class="w-16 h-16 bg-[#314A6E] rounded-full flex items-center justify-center mb-6 text-white">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/notification-text.webp" class="w-8 h-8" alt="Reporting Icon" />
         </div>
@@ -170,7 +170,7 @@ get_template_part('template-parts/hero', null, [
         </h3>
       </div>
 
-      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="300">
         <div class="w-16 h-16 bg-[#314A6E] rounded-full flex items-center justify-center mb-6 text-white">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shield-02.webp" class="w-8 h-8" alt="Standards Icon" />
         </div>
@@ -179,7 +179,7 @@ get_template_part('template-parts/hero', null, [
         </h3>
       </div>
 
-      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+      <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] text-center flex flex-col items-center justify-center p-8 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="400">
         <div class="w-16 h-16 bg-[#314A6E] rounded-full flex items-center justify-center mb-6 text-white">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/clock.webp" class="w-8 h-8" alt="Efficiency Icon" />
         </div>
@@ -191,10 +191,10 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 
-<section class="py-20 lg:py-28 bg-[#F5F6FA]">
+<section class="py-20 lg:py-28 bg-[#F5F6FA]" data-aos="fade-up">
   <div class="container px-4">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-      <div class="w-full lg:w-1/2 text-left">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-right">
         <span class="block text-theme font-bold tracking-wide uppercase mb-6 font-playfair text-lg">
           Our Commitment
         </span>
@@ -215,14 +215,14 @@ get_template_part('template-parts/hero', null, [
         </div>
       </div>
 
-      <div class="w-full lg:w-1/2 relative">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
         <div class="relative md:ml-0 ml-5">
           <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:flex before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1]">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/our-philosophy.webp" alt="Our Philosophy Asset Management" class="h-[240px] md:h-[443px] rounded-lg shadow-2xl md:w-[553px] object-cover" />
           </div>
         </div>
 
-        <div class="absolute md:-bottom-8 flex items-center gap-6 -bottom-8 md:left-12 left-8 bg-navy text-white py-6 px-4 rounded-xl shadow-xl z-20 max-w-[420px]">
+        <div class="absolute md:-bottom-8 flex items-center gap-6 -bottom-8 md:left-12 left-8 bg-navy text-white py-6 px-4 rounded-xl shadow-xl z-20 max-w-[420px]" data-aos="fade-up" data-aos-delay="300">
           <div class="text-center">
             <h1 class="text-theme md:text-xl font-bold mb-1">98%</h1>
             <h2 class="font-light md:text-base text-sm">Tenant Retention</h2>

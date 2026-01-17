@@ -15,7 +15,7 @@ get_template_part('template-parts/hero', null, [
 ?>
 
 <!-- Blog Posts Grid Section -->
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php
@@ -27,6 +27,7 @@ get_template_part('template-parts/hero', null, [
             ));
 
             if ($blog_query->have_posts()) :
+                $article_delay = 100;
                 while ($blog_query->have_posts()) :
                     $blog_query->the_post();
                     
@@ -35,7 +36,7 @@ get_template_part('template-parts/hero', null, [
                         $excerpt = wp_trim_words(get_the_content(), 20, '...');
                     }
                     ?>
-                    <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="<?php echo $article_delay; ?>">
                         <?php if (has_post_thumbnail()) : ?>
                             <a href="<?php the_permalink(); ?>" class="block aspect-[4/3] overflow-hidden">
                                 <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover transition-transform duration-500 hover:scale-110']); ?>
@@ -82,6 +83,7 @@ get_template_part('template-parts/hero', null, [
                         </div>
                     </article>
                     <?php
+                    $article_delay += 50;
                 endwhile;
                 wp_reset_postdata();
             else :
@@ -99,7 +101,7 @@ get_template_part('template-parts/hero', null, [
         $total_pages = $blog_query->max_num_pages;
         if ($total_pages > 1) :
             ?>
-            <div class="flex justify-center gap-2 mt-12">
+            <div class="flex justify-center gap-2 mt-12" data-aos="fade-up">
                 <?php
                 $current_page = max(1, get_query_var('paged'));
                 echo paginate_links(array(

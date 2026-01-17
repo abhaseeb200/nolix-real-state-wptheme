@@ -14,7 +14,7 @@ get_template_part('template-parts/hero', null, [
 ]);
 ?>
 
-<section class="py-16 lg:py-24 bg-[#F5F6FA]">
+<section class="py-16 lg:py-24 bg-[#F5F6FA]" data-aos="fade-up">
   <div class="container mx-auto px-6 lg:px-12">
     <?php echo do_shortcode('[buy_property_form]'); ?>
   </div>
