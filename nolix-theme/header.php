@@ -26,6 +26,7 @@
         }
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			overflow-x:hidden;
         }
         .text-shadow {
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -93,7 +94,7 @@
         <div class="flex flex-col h-full">
             <!-- Sidebar Header -->
             <div class="flex items-center justify-between p-6 border-b border-gray-200">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" width="80" height="53" alt="Logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blue-logo_.png" width="80" height="53" alt="Logo">
                 <button id="closeSidebar" class="p-2 hover:bg-lightgray rounded-full transition-colors">
                     <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -164,13 +165,13 @@
                     <!-- Insights Menu Item with Dropdown -->
                     <div class="border-b border-gray-100 pb-2">
                         <button id="mobileInsightsToggle" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
-                            <span class="text-sm uppercase tracking-wide">Insights</span>
+                            <span class="text-sm uppercase tracking-wide">Nolix Academy</span>
                             <svg id="mobileInsightsIcon" class="w-4 h-4 text-black transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <div id="mobileInsightsDropdown" class="hidden pl-6 mt-2 space-y-1">
-                            <a href="<?php echo site_url('/insights'); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-lightgray rounded-lg transition-colors">Blog & Guides</a>
+                            <a href="<?php echo site_url('/insights'); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-lightgray rounded-lg transition-colors">Nolix Academy</a>
                         </div>
                     </div>
                     
@@ -193,16 +194,9 @@
     </aside>
     
     <!-- Navigation -->
-    <header class="bg-white py-4 px-4 sm:px-6 lg:py-4 lg:px-12 flex flex-col gap-5 justify-center items-center sticky top-0 z-50 shadow-sm font-poppins">
-        <!-- Logo - Left Side -->
-        <div class="flex-shrink-0 z-10">
-            <a href="<?php echo home_url(); ?>" class="flex items-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" width="111" height="74" class="sm:ml-0 ml-[10px] transform sm:scale-110 scale-150 h-8 sm:h-10 lg:h-[60px] w-auto" alt="Logo">
-            </a>
-        </div>
-
-        <!-- Menu Items - Right Side (Desktop) -->
-        <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#181818] uppercase tracking-wide">
+    <header class="bg-white py-4 px-4 sm:px-6 lg:py-4 lg:px-12 flex flex-row items-center justify-between sticky top-0 z-50 shadow-sm font-poppins relative">
+        <!-- Left Navigation Items (Desktop) -->
+        <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#181818] uppercase tracking-wide flex-1 justify-start">
 			<a href="<?php echo site_url('/'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Home</a>
             <a href="<?php echo site_url('/buy'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Buy</a>
             <a href="<?php echo site_url('/sell'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Sell</a>
@@ -224,28 +218,39 @@
                     <a href="<?php echo site_url('/property-management'); ?>" class="block px-[20px!important] py-[12px!important] hover:bg-lightgray hover:text-theme transition-colors">Property Management</a>
                 </div>
             </div>
+        </nav>
 
-            <a href="<?php echo site_url('/team'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">About us</a>
-            
+        <!-- Logo - Left on Mobile, Centered on Desktop -->
+        <div class="flex-shrink-0 z-10 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+            <a href="<?php echo home_url(); ?>" class="flex items-center">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blue-logo_.png" width="111" height="74" class="sm:ml-0 ml-[10px] transform sm:scale-110 scale-150 h-8 sm:h-10 lg:h-[60px] w-auto" alt="Logo">
+            </a>
+        </div>
+
+        <!-- Right Side - Insights, Contact Us Link & Button (Desktop) -->
+        <div class="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#181818] uppercase tracking-wide flex-1 justify-end">
+			
+			 <a href="<?php echo site_url('/team'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">About us</a>
+			
             <!-- Insights Dropdown -->
             <div class="relative group">
                 <a href="<?php echo site_url('/insights'); ?>" class="flex items-center gap-1 hover:text-theme transition-colors cursor-pointer whitespace-nowrap">
-                    Insights
+                    Nolix Academy
                     <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </a>
                 <div class="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-2 z-50">
-                    <a href="<?php echo site_url('/insights'); ?>" class="block px-[20px!important] py-[12px!important] hover:bg-lightgray hover:text-theme transition-colors">Blog & Guides</a>
+                    <a href="<?php echo site_url('/insights'); ?>" class="block px-[20px!important] py-[12px!important] hover:bg-lightgray hover:text-theme transition-colors">Nolix Academy</a>
                 </div>
             </div>
             
-<!--             <a href="<?php echo site_url('/contact'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Contact</a> -->
+<!--             <a href="<?php echo site_url('/contact'); ?>" class="hover:text-theme transition-colors whitespace-nowrap">Contact Us</a> -->
             
-            <a href="<?php echo site_url('/contact'); ?>" class="rounded-full bg-theme text-white px-6 py-3 text-sm font-medium hover:bg-opacity-90 transition-all font-poppins whitespace-nowrap ml-2">
+            <a href="<?php echo site_url('/contact'); ?>" class="rounded-full bg-theme text-white px-6 py-3 text-sm font-medium hover:bg-opacity-90 transition-all font-poppins whitespace-nowrap">
                 Contact Us
             </a>
-        </nav>
+        </div>
 
         <!-- Mobile Menu Button - Right Side -->
         <button id="openSidebar" class="lg:hidden text-gray-800 p-2 rounded-lg transition-colors hover:bg-lightgray z-10 flex-shrink-0">

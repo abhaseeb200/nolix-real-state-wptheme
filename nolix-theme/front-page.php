@@ -56,7 +56,43 @@
         </div>
     </section>
 
-    <!-- Why Nolix Section -->
+    <!-- Stats Section -->
+    <section class="pt-24 bg-[#F5F6FA]" data-aos="fade-up">
+        <div class="container max-w-[1280px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center items-center">
+
+                <!-- Stat 1 -->
+                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="100">
+                    <span
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="8">0</span>k<sup
+                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
+                    <span
+                        class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Properties
+                        Sold</span>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <span
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="14">0</span>k<sup
+                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
+                    <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Happy
+                        Clients</span>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="300">
+                    <span
+                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="16">0</span>k<sup
+                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
+                    <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Listed
+                        Properties</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+ <!-- Why Nolix Section -->
     <section class="py-24 bg-[#F5F6FA]" data-aos="fade-up">
         <div class="container max-w-[1280px] mx-auto px-6">
 
@@ -124,43 +160,6 @@
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-24 bg-[#F5F6FA]" data-aos="fade-up">
-        <div class="container max-w-[1280px] mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center items-center">
-
-                <!-- Stat 1 -->
-                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="100">
-                    <span
-                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="8">0</span>k<sup
-                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
-                    <span
-                        class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Properties
-                        Sold</span>
-                </div>
-
-                <!-- Stat 2 -->
-                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
-                    <span
-                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="14">0</span>k<sup
-                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
-                    <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Happy
-                        Clients</span>
-                </div>
-
-                <!-- Stat 3 -->
-                <div class="flex flex-col items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="300">
-                    <span
-                        class="md:text-[80px] text-[60px] font-bold text-counter leading-none font-helvetica tracking-tighter relative"><span class="counter-number" data-target="16">0</span>k<sup
-                            class="absolute sm:top-4 top-2.5 right-0 text-[24px] text-theme font-medium">+</sup></span>
-                    <span class="bg-dark text-white text-[16px] font-poppins px-4 py-1.5 rounded-full shadow-lg">Listed
-                        Properties</span>
-                </div>
-
-            </div>
         </div>
     </section>
 

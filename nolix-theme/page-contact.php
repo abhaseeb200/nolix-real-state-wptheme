@@ -60,8 +60,10 @@ get_template_part('template-parts/hero', null, [
                 </div>
                 <h3 class="font-playfair text-xl font-bold text-dark mb-3 uppercase">Address</h3>
                 <p class="text-gray-600 font-poppins leading-relaxed">
-                    Business Bay, Dubai<br>
-                    United Arab Emirates
+                    Office 12, 32nd Floor<br>
+                    Parklane Tower, Business Bay<br>
+                    ORN 56000<br>
+                    Dubai, UAE
                 </p>
             </div>
         </div>
@@ -69,7 +71,7 @@ get_template_part('template-parts/hero', null, [
         <!-- Map Section -->
         <div class="mt-16 rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="400">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.198509824605!2d55.26884431500694!3d25.19720198389626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69a8b8b8b8b9%3A0x8b8b8b8b8b8b8b8b!2sBusiness%20Bay%2C%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.198509824605!2d55.2618939!3d25.1852338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f692eb870c16f%3A0x7296bac774e84392!2sNolix%20Real%20Estate!5e0!3m2!1sen!2s!4v1699999999999!5m2!1sen!2s" 
                 width="100%" 
                 height="450" 
                 style="border:0;" 
@@ -78,6 +80,11 @@ get_template_part('template-parts/hero', null, [
                 referrerpolicy="no-referrer-when-downgrade"
                 class="w-full">
             </iframe>
+            <div class="mt-4 text-center">
+                <a href="https://maps.app.goo.gl/zjL9KTUcMuGqm489A" target="_blank" rel="noopener noreferrer" class="text-theme hover:text-dark transition-colors font-poppins underline">
+                    Open in Google Maps
+                </a>
+            </div>
         </div>
     </div>
 </section>

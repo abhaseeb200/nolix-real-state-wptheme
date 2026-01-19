@@ -7,7 +7,7 @@ get_header();
 
 // Hero Section
 get_template_part('template-parts/hero', null, [
-    'title' => "Invest in Dubai<span class='font-poppins'>'</span>s Future  <span class='text-theme'>Off Plan Excellence</span>",
+    'title' => "Invest in Dubai<span class='font-poppins'>'</span>s Future:  <span class='text-theme'>The Off Plan Excellence</span>",
     'subtitle' => 'Early access to premier developments with flexible payment plans and high ROI potential',
     'image' => get_template_directory_uri() . '/assets/images/mobile calulator.webp',
     'buttons' => [

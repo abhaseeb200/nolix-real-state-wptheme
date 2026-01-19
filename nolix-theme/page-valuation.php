@@ -151,7 +151,7 @@ get_template_part('template-parts/cta', null, [
     'buttons' => [
         [
             'text' => 'Request Valuation',
-            'url' => site_url('/services/consultancy'),
+            'url' => site_url('/sell-your-property-in-the-uae'),
             'style' => 'gradient'
         ],
 		[

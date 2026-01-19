@@ -257,7 +257,7 @@ get_template_part('template-parts/hero', null, [
             and strategic advice tailored to their unique situation.
           </p>
 			
-		<a href="<?php echo site_url('/buy-property') ?>" class="max-w-max block bg-theme text-base text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">Book a Consultation</a>
+		<a href="<?php echo site_url('/contact') ?>" class="max-w-max block bg-theme text-base text-white px-8 py-3 rounded-full font-poppins font-medium hover:bg-opacity-90">Book a Consultation</a>
         </div>
       </div>
 

@@ -23,6 +23,7 @@ define('PIXXICRM_BUY_FORM_ID', 'f0cc7c84-f175-4c4a-b1fe-d8136cfc9a2a');
 define('PIXXICRM_RENT_FORM_ID', '355802a8-4738-4dc4-8ae3-ace771d018dd'); 
 define('PIXXICRM_LEASE_FORM_ID', 'd89157a3-3f2a-40ab-9eb9-883b2a8bce28');  
 define('PIXXICRM_OFF_PLAN_CONSULTATION_FORM_ID', '7372dc7c-238c-4d78-b004-89a76b5747fb'); 
+define('PIXXICRM_CONTACT_FORM_ID', '81c55242-992d-4d67-836f-564b0d53508'); 
 
 /**
  * Send data to PixxiCRM API
@@ -620,9 +621,8 @@ function nolix_handle_contact_form_submit() {
         'extraData' => $extra_data
     ];
     
-    // Submit to PixxiCRM API with contact form ID (using default if not defined)
-    $contact_form_id = defined('PIXXICRM_CONTACT_FORM_ID') ? PIXXICRM_CONTACT_FORM_ID : PIXXICRM_DEFAULT_FORM_ID;
-    $result = nolix_pixxicrm_api_submit($api_data, $contact_form_id);
+    // Submit to PixxiCRM API with contact form ID
+    $result = nolix_pixxicrm_api_submit($api_data, PIXXICRM_CONTACT_FORM_ID);
     
     if ($result['success']) {
         wp_send_json_success($result['message']);

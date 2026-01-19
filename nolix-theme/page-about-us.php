@@ -57,7 +57,7 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 
-<section class="py-20 lg:py-28 bg-white" data-aos="fade-up">
+<section class="py-20 lg:py-28 pb-0 bg-white" data-aos="fade-up">
   <div class="container">
     <div class="text-center pb-8 md:pb-16" data-aos="fade-up">
       <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
@@ -125,9 +125,9 @@ get_template_part('template-parts/hero', null, [
   </div>
 </section>
 
-<?php get_template_part('template-parts/section-team'); ?>
+<!-- <?php get_template_part('template-parts/section-team'); ?> -->
 
-<section class="py-20 lg:py-28 bg-white" data-aos="fade-up">
+<section class="py-20 lg:pb-28 lg:py-0 lg:pt-0 bg-white" data-aos="fade-up">
   <div class="container">
     <div class="flex flex-col md:flex-row justify-between md:items-center items-start mb-8 md:mb-16 gap-8" data-aos="fade-up">
       <div class="w-full">
@@ -155,7 +155,7 @@ get_template_part('template-parts/hero', null, [
       <div class="w-full lg:w-1/2" data-aos="fade-left">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2">500+</h3>
+            <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2"><span class="counter-number" data-target="500">0</span>+</h3>
             <p class="text-[#767C8C] text-base md:text-lg font-medium">Properties Managed</p>
           </div>
           <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]" data-aos="fade-up" data-aos-delay="200">
@@ -163,11 +163,11 @@ get_template_part('template-parts/hero', null, [
             <p class="text-[#767C8C] text-base md:text-lg font-medium">Transaction Value</p>
           </div>
           <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]" data-aos="fade-up" data-aos-delay="300">
-            <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2">98%</h3>
+            <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2"><span class="counter-number" data-target="98">0</span>%</h3>
             <p class="text-[#767C8C] text-base md:text-lg font-medium">Client Satisfaction</p>
           </div>
           <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]" data-aos="fade-up" data-aos-delay="400">
-            <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2">10+</h3>
+            <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2"><span class="counter-number" data-target="10">0</span>+</h3>
             <p class="text-[#767C8C] text-base md:text-lg font-medium">Years Experience</p>
           </div>
         </div>
@@ -189,8 +189,8 @@ get_template_part('template-parts/cta', null, [
             'style' => 'gradient'
         ],
 		 [
-            'text' => 'Request a Consultation',
-            'url' => site_url('/services/consultancy'),
+            'text' => 'Contact Us',
+            'url' => site_url('/contact'),
             'style' => 'white'
         ]
     ]
