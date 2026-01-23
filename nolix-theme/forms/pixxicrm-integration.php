@@ -23,7 +23,7 @@ define('PIXXICRM_BUY_FORM_ID', 'f0cc7c84-f175-4c4a-b1fe-d8136cfc9a2a');
 define('PIXXICRM_RENT_FORM_ID', '355802a8-4738-4dc4-8ae3-ace771d018dd'); 
 define('PIXXICRM_LEASE_FORM_ID', 'd89157a3-3f2a-40ab-9eb9-883b2a8bce28');  
 define('PIXXICRM_OFF_PLAN_CONSULTATION_FORM_ID', '7372dc7c-238c-4d78-b004-89a76b5747fb'); 
-define('PIXXICRM_CONTACT_FORM_ID', '81c55242-992d-4d67-836f-564b0d53508'); 
+define('PIXXICRM_CONTACT_FORM_ID', '81c55242-992d-4d67-836f-564b0d535081'); 
 
 /**
  * Send data to PixxiCRM API
@@ -49,7 +49,7 @@ function nolix_pixxicrm_api_submit($data, $form_id = '') {
     }
 
     // API Request Arguments
-    $args = [
+    $args = [ 
         'body' => json_encode($body),
         'headers' => [
             'Content-Type' => 'application/json',
@@ -75,9 +75,20 @@ function nolix_pixxicrm_api_submit($data, $form_id = '') {
     $response_body = wp_remote_retrieve_body($response);
     
     if ($code >= 200 && $code < 300) {
+        $body_parsed = json_decode($response_body, true);
+        $message = 'Form submitted successfully.';
+        
+        if (json_last_error() === JSON_ERROR_NONE) {
+            if (!empty($body_parsed['data'])) {
+                $message = $body_parsed['data'];
+            } elseif (!empty($body_parsed['message'])) {
+                $message = $body_parsed['message'];
+            }
+        }
+        
         return [
             'success' => true,
-            'message' => 'Form submitted successfully.',
+            'message' => $message,
             'code' => $code,
             'body' => $response_body
         ];
@@ -195,7 +206,7 @@ function nolix_handle_sell_property_submit() {
     }
     
     // Submit to PixxiCRM API
-    $result = nolix_pixxicrm_api_submit($api_data);
+    $result = nolix_pixxicrm_api_submit($api_data, PIXXICRM_SELL_FORM_ID);
     
     if ($result['success']) {
         wp_send_json_success($result['message']);

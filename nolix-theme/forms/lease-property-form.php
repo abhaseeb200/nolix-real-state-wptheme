@@ -33,7 +33,7 @@ function nolix_lease_property_form_shortcode() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 
                 <div class="col-span-1 md:col-span-2">
-                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Owner & Contact Details</h4>
+                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Owner <span class="font-poppins">&</span> Contact Details</h4>
                 </div>
 
                 <!-- Full Name -->
@@ -199,7 +199,7 @@ function nolix_lease_property_form_shortcode() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-6 pt-6 border-t border-gray-100">
                 
                 <div class="col-span-1 md:col-span-2">
-                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Management & Services</h4>
+                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Management <span class="font-poppins">&</span> Services</h4>
                 </div>
 
                 <!-- Property Management Interest -->

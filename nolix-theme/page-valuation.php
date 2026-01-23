@@ -83,7 +83,7 @@ get_template_part('template-parts/hero', null, [
 <section class="py-20 lg:py-20 font-poppins bg-white" data-aos="fade-up">
   <div class="container px-4">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-      <div class="w-full lg:w-1/2 text-left" data-aos="fade-right">
+      <div class="w-full lg:w-1/2 text-left" data-aos="fade-up">
         <span class="block text-theme font-bold tracking-wide mb-6 font-playfair text-lg">
           Methodology
         </span>
@@ -127,9 +127,9 @@ get_template_part('template-parts/hero', null, [
         </ul>
       </div>
 
-      <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
+      <div class="w-full lg:w-1/2 relative" data-aos="fade-up">
         <div class="relative md:ml-0 ml-5">
-          <div class="rounded-2xl sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent after:w-[90%] after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
+          <div class="rounded-2xl md:mr-0 mr-[18px] sm:p-4 p-0 z-10 relative before:content-[''] before:bg-transparent before:w-[90%] before:h-[92%] before:absolute before:border-2 before:border-theme before:rounded-[16px] before:top-[48px] md:before:left-[-6px] before:left-[-18px] before:z-[-1] after:content-[''] after:bg-transparent lg:after:w-[90%] lg:after:h-[92%] after:absolute after:border-2 after:border-theme after:rounded-[16px] after:bottom-[48px] md:after:right-[-6px] after:right-[-18px] after:z-[-1]">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/our-approach.webp" alt="Our Valuation Approach" class="h-[240px] md:h-[443px] rounded-lg w-full shadow-2xl md:w-[553px] object-cover" />
           </div>
         </div>

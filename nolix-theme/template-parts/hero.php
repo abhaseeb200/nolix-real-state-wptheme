@@ -40,7 +40,7 @@ $args = wp_parse_args( $args, $defaults );
         <?php endif; ?>
 
         <?php if ( ! empty( $args['buttons'] ) ) : ?>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+            <div class="flex flex-col items-center sm:flex-row justify-center gap-4 mt-8">
                 <?php foreach ( $args['buttons'] as $button ) : 
                     $btn_class = 'inline-block px-8 py-3 rounded-full font-medium transition duration-300';
                     if ( isset($button['style']) && $button['style'] === 'secondary' ) {

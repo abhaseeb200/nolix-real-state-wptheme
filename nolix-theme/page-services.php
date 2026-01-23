@@ -46,9 +46,7 @@ consultancy, and end-to-end property management
               </p>
               <a href="<?php echo site_url('/sell-your-property-in-the-uae'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Request Valuation
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+              
               </a>
             </div>
           </div>
@@ -71,9 +69,7 @@ consultancy, and end-to-end property management
               </p>
               <a  href="<?php echo site_url('/buy-property'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Speak With an Advisor
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+             
               </a>
             </div>
           </div>
@@ -96,9 +92,7 @@ consultancy, and end-to-end property management
               </p>
               <a  href="<?php echo site_url('/buy-property'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Speak to a Mortgage Advisor
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+               
               </a>
             </div>
           </div>
@@ -121,9 +115,7 @@ consultancy, and end-to-end property management
               </p>
               <a  href="<?php echo site_url('/lease-out-my-property'); ?>" class="inline-flex items-center mb-3 justify-center px-6 py-3 bg-[#C19A5C] text-white text-sm rounded hover:bg-[#A38045] transition-colors w-full sm:w-auto">
                 Explore Management
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+               
               </a>
             </div>
           </div>

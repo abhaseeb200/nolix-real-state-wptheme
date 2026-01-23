@@ -33,7 +33,7 @@ function nolix_rent_property_form_shortcode() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 
                 <div class="col-span-1 md:col-span-2">
-                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Tenant & Contact Details</h4>
+                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Tenant <span class="font-poppins">&</span> Contact Details</h4>
                 </div>
 
                 <!-- Full Name -->
@@ -168,7 +168,7 @@ function nolix_rent_property_form_shortcode() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-6 pt-6 border-t border-gray-100">
                 
                 <div class="col-span-1 md:col-span-2">
-                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Budget & Timing</h4>
+                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Budget <span class="font-poppins">&</span> Timing</h4>
                 </div>
 
                 <!-- Annual Rent Budget -->
@@ -220,7 +220,7 @@ function nolix_rent_property_form_shortcode() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-6 pt-6 border-t border-gray-100">
                 
                 <div class="col-span-1 md:col-span-2">
-                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Lifestyle / Priorities</h4>
+                    <h4 class="font-playfair text-xl text-dark border-b border-gray-100 pb-2 mb-4">Lifestyle <span class="font-poppins">/</span> Priorities</h4>
                 </div>
 
                 <!-- Who will be living -->

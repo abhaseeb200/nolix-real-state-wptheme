@@ -43,10 +43,7 @@ get_template_part('template-parts/hero', null, [
                 </div>
                 <h3 class="font-playfair text-xl font-bold text-dark mb-3 uppercase">Phone</h3>
                 <p class="text-gray-600 font-poppins mb-2">
-                    <a href="tel:+971501234567" class="hover:text-theme transition-colors">+971 50 123 4567</a>
-                </p>
-                <p class="text-gray-600 font-poppins">
-                    <a href="tel:+97142123456" class="hover:text-theme transition-colors">+971 4 212 3456</a>
+                    <a href="tel:+971523335324" class="hover:text-theme transition-colors">+971 523335324</a>
                 </p>
             </div>
 
@@ -59,10 +56,10 @@ get_template_part('template-parts/hero', null, [
                     </svg>
                 </div>
                 <h3 class="font-playfair text-xl font-bold text-dark mb-3 uppercase">Address</h3>
-                <p class="text-gray-600 font-poppins leading-relaxed">
+               <p class="text-gray-600 font-poppins leading-relaxed">
                     Office 12, 32nd Floor<br>
-                    Parklane Tower, Business Bay<br>
-                    ORN 56000<br>
+                    Parklane Tower, Business Bay
+                    ORN 56000
                     Dubai, UAE
                 </p>
             </div>
@@ -80,11 +77,6 @@ get_template_part('template-parts/hero', null, [
                 referrerpolicy="no-referrer-when-downgrade"
                 class="w-full">
             </iframe>
-            <div class="mt-4 text-center">
-                <a href="https://maps.app.goo.gl/zjL9KTUcMuGqm489A" target="_blank" rel="noopener noreferrer" class="text-theme hover:text-dark transition-colors font-poppins underline">
-                    Open in Google Maps
-                </a>
-            </div>
         </div>
     </div>
 </section>

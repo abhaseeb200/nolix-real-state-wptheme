@@ -74,7 +74,7 @@ approach.
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
           <!-- Step 1 -->
             <div class="" data-aos="fade-up" data-aos-delay="100">
-          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] h-full p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] h-full p-5 rounded-lg border border-white/10 hover:border-theme/50 transition flex flex-col md:text-left md:items-start text-center items-center duration-300">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">01</h3>
             <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Property Valuation</h4>
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Free assessment by certified experts analyzing comparable sales, market trends, and unique property features to determine optimal pricing.</p>
@@ -82,14 +82,14 @@ approach.
         </div>
           <!-- Step 2 -->
           <div class="h-full" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] h-full p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300">
+          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] h-full p-5 rounded-lg border border-white/10 hover:border-theme/50 flex flex-col md:text-left md:items-start text-center items-center transition duration-300">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">02</h3>
             <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Marketing Plan</h4>
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Tailored strategy for your property including professional media production, listing optimization, and targeted promotion to reach the right buyers.</p>
           </div>
         </div>
           <!-- Step 3 -->
-       <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+       <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 flex flex-col md:text-left md:items-start text-center items-center transition duration-300" data-aos="fade-up" data-aos-delay="300">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">03</h3>
             <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Viewings</h4>
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Coordinated showings with pre-qualified buyers at times convenient for you. We handle all scheduling, screening, and follow-ups.</p>
@@ -97,13 +97,13 @@ approach.
 <!--         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:w-2/3 mx-auto"> -->
           <!-- Step 4 -->
-          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 flex flex-col md:text-left md:items-start text-center items-center transition duration-300" data-aos="fade-up" data-aos-delay="400">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">04</h3>
             <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Negotiation</h4>
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Expert handling of offers, counteroffers, and terms. We ensure you receive the best possible price while maintaining deal momentum.</p>
           </div>
           <!-- Step 5 -->
-         <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 transition duration-300" data-aos="fade-up" data-aos-delay="500">
+         <div class="bg-[linear-gradient(0.1deg,rgba(247,184,116,0.15)_0%,rgba(97,97,97,0.09)_100%)] p-5 rounded-lg border border-white/10 hover:border-theme/50 flex flex-col md:text-left md:items-start text-center items-center transition duration-300" data-aos="fade-up" data-aos-delay="500">
             <h3 class="font-poppins text-3xl font-bold mb-4 text-white">05</h3>
             <h4 class="font-poppins text-xl font-semibold tracking-wider mb-4 text-white pl-1">Completion</h4>
             <p class="text-[#FFFFFF99] md:text-[15px] text-sm leading-relaxed tracking-wide pl-1">Smooth handover with comprehensive legal support. We coordinate all documentation, payment transfers, and final property handover.</p>
@@ -274,7 +274,7 @@ approach.
 </section>
 
 <!-- Testimonials -->
-<section class="py-20 bg-[FAFAFA]" data-aos="fade-up">
+<section class="lg:pb-24 pt-2 pb-16" data-aos="fade-up">
   <div class="container mx-auto px-6">
     <div class="text-center sm:mb-16 mb-8" data-aos="fade-up">
       <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">

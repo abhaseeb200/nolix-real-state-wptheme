@@ -26,7 +26,7 @@
         }
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			overflow-x:hidden;
+			overflow-x:hidden !important;
         }
         .text-shadow {
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -94,7 +94,7 @@
         <div class="flex flex-col h-full">
             <!-- Sidebar Header -->
             <div class="flex items-center justify-between p-6 border-b border-gray-200">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blue-logo_.png" width="80" height="53" alt="Logo">
+<!--                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blue-logo_.png" width="80" height="53" alt="Logo"> -->
                 <button id="closeSidebar" class="p-2 hover:bg-lightgray rounded-full transition-colors">
                     <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -142,7 +142,9 @@
                     <!-- Services Menu Item with Dropdown -->
                     <div class="border-b border-gray-100 pb-2">
                         <button id="mobileServicesToggle" class="w-full flex items-center justify-between px-4 py-3 text-dark hover:bg-lightgray rounded-lg transition-colors font-medium">
-                            <span class="text-sm uppercase tracking-wide">Services</span>
+							<a href="<?php echo site_url('/services'); ?>">
+								<span class="text-sm uppercase tracking-wide">Services</span>
+							</a>
                             <svg id="mobileServicesIcon" class="w-4 h-4 text-black transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>

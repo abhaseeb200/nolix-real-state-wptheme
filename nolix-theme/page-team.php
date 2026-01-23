@@ -20,10 +20,10 @@ get_template_part('template-parts/hero', null, [
         <span class="block text-theme font-bold tracking-wide uppercase mb-6 font-playfair text-lg">
           Our Philosophy
         </span>
-        <h2 class="font-playfair text-4xl lg:text-5xl font-medium leading-tight text-dark mb-8">
+        <h2 class="font-playfair text-3xl lg:text-5xl font-medium leading-tight text-dark mb-8">
           NOLIX exists to serve clients who prefer depth over pushy sales.
         </h2>
-        <div class="space-y-6 text-[#767C8C] text-sm md:text-lg font-light leading-relaxed font-poppins">
+        <div class="space-y-6 text-[#767C8C] text-sm md:text-lg leading-relaxed font-poppins">
           <p>
             We believe that fewer clients and deeper relationships produce
             better outcomes than volume-driven transactions.
@@ -67,21 +67,21 @@ get_template_part('template-parts/hero', null, [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:px-10">
       <div
-        class="p-10 bg-white shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+        class="p-10 bg-white flex flex-col md:text-left md:items-start text-center items-center  shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
         <div class="w-16 h-16 bg-[#EFE7D9] rounded-xl flex items-center justify-center mb-6">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/heart.webp" alt="Depth Over Volume" class="w-8 h-8 opacity-80" />
         </div>
         <h3 class="font-poppins text-xl font-bold mb-4 text-dark">
           Depth Over Volume
         </h3>
-        <p class="text-[#767C8C] text-[16px] leading-relaxed font-light">
+        <p class="text-[#767C8C] text-[16px] leading-relaxed">
           Fewer clients, deeper relationships. We believe this approach
           produces better outcomes than volume-driven transactions.
         </p>
       </div>
 
       <div
-        class="p-10 bg-white shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+        class="p-10 bg-white flex flex-col md:text-left md:items-start text-center items-center shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
         <div class="w-16 h-16 bg-[#EFE7D9] rounded-xl flex items-center justify-center mb-6">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shield.webp" alt="Hand-Selected Portfolio" class="w-8 h-8 opacity-80" />
         </div>
@@ -95,7 +95,7 @@ get_template_part('template-parts/hero', null, [
       </div>
 
       <div
-        class="p-10 bg-white shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+        class="p-10 bg-white flex flex-col md:text-left md:items-start text-center items-center shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
         <div class="w-16 h-16 bg-[#EFE7D9] rounded-xl flex items-center justify-center mb-6">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/users.png" alt="Tailored Guidance" class="w-8 h-8 opacity-80" />
         </div>
@@ -109,7 +109,7 @@ get_template_part('template-parts/hero', null, [
       </div>
 
       <div
-        class="p-10 bg-white shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
+        class="p-10 bg-white flex flex-col md:text-left md:items-start text-center items-center shadow-[0_0_24px_0_#00000014] rounded-2xl transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
         <div class="w-16 h-16 bg-[#EFE7D9] rounded-xl flex items-center justify-center mb-6">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/award.webp" alt="End-to-End Care" class="w-8 h-8 opacity-80" />
         </div>
