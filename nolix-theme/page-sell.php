@@ -3,14 +3,15 @@
  * Template Name: Sell Page
  */
 
-get_header(); 
+get_header();
+
 
 // Hero Section
 get_template_part('template-parts/hero', null, [
-    'title' => 'Sell Your Property<br><span class="text-theme">With Confidence</span>',
-    'subtitle' => 'Expert advisory, premium positioning, and access to qualified buyers',
-     'image' => get_template_directory_uri() . '/assets/images/house-property.webp',
-    'buttons' => []
+  'title' => 'Sell Your Property<br><span class="text-theme">With Confidence</span>',
+  'subtitle' => 'Expert advisory, premium positioning, and access to qualified buyers',
+  'image' => get_template_directory_uri() . '/assets/images/house-property.webp',
+  'buttons' => []
 ]);
 ?>
 
@@ -191,11 +192,63 @@ approach.
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Sold Property Placeholder Card 1 -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C8CCD9]/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+      <?php
+$sell_properties = new WP_Query(array(
+  'post_type' => 'property',
+  'posts_per_page' => 3, // Adjust number as needed
+  'meta_query' => array(
+      array(
+      'key' => 'listingType',
+      'value' => 'SELL',
+      'compare' => '='
+    )
+  )
+));
+
+if ($sell_properties->have_posts()):
+  while ($sell_properties->have_posts()):
+    $sell_properties->the_post();
+
+    // Fetch attributes
+    $api_price = get_post_meta(get_the_ID(), 'price', true);
+    $price = $api_price ? number_format($api_price) : get_post_meta(get_the_ID(), '_nolix_price', true);
+
+    $api_region = get_post_meta(get_the_ID(), 'region', true);
+    $api_city = get_post_meta(get_the_ID(), 'cityName', true);
+    $location = $api_region ? $api_region . ($api_city ? ', ' . $api_city : '') : get_post_meta(get_the_ID(), '_nolix_location', true);
+
+    $photos_json = get_post_meta(get_the_ID(), 'photos', true);
+    $photos = json_decode($photos_json, true);
+    if (!empty($photos) && is_array($photos)) {
+      $thumb_url = $photos[0];
+    }
+    else {
+      $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'large') ?: get_template_directory_uri() . '/assets/images/placeholder.jpg';
+    }
+
+    // Check ifSOLD
+    $status = get_post_meta(get_the_ID(), 'status', true);
+
+    // Calculate dummy days on market or actual if dates exist
+    $create_time = get_post_meta(get_the_ID(), 'createTime', true);
+    $update_time = get_post_meta(get_the_ID(), 'updateTime', true);
+    $days_on_market = '45'; // default placeholder used previously
+    if ($create_time && $update_time) {
+      $created = new DateTime($create_time);
+      $updated = new DateTime($update_time);
+      $diff = $updated->diff($created);
+      if ($diff->days > 0)
+        $days_on_market = $diff->days;
+    }
+
+?>
+      <a href="<?php the_permalink(); ?>" class="group bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C8CCD9]/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 block" data-aos="fade-up" data-aos-delay="100">
         <div class="relative h-52 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" alt="Sold Property" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute top-4 left-4 bg-[#C19A5C] text-white text-[10px] font-bold px-3 py-1.5 rounded uppercase tracking-wider">SOLD</div>
+          <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          <?php if ($status === 'SOLD' || $status === 'RENTED'): ?>
+          <div class="absolute top-4 left-4 bg-[#C19A5C] text-white text-[10px] font-bold px-3 py-1.5 rounded uppercase tracking-wider"><?php echo esc_html($status); ?></div>
+          <?php
+    endif; ?>
         </div>
         <div class="p-6">
           <div class="flex items-center gap-2 mb-2">
@@ -203,72 +256,26 @@ approach.
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span class="text-sm font-medium text-gray-600">Downtown Dubai</span>
+            <span class="text-sm font-medium text-gray-600"><?php echo esc_html($location ?: 'Dubai'); ?></span>
           </div>
-          <h3 class="text-lg font-bold font-poppins text-dark mb-4">6 Bed Villa</h3>
+          <h3 class="text-lg font-bold font-poppins text-dark mb-4"><?php echo esc_html(wp_trim_words(get_the_title(), 4)); ?></h3>
           <div class="border-t border-[#C8CCD9] my-4"></div>
           <div class="flex justify-between items-end">
-            <div class="font-bold md:text-lg text-sm text-dark">AED 28,000,000</div>
+            <div class="font-bold md:text-lg text-sm text-dark">AED <?php echo esc_html($price); ?></div>
             <div class="text-right">
               <div class="text-xs text-black tracking-wider">DAYS ON MARKET</div>
-              <div class="text-xl font-bold text-dark leading-none mt-1">45</div>
+              <div class="text-xl font-bold text-dark leading-none mt-1"><?php echo esc_html($days_on_market); ?></div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- More cards would go here based on dynamic loop if 'sold' status exists, using placeholders for now as per HTML -->
-       <!-- Sold Property Placeholder Card 2 -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C8CCD9]/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
-        <div class="relative h-52 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" alt="Sold Property" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute top-4 left-4 bg-[#C19A5C] text-white text-[10px] font-bold px-3 py-1.5 rounded uppercase tracking-wider">SOLD</div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-theme" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span class="text-sm font-medium text-gray-600">Downtown Dubai</span>
-          </div>
-          <h3 class="text-lg font-bold font-poppins text-dark mb-4">6 Bed Villa</h3>
-          <div class="border-t border-[#C8CCD9] my-4"></div>
-          <div class="flex justify-between items-end">
-            <div class="font-bold md:text-lg text-sm text-dark">AED 28,000,000</div>
-            <div class="text-right">
-              <div class="text-xs text-black tracking-wider">DAYS ON MARKET</div>
-              <div class="text-xl font-bold text-dark leading-none mt-1">45</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-       <!-- Sold Property Placeholder Card 3 -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C8CCD9]/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
-        <div class="relative h-52 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" alt="Sold Property" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute top-4 left-4 bg-[#C19A5C] text-white text-[10px] font-bold px-3 py-1.5 rounded uppercase tracking-wider">SOLD</div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-theme" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span class="text-sm font-medium text-gray-600">Downtown Dubai</span>
-          </div>
-          <h3 class="text-lg font-bold font-poppins text-dark mb-4">6 Bed Villa</h3>
-          <div class="border-t border-[#C8CCD9] my-4"></div>
-          <div class="flex justify-between items-end">
-            <div class="font-bold md:text-lg text-sm text-dark">AED 28,000,000</div>
-            <div class="text-right">
-              <div class="text-xs text-black tracking-wider">DAYS ON MARKET</div>
-              <div class="text-xl font-bold text-dark leading-none mt-1">45</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </a>
+      <?php
+  endwhile;
+  wp_reset_postdata();
+else:
+  echo '<p class="col-span-full text-center text-gray-500">No recent properties found.</p>';
+endif;
+?>
     </div>
   </div>
 </section>
@@ -285,23 +292,25 @@ approach.
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
       <!-- Dynamic Testimonials Loop (filtering for sellers maybe?) -->
       <?php
-      $seller_testimonials = new WP_Query(array(
-          'post_type' => 'testimonial',
-          'posts_per_page' => 3,
-          'meta_key' => '_nolix_type',
-          'meta_value' => 'sellers'
-      ));
+$seller_testimonials = new WP_Query(array(
+  'post_type' => 'testimonial',
+  'posts_per_page' => 3,
+  'meta_key' => '_nolix_type',
+  'meta_value' => 'sellers'
+));
 
-      if ($seller_testimonials->have_posts()) :
-          while ($seller_testimonials->have_posts()) : $seller_testimonials->the_post();
-              $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
-              $role = get_post_meta(get_the_ID(), '_nolix_role', true);
-              $thumb = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail') ?: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
-              ?>
+if ($seller_testimonials->have_posts()):
+  while ($seller_testimonials->have_posts()):
+    $seller_testimonials->the_post();
+    $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
+    $role = get_post_meta(get_the_ID(), '_nolix_role', true);
+    $thumb = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail') ?: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+?>
               <div class="p-8 bg-white border border-[#C8CCD9] rounded-lg shadow-sm">
-                <?php if($headline): ?>
+                <?php if ($headline): ?>
                     <!-- <h4 class="font-bold mb-2">"<?php echo esc_html($headline); ?>"</h4> -->
-                <?php endif; ?>
+                <?php
+    endif; ?>
                 <div class="text-[#767C8C] mb-6 leading-relaxed">
                    "<?php echo wp_trim_words(get_the_content(), 20); ?>"
                 </div>
@@ -313,11 +322,12 @@ approach.
                   </div>
                 </div>
               </div>
-          <?php endwhile;
-          wp_reset_postdata();
-      else:
-           // Fallback if no seller testimonials found
-           ?>
+          <?php
+  endwhile;
+  wp_reset_postdata();
+else:
+  // Fallback if no seller testimonials found
+?>
            <div class="p-8 bg-white border border-[#C8CCD9] rounded-lg shadow-sm">
              <p class="text-[#767C8C] mb-6 leading-relaxed">"Sold above asking price within 6 weeks. The team's market knowledge was exceptional."</p>
              <div class="flex items-center gap-4">
@@ -347,31 +357,34 @@ approach.
                </div>
              </div>
            </div>
-      <?php endif; ?>
+      <?php
+endif; ?>
     </div>
   </div>
 </section>
 
 
-<?php 
+<?php
+
 // CTA Section
 get_template_part('template-parts/cta', null, [
-    'title' => 'Ready to Sell Your Property?',
-    'text' => 'Get a complimentary property valuation and discover how we can maximize your property\'s potential.',
-     'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
-    'buttons' => [
-        [
-            'text' => 'Get Free Valuation',
- 			'url' => site_url('/sell-your-property-in-the-uae/'),
-            'style' => 'gradient'
-        ],
-        [
-            'text' => 'Schedule a Call',
-            'url' => site_url('/sell-your-property-in-the-uae/'),
-            'style' => 'white'
-        ]
+  'title' => 'Ready to Sell Your Property?',
+  'text' => 'Get a complimentary property valuation and discover how we can maximize your property\'s potential.',
+  'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
+  'buttons' => [
+    [
+      'text' => 'Get Free Valuation',
+      'url' => site_url('/sell-your-property-in-the-uae/'),
+      'style' => 'gradient'
+    ],
+    [
+      'text' => 'Schedule a Call',
+      'url' => site_url('/sell-your-property-in-the-uae/'),
+      'style' => 'white'
     ]
+  ]
 ]);
 
-get_footer(); 
+get_footer();
+
 ?>

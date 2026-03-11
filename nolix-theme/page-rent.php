@@ -9,17 +9,17 @@ get_header();
 get_template_part('template-parts/hero', null, [
     'title' => 'FIND YOUR PERFECT<br><span class="text-theme">RENTAL IN THE UAE</span>',
     'subtitle' => 'From short-term stays to long-term homes, we have the perfect option for you to call home.',
-     'image' => get_template_directory_uri() . '/assets/images/key-inside-door.webp',
+    'image' => get_template_directory_uri() . '/assets/images/key-inside-door.webp',
     'buttons' => [
         [
             'text' => 'I Want to Rent',
-            'url'   => site_url('/find-rent-dubai'),
+            'url' => site_url('/find-rent-dubai'),
             'style' => 'solid'
         ],
         [
             'text' => 'I Want to List for Rent',
-            'url'   => site_url('/lease-out-my-property'),
-            'style' => 'secondary' 
+            'url' => site_url('/lease-out-my-property'),
+            'style' => 'secondary'
         ]
     ]
 ]);
@@ -34,11 +34,21 @@ get_template_part('template-parts/hero', null, [
                 </h2>
                 <p class="text-[#474C59] md:text-[16px] text-xs tracking-wide mt-2">
                     <span id="property-count">
-                        <?php 
-            $count_query = new WP_Query(array('post_type' => 'property', 'posts_per_page' => -1));
-            echo $count_query->found_posts;
-            wp_reset_postdata();
-          ?>
+                        <?php
+$count_query = new WP_Query(array(
+    'post_type' => 'property',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+            array(
+            'key' => 'listingType',
+            'value' => 'RENT',
+            'compare' => '='
+        )
+    )
+));
+echo $count_query->found_posts;
+wp_reset_postdata();
+?>
                     </span> properties available for rent
                 </p>
             </div>
@@ -76,9 +86,9 @@ get_template_part('template-parts/hero', null, [
                             </svg>
                         </button>
                         <div class="space-y-3">
-                            <?php 
-              $types = ['Villa', 'Apartment', 'Penthouse', 'Townhouse', 'Studio'];
-              foreach($types as $type): ?>
+                            <?php
+$types = ['Villa', 'Apartment', 'Penthouse', 'Townhouse', 'Studio'];
+foreach ($types as $type): ?>
                             <label class="flex items-center space-x-3 cursor-pointer group">
                                 <div class="relative flex items-center">
                                     <input type="checkbox" name="property_type[]" value="<?php echo esc_attr($type); ?>"
@@ -93,7 +103,8 @@ get_template_part('template-parts/hero', null, [
                                     <?php echo $type; ?>
                                 </span>
                             </label>
-                            <?php endforeach; ?>
+                            <?php
+endforeach; ?>
                         </div>
                     </div>
 
@@ -183,16 +194,27 @@ get_template_part('template-parts/hero', null, [
                 <div id="property-container"
                     class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-300 view-grid">
                     <?php
-            $properties_query = new WP_Query(array('post_type' => 'property', 'posts_per_page' => 6));
-            if ($properties_query->have_posts()) :
-                while ($properties_query->have_posts()) : $properties_query->the_post();
-                    get_template_part('template-parts/content-property-card');
-                endwhile;
-                wp_reset_postdata();
-            else:
-                echo '<p class="col-span-full text-center">No properties found.</p>';
-            endif; 
-            ?>
+$properties_query = new WP_Query(array(
+    'post_type' => 'property',
+    'posts_per_page' => 6,
+    'meta_query' => array(
+            array(
+            'key' => 'listingType',
+            'value' => 'RENT',
+            'compare' => '='
+        )
+    )
+));
+if ($properties_query->have_posts()):
+    while ($properties_query->have_posts()):
+        $properties_query->the_post();
+        get_template_part('template-parts/content-property-card');
+    endwhile;
+    wp_reset_postdata();
+else:
+    echo '<p class="col-span-full text-center">No properties found.</p>';
+endif;
+?>
                 </div>
                 <div class="text-center mt-12" id="load-more-container">
                     <button id="load-more-btn" data-page="2"
@@ -399,12 +421,13 @@ get_template_part('template-parts/hero', null, [
     </div>
 </section>
 
-<?php 
+<?php
+
 get_template_part('template-parts/cta', null, [
     'title' => 'Find Rent in Dubai',
     'text' => 'Discover your perfect rental property with expert guidance.',
-   'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
-    'buttons' => [['text' => 'Request a Private Consultation', 'url'   => site_url('/find-rent-dubai'), 'style' => 'gradient']]
+    'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
+    'buttons' => [['text' => 'Request a Private Consultation', 'url' => site_url('/find-rent-dubai'), 'style' => 'gradient']]
 ]);
 ?>
 
@@ -881,5 +904,6 @@ get_template_part('template-parts/cta', null, [
 </style>
 
 <?php
-get_footer(); 
+get_footer();
+
 ?>

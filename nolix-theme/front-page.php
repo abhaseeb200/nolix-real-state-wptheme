@@ -374,42 +374,49 @@
         <div class="grid md:grid-cols-3 gap-6">
             <!-- Dynamic Property Loop -->
             <?php
-                $properties_query = new WP_Query(array(
-                    'post_type' => 'property',
-                    'posts_per_page' => 6
-                ));
+$properties_query = new WP_Query(array(
+    'post_type' => 'property',
+    'posts_per_page' => 6,
+    'meta_query' => array(
+            array(
+            'key' => 'listingType',
+            'value' => 'RENT',
+            'compare' => '='
+        )
+    )
+));
 
-                if ($properties_query->have_posts()) :
-                    while ($properties_query->have_posts()) : $properties_query->the_post();
-                        $location = get_post_meta(get_the_ID(), '_nolix_location', true);
-                        $price = get_post_meta(get_the_ID(), '_nolix_price', true);
-                        ?>
-            <div class="relative rounded-xl overflow-hidden group aspect-[4/3] cursor-pointer" data-aos="fade-up"
-                data-aos-delay="<?php echo ($properties_query->current_post * 100); ?>">
-                <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110']); ?>
-                <?php else: ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg"
-                    alt="<?php the_title(); ?>"
+if ($properties_query->have_posts()):
+    while ($properties_query->have_posts()):
+        $properties_query->the_post();
+        $photos_json = get_post_meta(get_the_ID(), 'photos', true);
+        $photos = json_decode($photos_json, true);
+        $image_url = (!empty($photos) && is_array($photos)) ? $photos[0] : get_template_directory_uri() . '/assets/images/placeholder.jpg';
+?>
+            <a href="<?php the_permalink(); ?>" class="relative rounded-xl overflow-hidden group aspect-[4/3] block" data-aos="fade-up"
+                data-aos-delay="<?php echo($properties_query->current_post * 100); ?>">
+                
+                <img src="<?php echo esc_url($image_url); ?>"
+                    alt="<?php echo esc_attr(get_the_title()); ?>"
                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <?php endif; ?>
 
                 <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                     <span class="text-white text-lg font-bold font-helvetica text-center block">
                         <?php the_title(); ?>
                     </span>
                 </div>
-            </div>
+            </a>
             <?php
-                    endwhile;
-                    wp_reset_postdata();
-                else:
-                    // Fallback visual if no properties
-                ?>
+    endwhile;
+    wp_reset_postdata();
+else:
+    // Fallback visual if no properties
+?>
             <div class="col-span-3 text-center text-gray-500 py-10">
                 <p>No properties found. Please add some in the admin panel.</p>
             </div>
-            <?php endif; ?>
+            <?php
+endif; ?>
         </div>
 
         <a href="<?php echo site_url('/team'); ?>"
@@ -449,26 +456,29 @@
 
                 <!-- Dynamic Testimonial Loop -->
                 <?php
-                    $testimonials_query = new WP_Query(array(
-                        'post_type' => 'testimonial',
-                        'posts_per_page' => -1
-                    ));
+$testimonials_query = new WP_Query(array(
+    'post_type' => 'testimonial',
+    'posts_per_page' => -1
+));
 
-                    if ($testimonials_query->have_posts()) :
-                        while ($testimonials_query->have_posts()) : $testimonials_query->the_post();
-                            $role = get_post_meta(get_the_ID(), '_nolix_role', true);
-                            $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
-                            $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
-                            if(!$thumbnail) $thumbnail = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
-                            ?>
+if ($testimonials_query->have_posts()):
+    while ($testimonials_query->have_posts()):
+        $testimonials_query->the_post();
+        $role = get_post_meta(get_the_ID(), '_nolix_role', true);
+        $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
+        $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+        if (!$thumbnail)
+            $thumbnail = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+?>
                 <div class="swiper-slide h-auto">
                     <div
                         class="bg-white border border-[#C8CCD9] p-8 rounded-xl h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
-                        <?php if($headline): ?>
+                        <?php if ($headline): ?>
                         <h4 class="text-xl text-left font-helvetica font-bold text-[#19191A] mb-4">"
                             <?php echo esc_html($headline); ?>"
                         </h4>
-                        <?php endif; ?>
+                        <?php
+        endif; ?>
 
                         <div class="text-[#767C8C] text-left font-poppins leading-relaxed mb-6 flex-grow">
                             <?php the_content(); ?>
@@ -489,13 +499,13 @@
                     </div>
                 </div>
                 <?php
-                        endwhile;
-                        wp_reset_postdata();
-                    else:
-                        // No testimonials
-                         echo '<p>No testimonials found.</p>';
-                    endif;
-                    ?>
+    endwhile;
+    wp_reset_postdata();
+else:
+    // No testimonials
+    echo '<p>No testimonials found.</p>';
+endif;
+?>
 
             </div>
             <!-- Pagination -->
@@ -506,36 +516,38 @@
         </div>
 
         <?php
-            // Prepare Testimonial Data from WP Loop
-            $testimonial_data = [];
-            $testimonials_query = new WP_Query(array(
-                'post_type' => 'testimonial',
-                'posts_per_page' => -1
-            ));
+// Prepare Testimonial Data from WP Loop
+$testimonial_data = [];
+$testimonials_query = new WP_Query(array(
+    'post_type' => 'testimonial',
+    'posts_per_page' => -1
+));
 
-            if ($testimonials_query->have_posts()) :
-                while ($testimonials_query->have_posts()) : $testimonials_query->the_post();
-                    $role = get_post_meta(get_the_ID(), '_nolix_role', true);
-                    $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
-                    $type = get_post_meta(get_the_ID(), '_nolix_type', true);
-                    $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
-                    if(!$thumbnail) $thumbnail = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
-                    
-                    // Use explicit type or fallback
-                    $category = $type ? $type : 'buyers'; // Default to buyers if not set
-                    
-                    $testimonial_data[] = [
-                        'quote' => $headline,
-                        'text' => get_the_content(),
-                        'author' => get_the_title(),
-                        'role' => $role,
-                        'category' => $category,
-                        'image' => $thumbnail
-                    ];
-                endwhile;
-                wp_reset_postdata();
-            endif;
-            ?>
+if ($testimonials_query->have_posts()):
+    while ($testimonials_query->have_posts()):
+        $testimonials_query->the_post();
+        $role = get_post_meta(get_the_ID(), '_nolix_role', true);
+        $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
+        $type = get_post_meta(get_the_ID(), '_nolix_type', true);
+        $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+        if (!$thumbnail)
+            $thumbnail = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+
+        // Use explicit type or fallback
+        $category = $type ? $type : 'buyers'; // Default to buyers if not set
+
+        $testimonial_data[] = [
+            'quote' => $headline,
+            'text' => get_the_content(),
+            'author' => get_the_title(),
+            'role' => $role,
+            'category' => $category,
+            'image' => $thumbnail
+        ];
+    endwhile;
+    wp_reset_postdata();
+endif;
+?>
         <script>
             const testimonialData = <? php echo json_encode($testimonial_data); ?>;
         </script>
