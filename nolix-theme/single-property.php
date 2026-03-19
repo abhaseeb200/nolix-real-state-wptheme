@@ -93,6 +93,14 @@ function nolix_format_key($key)
 {
     if (empty($key))
         return '';
+    $key_map = [
+        'buildYear' => 'Construction Year',
+        'totalFloor' => 'Total Floors',
+        'position' => 'Location',
+        'priceType' => 'Contract Duration',
+    ];
+    if (isset($key_map[$key]))
+        return $key_map[$key];
     $key = str_replace('_', ' ', $key);
     $key = preg_replace('/(?<!^)[A-Z]/', ' $0', $key);
     return ucwords(trim($key));
@@ -127,6 +135,23 @@ function nolix_clean_phone_wa($val)
     return preg_replace('/[^0-9]/', '', (string) $val);
 }
 
+function nolix_parse_coords($val)
+{
+    if (!is_string($val))
+        return null;
+    if (preg_match('/^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$/', $val, $m)) {
+        return [$m[1], $m[2]];
+    }
+    return null;
+}
+
+function nolix_maps_url_from_coords($coords)
+{
+    if (!is_array($coords) || count($coords) !== 2)
+        return null;
+    return 'https://www.google.com/maps?q=' . $coords[0] . ',' . $coords[1];
+}
+
 // Contact data for agent and portal agent
 $agent_email = nolix_get_agent_value($agent, ['email', 'emailAddress', 'email_address']);
 $agent_phone = nolix_get_agent_value($agent, ['phone', 'phoneNumber', 'mobile', 'mobilePhone', 'cell', 'telephone']);
@@ -147,6 +172,8 @@ $exclude_keys = [
     'photos', 'description', 'agent', 'portalAgent', 'rentParam', 'sellParam', 'newParam',
     'amenities', 'propertyType', 'price', 'region', 'cityName', 'status',
     'listingType', 'size', 'bedRooms', 'title', 'name', 'developerLogo',
+    'propertyFinderId', 'regionId', 'cityId', 'permitUrl', 'permitQRCode',
+    'ownerIds', 'developerId', 'communityId',
     '_nolix_price', '_nolix_location', '_nolix_size', '_nolix_beds', '_nolix_baths', '_nolix_type'
 ];
 
@@ -174,12 +201,48 @@ foreach ($all_meta as $key => $values) {
                 $details_rows[nolix_format_key($sub_key)] = !empty($sub_val) ? implode(', ', $sub_val) : 'N/A';
             }
             else {
-                $details_rows[nolix_format_key($sub_key)] = nolix_val($sub_val);
+                if ($sub_key === 'isFurniture') {
+                    $details_rows['Furnished'] = $sub_val ? 'Yes' : 'No';
+                }
+                elseif ($sub_key === 'position') {
+                    $coords = nolix_parse_coords((string) $sub_val);
+                    if ($coords) {
+                        $details_rows['Location'] = [
+                            'type' => 'link',
+                            'url' => nolix_maps_url_from_coords($coords),
+                            'text' => 'View on Google Maps',
+                        ];
+                    }
+                    else {
+                        $details_rows['Location'] = nolix_val($sub_val);
+                    }
+                }
+                else {
+                    $details_rows[nolix_format_key($sub_key)] = nolix_val($sub_val);
+                }
             }
         }
     }
     else {
-        $details_rows[nolix_format_key($key)] = nolix_val($val);
+        if ($key === 'isFurniture') {
+            $details_rows['Furnished'] = $val ? 'Yes' : 'No';
+        }
+        elseif ($key === 'position') {
+            $coords = nolix_parse_coords((string) $val);
+            if ($coords) {
+                $details_rows['Location'] = [
+                    'type' => 'link',
+                    'url' => nolix_maps_url_from_coords($coords),
+                    'text' => 'View on Google Maps',
+                ];
+            }
+            else {
+                $details_rows['Location'] = nolix_val($val);
+            }
+        }
+        else {
+            $details_rows[nolix_format_key($key)] = nolix_val($val);
+        }
     }
 }
 ?>
@@ -220,6 +283,35 @@ endif; ?>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <?php echo esc_html($location); ?>
+                </div>
+                <div class="flex flex-wrap items-center gap-6 mt-4 text-gray-600">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-gray-50 rounded-lg text-theme">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12v6h16v-6M3 9h18M5 18v2M19 18v2" /></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs uppercase tracking-wide text-gray-500">Bedrooms</div>
+                            <div class="text-base font-bold text-dark"><?php echo($beds !== '' && $beds !== null && $beds !== false) ? esc_html($beds) : 'N/A'; ?></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-gray-50 rounded-lg text-theme">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 14h18M4 14V9a3 3 0 016 0v5M14 9a3 3 0 016 0v5M6 20v-6M18 20v-6" /></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs uppercase tracking-wide text-gray-500">Bathrooms</div>
+                            <div class="text-base font-bold text-dark"><?php echo($baths !== '' && $baths !== null) ? esc_html($baths) : 'N/A'; ?></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-gray-50 rounded-lg text-theme">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16M6 4v16M10 4v16M14 4v16M18 4v16" /></svg>
+                        </div>
+                        <div>
+                            <div class="text-xs uppercase tracking-wide text-gray-500">Area (sqft)</div>
+                            <div class="text-base font-bold text-dark"><?php echo($size !== '' && $size !== null && $size !== false) ? esc_html(number_format($size)) : 'N/A'; ?></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="sm:w-[365px] text-end text-3xl md:text-5xl font-bold text-dark font-poppins">
@@ -333,38 +425,42 @@ else: ?>
                 <?php
 endif; ?>
 
-                <!-- Core Features Ribbon -->
-                <div class="flex flex-wrap sm:flex-row flex-col sm:items-center sm:gap-0 gap-3 items-start justify-between p-6 bg-white rounded-xl shadow border border-[#C8CCD9]/50">
-                    <div class="flex items-center gap-3">
-                        <div class="p-3 bg-gray-50 rounded-lg text-theme">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12v6h16v-6M3 9h18M5 18v2M19 18v2" /></svg>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wide">Bedrooms</div>
-                            <div class="text-xl font-bold"><?php echo($beds !== '' && $beds !== null && $beds !== false) ? esc_html($beds) : 'N/A'; ?></div>
-                        </div>
-                    </div>
-                    <div class="w-px h-12 bg-gray-200 hidden md:block"></div>
-                    <div class="flex items-center gap-3">
-                        <div class="p-3 bg-gray-50 rounded-lg text-theme">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 14h18M4 14V9a3 3 0 016 0v5M14 9a3 3 0 016 0v5M6 20v-6M18 20v-6" /></svg>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wide">Bathrooms</div>
-                            <div class="text-xl font-bold"><?php echo($baths !== '' && $baths !== null) ? esc_html($baths) : 'N/A'; ?></div>
-                        </div>
-                    </div>
-                    <div class="w-px h-12 bg-gray-200 hidden md:block"></div>
-                    <div class="flex items-center gap-3">
-                        <div class="p-3 bg-gray-50 rounded-lg text-theme">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16M6 4v16M10 4v16M14 4v16M18 4v16" /></svg>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wide">Area (sqft)</div>
-                            <div class="text-xl font-bold"><?php echo($size !== '' && $size !== null && $size !== false) ? esc_html(number_format($size)) : 'N/A'; ?></div>
-                        </div>
+                <?php
+    $agent_email_link = $agent_email ? 'mailto:' . antispambot($agent_email) : null;
+    $agent_phone_tel = $agent_phone ? nolix_clean_phone_tel($agent_phone) : '';
+    $agent_phone_link = $agent_phone_tel ? 'tel:' . $agent_phone_tel : null;
+    $agent_wa = $agent_whatsapp ? nolix_clean_phone_wa($agent_whatsapp) : '';
+    $agent_wa_link = $agent_wa ? 'https://wa.me/' . $agent_wa : null;
+    ?>
+
+                <?php if ($agent_email_link || $agent_phone_link || $agent_wa_link): ?>
+                <div class="bg-white p-6 rounded-xl shadow border border-[#C8CCD9]/50">
+                    <div class="flex flex-wrap gap-3">
+                        <?php if ($agent_email_link): ?>
+                        <a href="<?php echo esc_url($agent_email_link); ?>" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-navy text-white transition flex-1  " aria-label="Email agent">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7.5A2.5 2.5 0 015.5 5h13A2.5 2.5 0 0121 7.5v9A2.5 2.5 0 0118.5 19h-13A2.5 2.5 0 013 16.5v-9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M21 7l-9 6-9-6"/></svg>
+                            <span>Email</span>
+                        </a>
+                        <?php
+        endif; ?>
+                        <?php if ($agent_phone_link): ?>
+                        <a href="<?php echo esc_url($agent_phone_link); ?>" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-theme text-white hover:bg-[#9B7E3F] transition flex-1 " aria-label="Call agent">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            <span>Call</span>
+                        </a>
+                        <?php
+        endif; ?>
+                        <?php if ($agent_wa_link): ?>
+                        <a href="<?php echo esc_url($agent_wa_link); ?>" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-green-600 text-white hover:bg-green-700 transition flex-1 " aria-label="WhatsApp agent">
+                            <svg class="w-4 h-4" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 224.1 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 222-99.6 222-222 0-59.3-25.2-115-67.1-157zM224.1 438.7c-33.4 0-66.2-9-94.8-26l-6.8-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54s56.2 81.1 56.2 130.4c0 101.8-82.8 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.5-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66.2-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.2 59.9 95 84 13.3 5.7 23.7 9.1 31.8 11.6 13.4 4.3 25.6 3.7 35.2 2.3 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                            <span>WhatsApp</span>
+                        </a>
+                        <?php
+        endif; ?>
                     </div>
                 </div>
+                <?php
+    endif; ?>
 
                 <!-- Description -->
                 <div class="bg-white p-8 rounded-xl shadow border border-[#C8CCD9]/50">
@@ -396,12 +492,31 @@ endif; ?>
                 <!-- Rent Parameters (if RENT listing) -->
                 <?php if (is_array($rent_param)): ?>
                 <div class="bg-white p-8 rounded-xl shadow border border-[#C8CCD9]/50">
-                    <h2 class="text-2xl font-playfair font-bold text-dark mb-6">Rent Parameters</h2>
+                    <h2 class="text-2xl font-playfair font-bold text-dark mb-6">Rent</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <?php foreach ($rent_param as $rp_key => $rp_val): ?>
+                        <?php foreach ($rent_param as $rp_key => $rp_val):
+        if (in_array($rp_key, ['priceType', 'bathrooms', 'rentExpiry', 'videoLink']))
+            continue;
+?>
                         <div class="flex justify-between border-b border-gray-100 pb-3 gap-2">
                             <span class="text-gray-500 text-sm font-medium"><?php echo esc_html(nolix_format_key($rp_key)); ?></span>
-                            <span class="text-dark font-bold text-sm truncate "><?php echo esc_html(nolix_val($rp_val)); ?></span>
+                            <span class="text-dark font-bold text-sm truncate ">
+                                <?php
+        if ($rp_key === 'position') {
+            $coords = nolix_parse_coords((string) $rp_val);
+            if ($coords) {
+                $map_url = nolix_maps_url_from_coords($coords);
+                echo '<a class="text-theme hover:underline" href="' . esc_url($map_url) . '" target="_blank" rel="noopener">View on Google Maps</a>';
+            }
+            else {
+                echo esc_html(nolix_val($rp_val));
+            }
+        }
+        else {
+            echo esc_html(nolix_val($rp_val));
+        }
+                                ?>
+                            </span>
                         </div>
                         <?php
     endforeach; ?>
@@ -495,7 +610,11 @@ endif; ?>
                                     <img src="<?php echo esc_url($value); ?>" alt="<?php echo esc_attr($label); ?>" class="h-10 w-auto object-contain rounded" />
                                 <?php
         else: ?>
-                                    <span class="text-dark font-bold text-sm truncate  text-right"><?php echo esc_html($value); ?></span>
+                                    <?php if (is_array($value) && isset($value['type']) && $value['type'] === 'link' && !empty($value['url'])): ?>
+                                        <a class="text-theme hover:underline text-sm font-semibold text-right" href="<?php echo esc_url($value['url']); ?>" target="_blank" rel="noopener"><?php echo esc_html($value['text'] ?? 'View'); ?></a>
+                                    <?php else: ?>
+                                        <span class="text-dark font-bold text-sm truncate  text-right"><?php echo esc_html($value); ?></span>
+                                    <?php endif; ?>
                                 <?php
         endif; ?>
                             </div>
@@ -532,7 +651,7 @@ endif; ?>
                     </div>
                     <div class="space-y-3">
                         <?php foreach ($agent as $a_key => $a_val):
-        if (in_array($a_key, ['avatar', 'originalAvatar', 'email', 'emailAddress', 'email_address', 'phone', 'phoneNumber', 'mobile', 'mobilePhone', 'cell', 'telephone', 'whatsapp', 'whatsApp', 'wa', 'whatsappNumber']))
+        if (in_array($a_key, ['avatar', 'originalAvatar', 'email', 'emailAddress', 'email_address', 'phone', 'phoneNumber', 'mobile', 'mobilePhone', 'cell', 'telephone', 'whatsapp', 'whatsApp', 'wa', 'whatsappNumber', 'deptId', 'subCompanyConfigId', 'brn']))
             continue; ?>
                         <div class="flex justify-between gap-4 border-b border-gray-100 pb-2 last:border-0">
                             <span class="text-gray-500 text-sm"><?php echo esc_html(nolix_format_key($a_key)); ?></span>
@@ -541,94 +660,6 @@ endif; ?>
                         <?php
     endforeach; ?>
                     </div>
-                    <?php
-    $agent_email_link = $agent_email ? 'mailto:' . antispambot($agent_email) : null;
-    $agent_phone_tel = $agent_phone ? nolix_clean_phone_tel($agent_phone) : '';
-    $agent_phone_link = $agent_phone_tel ? 'tel:' . $agent_phone_tel : null;
-    $agent_wa = $agent_whatsapp ? nolix_clean_phone_wa($agent_whatsapp) : '';
-    $agent_wa_link = $agent_wa ? 'https://wa.me/' . $agent_wa : null;
-    ?>
-                    <?php if ($agent_email_link || $agent_phone_link || $agent_wa_link): ?>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <?php if ($agent_email_link): ?>
-                        <a href="<?php echo esc_url($agent_email_link); ?>" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition flex-1 " aria-label="Email agent">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7.5A2.5 2.5 0 015.5 5h13A2.5 2.5 0 0121 7.5v9A2.5 2.5 0 0118.5 19h-13A2.5 2.5 0 013 16.5v-9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M21 7l-9 6-9-6"/></svg>
-                            <span>Email</span>
-                        </a>
-                        <?php
-        endif; ?>
-                        <?php if ($agent_phone_link): ?>
-                        <a href="<?php echo esc_url($agent_phone_link); ?>" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-theme text-white hover:bg-[#9B7E3F] transition flex-1 " aria-label="Call agent">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                            <span>Call</span>
-                        </a>
-                        <?php
-        endif; ?>
-                        <?php if ($agent_wa_link): ?>
-                        <a href="<?php echo esc_url($agent_wa_link); ?>" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-green-600 text-white hover:bg-green-700 transition flex-1 " aria-label="WhatsApp agent">
-                            <svg class="w-4 h-4" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 224.1 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 222-99.6 222-222 0-59.3-25.2-115-67.1-157zM224.1 438.7c-33.4 0-66.2-9-94.8-26l-6.8-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54s56.2 81.1 56.2 130.4c0 101.8-82.8 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.5-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66.2-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.2 59.9 95 84 13.3 5.7 23.7 9.1 31.8 11.6 13.4 4.3 25.6 3.7 35.2 2.3 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                            <span>WhatsApp</span>
-                        </a>
-                        <?php
-        endif; ?>
-                    </div>
-                    <?php
-    endif; ?>
-                    <?php
-else: ?>
-                        <p class="text-gray-400">N/A</p>
-                    <?php
-endif; ?>
-                </div>
-
-                <!-- Portal Agent Card -->
-                <div class="bg-white p-8 rounded-xl shadow border border-[#C8CCD9]/50">
-                    <h2 class="text-2xl font-playfair font-bold text-dark mb-6">Portal Agent</h2>
-                    <?php if (is_array($portal_agent) && !empty($portal_agent)): ?>
-                    <div class="space-y-3">
-                        <?php foreach ($portal_agent as $pa_key => $pa_val):
-        if (in_array($pa_key, ['avatar', 'originalAvatar', 'email', 'emailAddress', 'email_address', 'phone', 'phoneNumber', 'mobile', 'mobilePhone', 'cell', 'telephone', 'whatsapp', 'whatsApp', 'wa', 'whatsappNumber']))
-            continue; ?>
-                        <div class="flex justify-between gap-4 border-b border-gray-100 pb-2 last:border-0">
-                            <span class="text-gray-500 text-sm"><?php echo esc_html(nolix_format_key($pa_key)); ?></span>
-                            <span class="text-dark font-bold text-sm truncate  text-right"><?php echo esc_html(nolix_val($pa_val)); ?></span>
-                        </div>
-                        <?php
-    endforeach; ?>
-                    </div>
-                    <?php
-    $portal_email_link = $portal_email ? 'mailto:' . antispambot($portal_email) : null;
-    $portal_phone_tel = $portal_phone ? nolix_clean_phone_tel($portal_phone) : '';
-    $portal_phone_link = $portal_phone_tel ? 'tel:' . $portal_phone_tel : null;
-    $portal_wa = $portal_whatsapp ? nolix_clean_phone_wa($portal_whatsapp) : '';
-    $portal_wa_link = $portal_wa ? 'https://wa.me/' . $portal_wa : null;
-    ?>
-                    <?php if ($portal_email_link || $portal_phone_link || $portal_wa_link): ?>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <?php if ($portal_email_link): ?>
-                        <a href="<?php echo esc_url($portal_email_link); ?>" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition flex-1 " aria-label="Email portal agent">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7.5A2.5 2.5 0 015.5 5h13A2.5 2.5 0 0121 7.5v9A2.5 2.5 0 0118.5 19h-13A2.5 2.5 0 013 16.5v-9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M21 7l-9 6-9-6"/></svg>
-                            <span>Email</span>
-                        </a>
-                        <?php
-        endif; ?>
-                        <?php if ($portal_phone_link): ?>
-                        <a href="<?php echo esc_url($portal_phone_link); ?>" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-theme text-white hover:bg-[#9B7E3F] transition flex-1 " aria-label="Call portal agent">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                            <span>Call</span>
-                        </a>
-                        <?php
-        endif; ?>
-                        <?php if ($portal_wa_link): ?>
-                        <a href="<?php echo esc_url($portal_wa_link); ?>" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-green-600 text-white hover:bg-green-700 transition flex-1 " aria-label="WhatsApp portal agent">
-                            <svg class="w-4 h-4" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 224.1 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 222-99.6 222-222 0-59.3-25.2-115-67.1-157zM224.1 438.7c-33.4 0-66.2-9-94.8-26l-6.8-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54s56.2 81.1 56.2 130.4c0 101.8-82.8 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.5-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66.2-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.2 59.9 95 84 13.3 5.7 23.7 9.1 31.8 11.6 13.4 4.3 25.6 3.7 35.2 2.3 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                            <span>WhatsApp</span>
-                        </a>
-                        <?php
-        endif; ?>
-                    </div>
-                    <?php
-    endif; ?>
                     <?php
 else: ?>
                         <p class="text-gray-400">N/A</p>
