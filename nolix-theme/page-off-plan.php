@@ -62,76 +62,153 @@ get_template_part('template-parts/hero', null, [
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php
-            $projects = [
-                [
-                    'name' => 'Azure Residences',
-                    'developer' => 'EMAAR PROPERTIES',
-                    'location' => 'Dubai Marina',
-                    'completion' => 'Q4 2026',
-                    'payment_plan' => '60/40',
-                    'price' => 'From AED 1',
-                    'features' => ['Private beach access', 'Infinity pool', 'Panoramic sea views'],
-                    'progress' => 20
-                ],
-                [
-                    'name' => 'Verde Villas',
-                    'developer' => 'DAMAC PROPERTIES',
-                    'location' => 'Damac Hills 2',
-                    'completion' => 'Q2 2027',
-                    'payment_plan' => '70/30',
-                    'price' => 'From AED 2',
-                    'features' => ['Golf course views', 'Private pools', 'Walkable community'],
-                    'progress' => 85
-                ],
-                [
-                    'name' => 'The Sterling',
-                    'developer' => 'DUBAI PROPERTIES',
-                    'location' => 'Business Bay',
-                    'completion' => 'Q1 2026',
-                    'payment_plan' => '60/40',
-                    'price' => 'From AED 980',
-                    'features' => ['Canal views', 'Gym & spa facilities', 'Green building certified'],
-                    'progress' => 45
-                ]
-            ];
-            
-            $project_delay = 100;
-            foreach ($projects as $project) :
+            // Query properties with listingType = NEW (off-plan)
+            $offplan_query = new WP_Query(array(
+                'post_type'      => 'property',
+                'posts_per_page' => 6,
+                'post_status'    => 'publish',
+                'meta_query'     => array(
+                    array(
+                        'key'     => 'listingType',
+                        'value'   => 'NEW',
+                        'compare' => '='
+                    )
+                )
+            ));
+
+            if ($offplan_query->have_posts()) :
+                $project_delay = 100;
+                while ($offplan_query->have_posts()) :
+                    $offplan_query->the_post();
+                    $op_id = get_the_ID();
+
+                    // --- Fetch meta fields ---
+                    $op_title      = get_the_title();
+                    $op_price_raw  = get_post_meta($op_id, 'price', true);
+                    $op_price      = ($op_price_raw !== '' && $op_price_raw !== null) ? 'From AED ' . number_format($op_price_raw) : '';
+                    $op_region     = get_post_meta($op_id, 'region', true);
+                    $op_city       = get_post_meta($op_id, 'cityName', true);
+                    $op_location   = $op_region ? $op_region . ($op_city ? ', ' . $op_city : '') : ($op_city ?: '');
+
+                    // Photos
+                    $op_photos_json = get_post_meta($op_id, 'photos', true);
+                    $op_photos      = json_decode($op_photos_json, true);
+                    $op_image       = (!empty($op_photos) && is_array($op_photos)) ? $op_photos[0] : '';
+
+                    // Developer name from newParam or fallback meta
+                    $op_developer = '';
+                    $op_completion = '';
+                    $op_payment_plan = '';
+                    $op_progress = 0;
+
+                    $op_new_param_json = get_post_meta($op_id, 'newParam', true);
+                    $op_new_param = null;
+                    if ($op_new_param_json) {
+                        $op_new_param = json_decode($op_new_param_json, true);
+                        if (!is_array($op_new_param)) {
+                            $op_new_param = json_decode(stripslashes($op_new_param_json), true);
+                        }
+                    }
+
+                    if (is_array($op_new_param)) {
+                        // Developer
+                        if (!empty($op_new_param['developerName'])) {
+                            $op_developer = $op_new_param['developerName'];
+                        }
+                        // Completion date
+                        if (!empty($op_new_param['completionDate'])) {
+                            $op_completion = $op_new_param['completionDate'];
+                        } elseif (!empty($op_new_param['handoverDate'])) {
+                            $op_completion = $op_new_param['handoverDate'];
+                        }
+                        // Payment plan
+                        if (!empty($op_new_param['paymentPlan'])) {
+                            $pp = $op_new_param['paymentPlan'];
+                            if (is_string($pp)) {
+                                $pp_decoded = json_decode($pp, true);
+                                if (is_array($pp_decoded)) {
+                                    $one   = isset($pp_decoded['one']) ? intval($pp_decoded['one']) : 0;
+                                    $two   = isset($pp_decoded['two']) ? intval($pp_decoded['two']) : 0;
+                                    $three = isset($pp_decoded['three']) ? intval($pp_decoded['three']) : 0;
+                                    $four  = isset($pp_decoded['four']) ? intval($pp_decoded['four']) : 0;
+                                    $during = $two + $three + $four;
+                                    if ($one > 0 && $during > 0) {
+                                        $op_payment_plan = $one . '/' . $during;
+                                    }
+                                } else {
+                                    $op_payment_plan = $pp;
+                                }
+                            }
+                        }
+                        // Construction progress
+                        if (isset($op_new_param['constructionProgress'])) {
+                            $op_progress = intval($op_new_param['constructionProgress']);
+                        } elseif (isset($op_new_param['progress'])) {
+                            $op_progress = intval($op_new_param['progress']);
+                        }
+                    }
+
+                    // Fallback developer from top-level meta
+                    if (empty($op_developer)) {
+                        $op_developer = get_post_meta($op_id, 'developer', true);
+                    }
+
+                    // Amenities as features
+                    $op_amenities_json = get_post_meta($op_id, 'amenities', true);
+                    $op_amenities = json_decode($op_amenities_json, true);
+                    if (!is_array($op_amenities)) {
+                        $op_amenities = [];
+                    }
+                    // Show max 3 features on card
+                    $op_features = array_slice($op_amenities, 0, 3);
             ?>
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="<?php echo $project_delay; ?>">
+                    <?php if ($op_image) : ?>
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="<?php echo esc_url($op_image); ?>" alt="<?php echo esc_attr($op_title); ?>" class="w-full h-full object-cover" />
+                    </div>
+                    <?php else : ?>
                     <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 relative">
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <h3 class="font-playfair text-2xl font-bold text-dark"><?php echo esc_html($project['name']); ?></h3>
+                            <h3 class="font-playfair text-2xl font-bold text-dark"><?php echo esc_html($op_title); ?></h3>
                         </div>
                     </div>
+                    <?php endif; ?>
                     
                     <div class="p-6">
-                        <p class="text-theme text-xs font-semibold uppercase tracking-wide mb-2"><?php echo esc_html($project['developer']); ?></p>
-                        <h3 class="font-playfair text-xl font-bold text-dark mb-3"><?php echo esc_html($project['name']); ?></h3>
+                        <?php if ($op_developer) : ?>
+                        <p class="text-theme text-xs font-semibold uppercase tracking-wide mb-2"><?php echo esc_html($op_developer); ?></p>
+                        <?php endif; ?>
+                        <h3 class="font-playfair text-xl font-bold text-dark mb-3"><?php echo esc_html($op_title); ?></h3>
                         
+                        <?php if ($op_location) : ?>
                         <div class="flex items-center text-gray-600 text-sm mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span><?php echo esc_html($project['location']); ?></span>
+                            <span><?php echo esc_html($op_location); ?></span>
                         </div>
+                        <?php endif; ?>
                         
                         <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
                             <div>
                                 <p class="text-gray-500 mb-1">Completion</p>
-                                <p class="font-semibold text-dark"><?php echo esc_html($project['completion']); ?></p>
+                                <p class="font-semibold text-dark"><?php echo esc_html($op_completion ?: 'TBA'); ?></p>
                             </div>
                             <div>
                                 <p class="text-gray-500 mb-1">Payment Plan</p>
-                                <p class="font-semibold text-dark"><?php echo esc_html($project['payment_plan']); ?></p>
+                                <p class="font-semibold text-dark"><?php echo esc_html($op_payment_plan ?: 'N/A'); ?></p>
                             </div>
                         </div>
                         
-                        <p class="text-theme font-bold text-lg mb-4"><?php echo esc_html($project['price']); ?></p>
+                        <?php if ($op_price) : ?>
+                        <p class="text-theme font-bold text-lg mb-4"><?php echo esc_html($op_price); ?></p>
+                        <?php endif; ?>
                         
+                        <?php if (!empty($op_features)) : ?>
                         <div class="space-y-2 mb-4">
-                            <?php foreach ($project['features'] as $feature) : ?>
+                            <?php foreach ($op_features as $feature) : ?>
                                 <div class="flex items-center text-sm text-gray-700">
                                     <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -140,24 +217,22 @@ get_template_part('template-parts/hero', null, [
                                 </div>
                             <?php endforeach; ?>
                         </div>
+                        <?php endif; ?>
                         
                         <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-1">
                                 <span>Construction Progress</span>
-                                <span class="font-semibold"><?php echo esc_html($project['progress']); ?>%</span>
+                                <span class="font-semibold"><?php echo esc_html($op_progress); ?>%</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-theme h-2 rounded-full" style="width: <?php echo esc_attr($project['progress']); ?>%"></div>
+                                <div class="bg-theme h-2 rounded-full" style="width: <?php echo esc_attr($op_progress); ?>%"></div>
                             </div>
                         </div>
                         
                         <div class="w-full mt-6">
-<!--                             <button class="flex-1 border border-gray-300 text-dark py-2 px-4 rounded-lg font-medium hover:bg-gray-50 transition">
-                                View Details
-                            </button> -->
-							<a href="<?php echo site_url('/contact'); ?>">
+							<a href="<?php the_permalink(); ?>">
                             <button class="bg-theme w-full text-white py-2 px-4 rounded-lg font-medium hover:bg-opacity-90 transition">
-                                Book Site Visit
+                                View Details
                             </button>
 						</a>
                         </div>
@@ -165,7 +240,13 @@ get_template_part('template-parts/hero', null, [
                 </div>
             <?php 
                 $project_delay += 100;
-            endforeach; ?>
+                endwhile;
+                wp_reset_postdata();
+            else : ?>
+                <div class="col-span-full text-center py-12">
+                    <p class="text-gray-500 text-lg">No off-plan projects available at the moment.</p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
