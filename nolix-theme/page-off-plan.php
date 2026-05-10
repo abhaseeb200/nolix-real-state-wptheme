@@ -21,32 +21,45 @@ get_template_part('template-parts/hero', null, [
 <section class="py-16 lg:py-24 bg-white" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
         <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
+            <h2 class="text-center font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
                 Featured <span class="text-theme">Developers</span>
             </h2>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-            <?php
-            $developers = [
-                'Emaar Properties',
-                'Dubai Properties',
-                'Meraas',
-                'Damac Properties',
-                'Nakheel',
-                'Sobha Realty'
-            ];
-            $delay = 100;
-            foreach ($developers as $developer) :
-            ?>
-                <div class="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>">
-                    <h3 class="font-playfair text-dark text-lg font-semibold leading-tight">
-                        <?php echo esc_html($developer); ?>
-                    </h3>
-                </div>
-            <?php 
-            $delay += 50;
-            endforeach; ?>
+        <div class="swiper developersSwiper">
+            <div class="swiper-wrapper">
+                <?php
+                $developers = [
+                    get_template_directory_uri() . '/assets/images/developers-logo/1.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/2.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/3.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/4.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/5.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/6.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/7.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/8.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/9.png',
+                    get_template_directory_uri() . '/assets/images/developers-logo/10.png',
+                ];
+
+                $delay = 100;
+                foreach ($developers as $developer) :
+                ?>
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="<?php echo esc_attr($delay); ?>">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 h-24 flex items-center justify-center hover:shadow-md transition-shadow">
+                            <img
+                                src="<?php echo esc_url($developer); ?>"
+                                alt="Developer logo"
+                                class="max-h-[8rem] w-auto object-contain"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                <?php
+                $delay += 50;
+                endforeach;
+                ?>
+            </div>
         </div>
     </div>
 </section>
@@ -55,7 +68,7 @@ get_template_part('template-parts/hero', null, [
 <section id="featured-projects" class="py-16 lg:py-24 bg-[#FAFAFA]" data-aos="fade-up">
     <div class="container mx-auto px-6 lg:px-12">
         <div class="mb-12" data-aos="fade-up">
-            <h2 class="font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
+            <h2 class="text-center font-playfair text-h2-custom font-bold text-dark mb-4 uppercase">
 				Featured <span class="text-theme">Off Plan Projects</span>
             </h2>
         </div>
@@ -219,7 +232,7 @@ get_template_part('template-parts/hero', null, [
                         </div>
                         <?php endif; ?>
                         
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-1">
                                 <span>Construction Progress</span>
                                 <span class="font-semibold"><?php echo esc_html($op_progress); ?>%</span>
@@ -227,7 +240,7 @@ get_template_part('template-parts/hero', null, [
                             <div class="w-full bg-gray-200 rounded-full h-2">
                                 <div class="bg-theme h-2 rounded-full" style="width: <?php echo esc_attr($op_progress); ?>%"></div>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <div class="w-full mt-6">
 							<a href="<?php the_permalink(); ?>">
@@ -543,6 +556,31 @@ document.addEventListener('DOMContentLoaded', function() {
             
             document.getElementById('roi-results').classList.remove('hidden');
             document.getElementById('roi-results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    }
+
+    // Developers logos slider
+    if (typeof Swiper !== 'undefined' && document.querySelector('.developersSwiper')) {
+        new Swiper('.developersSwiper', {
+            slidesPerView: 6,
+            slidesPerGroup: 1,
+            spaceBetween: 16,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2
+                },
+                768: {
+                    slidesPerView: 3
+                },
+                1024: {
+                    slidesPerView: 6
+                }
+            }
         });
     }
 });
