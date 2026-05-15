@@ -596,37 +596,7 @@ endif; ?>
 endif; ?>
 
                 <!-- All Details -->
-                <div class="bg-white p-8 rounded-xl shadow border border-[#C8CCD9]/50">
-                    <h2 class="text-2xl font-playfair font-bold text-dark mb-6">All Details</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <?php if (!empty($details_rows)): ?>
-                            <?php foreach ($details_rows as $label => $value): ?>
-                            <div class="flex justify-between border-b border-gray-100 pb-3 gap-2">
-                                <span class="text-gray-500 text-sm font-medium"><?php echo esc_html($label); ?></span>
-                                <?php
-        // Check if the value looks like an image URL
-        $is_image_url = (strpos($value, 'http') === 0 && preg_match('/\.(jpg|jpeg|png|gif|svg|webp)/i', $value));
-        if ($is_image_url): ?>
-                                    <img src="<?php echo esc_url($value); ?>" alt="<?php echo esc_attr($label); ?>" class="h-10 w-auto object-contain rounded" />
-                                <?php
-        else: ?>
-                                    <?php if (is_array($value) && isset($value['type']) && $value['type'] === 'link' && !empty($value['url'])): ?>
-                                        <a class="text-theme hover:underline text-sm font-semibold text-right" href="<?php echo esc_url($value['url']); ?>" target="_blank" rel="noopener"><?php echo esc_html($value['text'] ?? 'View'); ?></a>
-                                    <?php else: ?>
-                                        <span class="text-dark font-bold text-sm truncate  text-right"><?php echo esc_html($value); ?></span>
-                                    <?php endif; ?>
-                                <?php
-        endif; ?>
-                            </div>
-                            <?php
-    endforeach; ?>
-                        <?php
-else: ?>
-                            <p class="text-gray-400 col-span-2">No additional details available.</p>
-                        <?php
-endif; ?>
-                    </div>
-                </div>
+                
 
             </div>
 
@@ -651,7 +621,7 @@ endif; ?>
                     </div>
                     <div class="space-y-3">
                         <?php foreach ($agent as $a_key => $a_val):
-        if (in_array($a_key, ['avatar', 'originalAvatar', 'email', 'emailAddress', 'email_address', 'phone', 'phoneNumber', 'mobile', 'mobilePhone', 'cell', 'telephone', 'whatsapp', 'whatsApp', 'wa', 'whatsappNumber', 'deptId', 'subCompanyConfigId', 'brn']))
+        if (in_array($a_key, ['name', 'fullName', 'avatar', 'originalAvatar', 'email', 'emailAddress', 'email_address', 'phone', 'phoneNumber', 'mobile', 'mobilePhone', 'cell', 'telephone', 'whatsapp', 'whatsApp', 'wa', 'whatsappNumber', 'deptId', 'subCompanyConfigId', 'brn']))
             continue; ?>
                         <div class="flex justify-between gap-4 border-b border-gray-100 pb-2 last:border-0">
                             <span class="text-gray-500 text-sm"><?php echo esc_html(nolix_format_key($a_key)); ?></span>
@@ -659,6 +629,10 @@ endif; ?>
                         </div>
                         <?php
     endforeach; ?>
+                        <div class="flex justify-between gap-4 border-b border-gray-100 pb-2 last:border-0">
+                            <span class="text-gray-500 text-sm"><?php echo esc_html__('Language', 'nolix-theme'); ?></span>
+                            <span class="text-dark font-bold text-sm truncate text-right"><?php echo esc_html__('English, Arabic', 'nolix-theme'); ?></span>
+                        </div>
                     </div>
                     <?php
 else: ?>
@@ -669,7 +643,7 @@ endif; ?>
 
                 <!-- Property Type & Amenities -->
                 <div class="bg-white p-8 rounded-xl shadow border border-[#C8CCD9]/50">
-                    <h2 class="text-2xl font-playfair font-bold text-dark mb-6">Property Type <span class="font-poppins">&</span> Amenities</h2>
+                    <h2 class="text-2xl font-playfair font-bold text-dark mb-6">Property Type <span class="font-poppins">+</span> Amenities</h2>
                     <div class="mb-6">
                         <span class="text-gray-500 text-sm font-medium">Property Type:</span>
                         <span class="ml-2 font-bold text-dark"><?php echo !empty($property_type) ? esc_html(implode(', ', $property_type)) : 'N/A'; ?></span>
