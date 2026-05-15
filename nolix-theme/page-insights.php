@@ -1,13 +1,14 @@
 <?php
 /**
- * Template Name: Blog & Guides Page
+ * Template Name: Insights &
+Market Intelligence
  */
 
 get_header();
 
 // Hero Section
 get_template_part('template-parts/hero', null, [
-    'title' => 'BLOG AND <span class="text-theme">GUIDES</span>',
+    'title' => 'NOLIX <span class="text-theme">Academy</span>',
     'subtitle' => 'Insights, tips, and guides to help you navigate the real estate market in the UAE.',
     'image' => get_template_directory_uri() . '/assets/images/our-service-bg.webp',
     'buttons' => []

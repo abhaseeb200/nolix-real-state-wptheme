@@ -9,7 +9,7 @@ get_header();
 get_template_part('template-parts/hero', null, [
     'title' => 'BUY YOUR DREAM PROPERTY<br><span class="text-theme">IN THE UAE</span>',
     'subtitle' => 'Explore curated villas, apartments, and penthouses tailored guidance for end-users and investors.',
-    'image' => get_template_directory_uri() . '/assets/images/Hero-section.webp',
+    'image' => get_template_directory_uri() . '/assets/images/Buy Property.webp',
     'buttons' => [] 
 ]);
 

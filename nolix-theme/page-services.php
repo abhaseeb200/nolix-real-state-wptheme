@@ -137,7 +137,7 @@ consultancy, and end-to-end property management
           </div>
           <div class="max-w-md">
             <p class="text-[#474C59] text-base leading-relaxed">
-              Comprehensive, Real-Time Insights and Data Driven Trends from the Local Real Estate Market to Help Buyers, Sellers, and Investors Make Smarter Decisions.
+              Comprehensive, real-time insights and data-driven trends from the local real estate market to help buyers, sellers, and investors make smarter decisions.
             </p>
           </div>
         </div>

@@ -27,10 +27,7 @@ get_template_part('template-parts/hero', null, [
                 </div>
                 <h3 class="font-playfair text-xl font-bold text-dark mb-3 uppercase">Email</h3>
                 <p class="text-gray-600 font-poppins mb-2">
-                    <a href="mailto:hello@nolix.com" class="hover:text-theme transition-colors">hello@nolix.com</a>
-                </p>
-                <p class="text-gray-600 font-poppins">
-                    <a href="mailto:info@nolix.com" class="hover:text-theme transition-colors">info@nolix.com</a>
+                    <a href="mailto:admin@nolixrealestate.com" class="hover:text-theme transition-colors">admin@nolixrealestate.com</a>
                 </p>
             </div>
 
@@ -57,9 +54,8 @@ get_template_part('template-parts/hero', null, [
                 </div>
                 <h3 class="font-playfair text-xl font-bold text-dark mb-3 uppercase">Address</h3>
                <p class="text-gray-600 font-poppins leading-relaxed">
-                    Office 12, 32nd Floor<br>
-                    Parklane Tower, Business Bay
-                    ORN 56000
+                    Office 3212, Parklane Tower,<br>
+                    Business Bay
                     Dubai, UAE
                 </p>
             </div>

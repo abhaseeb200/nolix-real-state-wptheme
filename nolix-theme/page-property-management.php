@@ -264,7 +264,7 @@ get_template_part('template-parts/hero', null, [
                         <h2 class="font-light md:text-base text-sm">Tenant Retention</h2>
                     </div>
                     <div class="text-center">
-                        <h1 class="text-theme md:text-xl font-bold mb-1">24h</h1>
+                        <h1 class="text-theme md:text-xl font-bold mb-1">1h</h1>
                         <h2 class="font-light md:text-base text-sm">Response Time</h2>
                     </div>
                 </div>

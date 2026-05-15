@@ -243,7 +243,7 @@
                     </svg>
                 </a>
                 <div class="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 py-2 z-50">
-                    <a href="<?php echo site_url('/insights'); ?>" class="block px-[20px!important] py-[12px!important] hover:bg-lightgray hover:text-theme transition-colors">Nolix Academy</a>
+                    <a href="<?php echo site_url('/insights'); ?>" class="block px-[20px!important] py-[12px!important] hover:bg-lightgray hover:text-theme transition-colors">Blogs</a>
                 </div>
             </div>
             

@@ -145,9 +145,9 @@ get_template_part('template-parts/hero', null, [
             </div>
             <div class="max-w-md">
                 <p class="text-[#474C59] text-base leading-relaxed">
-                    Comprehensive, Real-Time Insights and Data Driven Trends from the
-                    Local Real Estate Market to Help Buyers, Sellers, and Investors
-                    Make Smarter Decisions.
+                    Comprehensive, real-time insights and data-driven trends from the
+                    local real estate market to help buyers, sellers, and investors
+                    make smarter decisions.
                 </p>
             </div>
         </div>
@@ -155,7 +155,7 @@ get_template_part('template-parts/hero', null, [
         <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             <div class="w-full lg:w-1/2" data-aos="fade-right">
                 <div class="rounded-2xl overflow-hidden shadow-lg h-full">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/house.webp"
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Jumeirah Villa.webp"
                         alt="Market Performance" class="w-full h-full object-cover min-h-[280px]" />
                 </div>
             </div>
@@ -165,25 +165,25 @@ get_template_part('template-parts/hero', null, [
                     <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]"
                         data-aos="fade-up" data-aos-delay="100">
                         <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2"><span
-                                class="counter-number" data-target="500">0</span>+</h3>
-                        <p class="text-[#767C8C] text-base md:text-lg font-medium">Properties Managed</p>
+                                class="counter-number" data-target="70">0</span>+</h3>
+                        <p class="text-[#767C8C] text-base md:text-lg font-medium">Active Investors</p>
                     </div>
                     <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]"
                         data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2">AED 2B+</h3>
-                        <p class="text-[#767C8C] text-base md:text-lg font-medium">Transaction Value</p>
+                        <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2">AED 230M+</h3>
+                        <p class="text-[#767C8C] text-base md:text-lg font-medium">Transactions Value</p>
                     </div>
                     <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]"
                         data-aos="fade-up" data-aos-delay="300">
                                    <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2"><span
-                                class="counter-number" data-target="98">0</span>%</h3>
+                                class="counter-number" data-target="100">0</span>%</h3>
                         <p class="text-[#767C8C] text-base md:text-lg font-medium">Client Satisfaction</p>
                     </div>
                     <div class="bg-white p-8 rounded-2xl shadow-[0_0_24px_0_#00000014] text-center border border-gray-50 flex flex-col justify-center items-center h-[200px]"
                         data-aos="fade-up" data-aos-delay="400">
                         <h3 class="font-poppins text-2xl md:text-4xl font-semibold text-dark mb-2"><span
-                                class="counter-number" data-target="10">0</span>+</h3>
-                        <p class="text-[#767C8C] text-base md:text-lg font-medium">Years Experience</p>
+                                class="counter-number" data-target="8">0</span>+</h3>
+                        <p class="text-[#767C8C] text-base md:text-lg font-medium">Years in Market</p>
                     </div>
                 </div>
             </div>

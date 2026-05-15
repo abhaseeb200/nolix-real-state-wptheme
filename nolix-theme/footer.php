@@ -50,8 +50,8 @@
                 <div class="max-w-full">
                     <h4 class="text-xl font-helvetica font-bold mb-6">Company Links</h4>
                     <ul class="space-y-3 text-white font-poppins">
-                        <li><a href="<?php echo site_url('/team'); ?>" class="hover:text-white transition-colors">About us / Meet the Team</a></li>
-                        <li><a href="<?php echo site_url('/insights'); ?>" class="hover:text-white transition-colors">Blog & Guides</a></li>
+                        <li><a href="<?php echo site_url('/team'); ?>" class="hover:text-white transition-colors">About us</a></li>
+                        <li><a href="<?php echo site_url('/insights'); ?>" class="hover:text-white transition-colors">Blogs</a></li>
                         <li><a href="<?php echo site_url('/contact'); ?>" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>

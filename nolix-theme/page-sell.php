@@ -3,15 +3,14 @@
  * Template Name: Sell Page
  */
 
-get_header();
-
+get_header(); 
 
 // Hero Section
 get_template_part('template-parts/hero', null, [
-  'title' => 'Sell Your Property<br><span class="text-theme">With Confidence</span>',
-  'subtitle' => 'Expert advisory, premium positioning, and access to qualified buyers',
-  'image' => get_template_directory_uri() . '/assets/images/house-property.webp',
-  'buttons' => []
+    'title' => 'Sell Your Property<br><span class="text-theme">With Confidence</span>',
+    'subtitle' => 'Expert advisory, premium positioning, and access to qualified buyers',
+     'image' => get_template_directory_uri() . '/assets/images/house-property.webp',
+    'buttons' => []
 ]);
 ?>
 
@@ -183,6 +182,7 @@ approach.
       </div> -->
 </section>
 
+
 <!-- Recently Sold -->
 <section class="py-16 lg:py-24 bg-white" data-aos="fade-up">
   <div class="container mx-auto px-6">
@@ -280,6 +280,7 @@ endif;
   </div>
 </section>
 
+
 <!-- Testimonials -->
 <section class="lg:pb-24 pt-2 pb-16" data-aos="fade-up">
   <div class="container mx-auto px-6">
@@ -292,25 +293,23 @@ endif;
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
       <!-- Dynamic Testimonials Loop (filtering for sellers maybe?) -->
       <?php
-$seller_testimonials = new WP_Query(array(
-  'post_type' => 'testimonial',
-  'posts_per_page' => 3,
-  'meta_key' => '_nolix_type',
-  'meta_value' => 'sellers'
-));
+      $seller_testimonials = new WP_Query(array(
+          'post_type' => 'testimonial',
+          'posts_per_page' => 3,
+          'meta_key' => '_nolix_type',
+          'meta_value' => 'sellers'
+      ));
 
-if ($seller_testimonials->have_posts()):
-  while ($seller_testimonials->have_posts()):
-    $seller_testimonials->the_post();
-    $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
-    $role = get_post_meta(get_the_ID(), '_nolix_role', true);
-    $thumb = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail') ?: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
-?>
+      if ($seller_testimonials->have_posts()) :
+          while ($seller_testimonials->have_posts()) : $seller_testimonials->the_post();
+              $headline = get_post_meta(get_the_ID(), '_nolix_headline', true);
+              $role = get_post_meta(get_the_ID(), '_nolix_role', true);
+              $thumb = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail') ?: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+              ?>
               <div class="p-8 bg-white border border-[#C8CCD9] rounded-lg shadow-sm">
-                <?php if ($headline): ?>
+                <?php if($headline): ?>
                     <!-- <h4 class="font-bold mb-2">"<?php echo esc_html($headline); ?>"</h4> -->
-                <?php
-    endif; ?>
+                <?php endif; ?>
                 <div class="text-[#767C8C] mb-6 leading-relaxed">
                    "<?php echo wp_trim_words(get_the_content(), 20); ?>"
                 </div>
@@ -322,12 +321,11 @@ if ($seller_testimonials->have_posts()):
                   </div>
                 </div>
               </div>
-          <?php
-  endwhile;
-  wp_reset_postdata();
-else:
-  // Fallback if no seller testimonials found
-?>
+          <?php endwhile;
+          wp_reset_postdata();
+      else:
+           // Fallback if no seller testimonials found
+           ?>
            <div class="p-8 bg-white border border-[#C8CCD9] rounded-lg shadow-sm">
              <p class="text-[#767C8C] mb-6 leading-relaxed">"Sold above asking price within 6 weeks. The team's market knowledge was exceptional."</p>
              <div class="flex items-center gap-4">
@@ -357,34 +355,31 @@ else:
                </div>
              </div>
            </div>
-      <?php
-endif; ?>
+      <?php endif; ?>
     </div>
   </div>
 </section>
 
 
-<?php
-
+<?php 
 // CTA Section
 get_template_part('template-parts/cta', null, [
-  'title' => 'Ready to Sell Your Property?',
-  'text' => 'Get a complimentary property valuation and discover how we can maximize your property\'s potential.',
-  'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
-  'buttons' => [
-    [
-      'text' => 'Get Free Valuation',
-      'url' => site_url('/sell-your-property-in-the-uae/'),
-      'style' => 'gradient'
-    ],
-    [
-      'text' => 'Schedule a Call',
-      'url' => site_url('/sell-your-property-in-the-uae/'),
-      'style' => 'white'
+    'title' => 'Ready to Sell Your Property?',
+    'text' => 'Get a complimentary property valuation and discover how we can maximize your property\'s potential.',
+     'image' => get_template_directory_uri() . '/assets/images/pexels-a-darmel-7642000.webp',
+    'buttons' => [
+        [
+            'text' => 'Get Free Valuation',
+ 			'url' => site_url('/sell-your-property-in-the-uae/'),
+            'style' => 'gradient'
+        ],
+        [
+            'text' => 'Schedule a Call',
+            'url' => site_url('/sell-your-property-in-the-uae/'),
+            'style' => 'white'
+        ]
     ]
-  ]
 ]);
 
-get_footer();
-
+get_footer(); 
 ?>
